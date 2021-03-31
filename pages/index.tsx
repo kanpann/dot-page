@@ -13,8 +13,8 @@ export default function Home({ allPostsData }) {
       </Head>
       <section className={utilStyles.headingMd}>
         <p>
-          Hello, I’m <strong>Shu</strong>. I’m a software engineer and a
-          translator (English/Japanese). You can contact me on{' '}
+          Hello, I’m <strong>Shu</strong>. I’m a software engineer and a translator
+          (English/Japanese). You can contact me on{' '}
           <a href="https://twitter.com/chibicode">Twitter</a>.
         </p>
         <p>
@@ -46,7 +46,7 @@ export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
   return {
     props: {
-      allPostsData
-    }
+      allPostsData,
+    },
   }
 }
