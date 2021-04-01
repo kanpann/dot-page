@@ -31,6 +31,7 @@ export function getSortedPostsData(): Post[] {
     return {
       id,
       title: title,
+      content: '',
       date: date
     }
   })
@@ -71,7 +72,7 @@ export async function getPostData(id: string): Promise<Post> {
   const { title, date } = matterResult.data;
   return {
     id,
-    content:contentHtml,
+    content: contentHtml,
     title: title,
     date: date
   }
