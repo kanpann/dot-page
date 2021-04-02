@@ -1,10 +1,5 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
-import remark from 'remark'
-import html from 'remark-html'
-
-const postsDirectory: string = path.join(process.cwd(), 'posts')
+import { GrayMatterFile } from "gray-matter";
+import * as util from "./posts-util"
 
 export interface Post {
   id: string;
@@ -13,38 +8,12 @@ export interface Post {
   date: string;
   image: string;
 }
-
-const getExcerpt = async (content: string): Promise<string> => {
-  const processedContent = await remark().use(html).process(content)
-  let contentHtml: string = processedContent.toString()
-  
-  contentHtml = ((maxByte = 280) => {
-    let buffer = 0;
-    let idx = 0;
-    while (true) {
-      const unicode = contentHtml.charCodeAt(idx);
-      buffer += unicode > 127 ? 2 : 1;
-  
-      if (buffer > maxByte) break;
-      idx++;
-    }
-    return contentHtml = contentHtml.substring(0, idx)+".....";
-  })()
-
-  return contentHtml;
-}
 const getPostByFileName = async (fileName: string): Promise<Post> => {
   const id: string = fileName.replace(/\.md$/, '')
 
-  const fullPath: string = path.join(postsDirectory, fileName)
-  const fileContents: string = fs.readFileSync(fullPath, 'utf8')
-
-  const matterResult: matter.GrayMatterFile<string> = matter(fileContents)
-  
-  const { title, date, image } = matterResult.data;
-  let excerpt: string = await getExcerpt(matterResult.content)
+  const { title, date, image, content } = util.getPostData(fileName).data;
+  let excerpt: string = await util.getExcerpt(content)
   excerpt = excerpt.replace(/(<([^>]+)>)/ig,"")
-
   return {
     id,
     title: title,
@@ -55,25 +24,19 @@ const getPostByFileName = async (fileName: string): Promise<Post> => {
 }
 
 export const getSortedPostsData = async (): Promise<Post[]> => {
-  const fileNames: string[] = fs.readdirSync(postsDirectory)
-  const allPostsData: Array<Post> = new Array()
+  const fileNames: string[] = util.getFileNames()
+  const posts: Array<Post> = new Array()
+
   for(let i = 0; i < fileNames.length; i++){
     const fileName = fileNames[i]
     const post: Post = await getPostByFileName(fileName);
-    allPostsData.push(post)
+    posts.push(post)
   }
-  //정렬
-  return allPostsData.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1
-    } else {
-      return -1
-    }
-  })
+  return util.sort(posts)
 }
 
 export const getAllPostIds = () => {
-  const fileNames: string[] = fs.readdirSync(postsDirectory)
+  const fileNames: string[] = util.getFileNames()
   return fileNames.map((fileName: string) => {
     return {
       params: {
@@ -84,17 +47,10 @@ export const getAllPostIds = () => {
 }
 
 export const getPostData = async (id: string): Promise<Post> => {
-  const fullPath: string = path.join(postsDirectory, `${id}.md`)
-  const fileContents: string = fs.readFileSync(fullPath, 'utf8')
+  const fileName = `${id}.md`
 
-  const matterResult: matter.GrayMatterFile<string> = matter(fileContents)
-
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content)
-  const contentHtml: string = processedContent.toString()
-
-  const { title, date, image } = matterResult.data;
+  const { title, date, image, content } = util.getPostData(fileName).data
+  const contentHtml = await util.getContents(content)
   return {
     id,
     content: contentHtml,
