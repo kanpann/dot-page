@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     margin: '10px',
   },
   btn: {
-    height: 365,
+    height: 410,
   },
 })
 
@@ -33,7 +33,7 @@ export const Post = ({ title, date, image, content }: PostProps) => {
           <CardMedia
             component="img"
             alt="Contemplative Reptile"
-            height="140"
+            height="200"
             image={image}
             title="Contemplative Reptile"
           />

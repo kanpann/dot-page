@@ -24,7 +24,7 @@ const getPostByFileName = async (fileName: string): Promise<Post> => {
   //Html 요소 제거
   excerpt = removeHtml(excerpt);
   //내용을 280바이트까지 자름
-  excerpt = util.getExcept(excerpt, 200);
+  excerpt = util.getExcept(excerpt, 150);
 
   return {
     id,
@@ -42,7 +42,7 @@ export const getSortedPostsData = async (): Promise<Post[]> => {
   for(let i = 0; i < fileNames.length; i++){
     const fileName = fileNames[i]
     const post: Post = await getPostByFileName(fileName);
-    post.title = util.getExcept(post.title, 40);
+    post.title = util.getExcept(post.title, 38);
     posts.push(post)
   }
   return util.sort(posts)
