@@ -1,52 +1,33 @@
-import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
+import { Grid, Typography } from '@material-ui/core'
+import Container from '@material-ui/core/Container'
+import React from 'react'
+import { Header } from '../components/Header'
+import { PostList } from '../components/PostList'
 import { getSortedPostsData } from '../lib/posts'
-import Link from 'next/link'
-import Date from '../components/date'
+import { Post } from '../lib/posts'
+import Pagination from '@material-ui/lab/Pagination'
+import Layout from '../components/layout'
 
-export default function Home({ allPostsData }) {
+type HomeProps = {
+  posts: Post[]
+}
+export default function Home({ posts }: HomeProps) {
   return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      <section className={utilStyles.headingMd}>
-        <p>
-          Hello, I’m <strong>Shu</strong>. I’m a software engineer and a translator
-          (English/Japanese). You can contact me on{' '}
-          <a href="https://twitter.com/chibicode">Twitter</a>.
-        </p>
-        <p>
-          (This is a sample website - you’ll be building a site like this in{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-      </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date date={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
-      </section>
-    </Layout>
+    <>
+      <Header />
+      <Layout>
+        <PostList posts={posts} />
+        <Pagination count={10} />
+      </Layout>
+    </>
   )
 }
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
+  const posts = getSortedPostsData()
   return {
     props: {
-      allPostsData,
+      posts,
     },
   }
 }

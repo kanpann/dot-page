@@ -11,6 +11,7 @@ export interface Post {
   title: string;
   content: string | ''
   date: string;
+  image: string;
 }
 
 export function getSortedPostsData(): Post[] {
@@ -26,13 +27,14 @@ export function getSortedPostsData(): Post[] {
 
     // Use gray-matter to parse the post metadata section
     const matterResult: matter.GrayMatterFile<string> = matter(fileContents)
-
-    const { title, date } = matterResult.data;
+    
+    const { title, date, image } = matterResult.data;
     return {
       id,
       title: title,
       content: '',
-      date: date
+      date: date,
+      image: image
     }
   })
   //정렬
@@ -69,11 +71,12 @@ export async function getPostData(id: string): Promise<Post> {
     .process(matterResult.content)
   const contentHtml: string = processedContent.toString()
 
-  const { title, date } = matterResult.data;
+  const { title, date, image } = matterResult.data;
   return {
     id,
     content: contentHtml,
     title: title,
-    date: date
+    date: date,
+    image: image
   }
 }
