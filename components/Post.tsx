@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
+import { Date } from './Date'
 
 const useStyles = makeStyles({
   root: {
@@ -41,6 +42,7 @@ export const Post = ({ title, date, image, content }: PostProps) => {
             <Typography gutterBottom variant="h5" component="h2">
               {title}
             </Typography>
+            <Date date={date} />
             <Typography variant="body2" color="textSecondary" component="p">
               {content}
             </Typography>
