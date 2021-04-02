@@ -9,8 +9,8 @@ type PostListProps = {
 export const PostList = ({ posts }: PostListProps) => {
   return (
     <Grid container item direction="row" justify="center" alignItems="flex-start">
-      {posts.map(({ id, date, title, image }) => (
-        <Post key={id} title={title} date={date} image={image} />
+      {posts.map(({ id, date, title, image, content }) => (
+        <Post key={id} title={title} date={date} image={image} content={content} />
       ))}
     </Grid>
   )
