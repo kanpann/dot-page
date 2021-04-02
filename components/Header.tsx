@@ -2,15 +2,15 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
 import Avatar from '@material-ui/core/Avatar'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import FormControl from '@material-ui/core/FormControl'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
 import InputLabel from '@material-ui/core/InputLabel'
+import { useState } from 'react'
+import { ProfilePop } from './pop/ProfilePop'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,6 +36,15 @@ const useStyles = makeStyles((theme: Theme) =>
 export const Header = () => {
   const classes = useStyles()
 
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget)
+  }
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
+
   return (
     <div className={classes.root}>
       <AppBar position="static" color="inherit">
@@ -50,22 +59,12 @@ export const Header = () => {
               className={classes.menuButton}
               color="inherit"
               aria-label="menu"
+              onClick={handleClick}
             >
               <ArrowDropDownIcon />
             </IconButton>
+            <ProfilePop anchorEl={anchorEl} handleClose={handleClose} />
           </Typography>
-          <FormControl variant="outlined" className={classes.formControl}>
-            <InputLabel id="demo-simple-select-outlined-label">Category</InputLabel>
-            <Select
-              labelId="demo-simple-select-outlined-label"
-              id="demo-simple-select-outlined"
-              label="Category"
-            >
-              <MenuItem>Java</MenuItem>
-              <MenuItem>Spring</MenuItem>
-              <MenuItem>JavaScript</MenuItem>
-            </Select>
-          </FormControl>
         </Toolbar>
       </AppBar>
     </div>

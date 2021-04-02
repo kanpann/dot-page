@@ -1,4 +1,5 @@
 import { GrayMatterFile } from "gray-matter";
+import { removeHtml } from "./common-util";
 import * as util from "./posts-util"
 
 export interface Post {
@@ -11,9 +12,20 @@ export interface Post {
 const getPostByFileName = async (fileName: string): Promise<Post> => {
   const id: string = fileName.replace(/\.md$/, '')
 
-  const { title, date, image, content } = util.getPostData(fileName).data;
-  let excerpt: string = await util.getExcerpt(content)
-  excerpt = excerpt.replace(/(<([^>]+)>)/ig,"")
+  const postData: GrayMatterFile<string> = util.getPostData(fileName);
+  const { title, date, image } = postData.data
+
+  //Markdown 파일 전체 내용
+  const content = postData.content
+
+  //Markdown 파일을 Html로 파싱한 내용을 가져옴
+  let excerpt: string = await util.getContents(content)
+
+  //Html 요소 제거
+  excerpt = removeHtml(excerpt);
+  //내용을 280바이트까지 자름
+  excerpt = util.getExcept(excerpt, 280);
+
   return {
     id,
     title: title,
@@ -30,6 +42,7 @@ export const getSortedPostsData = async (): Promise<Post[]> => {
   for(let i = 0; i < fileNames.length; i++){
     const fileName = fileNames[i]
     const post: Post = await getPostByFileName(fileName);
+    post.title = util.getExcept(post.title, 40);
     posts.push(post)
   }
   return util.sort(posts)
