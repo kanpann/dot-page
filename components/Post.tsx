@@ -13,6 +13,9 @@ const useStyles = makeStyles({
     maxWidth: 345,
     margin: '10px',
   },
+  btn: {
+    height: 365,
+  },
 })
 
 type PostProps = {
@@ -26,7 +29,7 @@ export const Post = ({ title, date, image, content }: PostProps) => {
   return (
     <>
       <Card className={classes.root}>
-        <CardActionArea>
+        <CardActionArea className={classes.btn}>
           <CardMedia
             component="img"
             alt="Contemplative Reptile"
