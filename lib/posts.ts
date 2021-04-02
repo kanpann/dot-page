@@ -24,7 +24,7 @@ const getPostByFileName = async (fileName: string): Promise<Post> => {
   //Html 요소 제거
   excerpt = removeHtml(excerpt);
   //내용을 280바이트까지 자름
-  excerpt = util.getExcept(excerpt, 280);
+  excerpt = util.getExcept(excerpt, 200);
 
   return {
     id,
