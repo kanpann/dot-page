@@ -1,25 +1,27 @@
 import Head from 'next/head'
 import { getAllPostIds, getPostData, Post as PostType } from '../lib/posts'
 import utilStyles from '../styles/utils.module.css'
-import { Date, Layout } from '../components'
+import { Date, Header, Layout } from '../components'
+import React from 'react'
 
 type PostProps = {
   post: PostType
 }
 export default function Post({ post }: PostProps) {
+  const { title, date, content, image } = post
   return (
-    <Layout>
-      <Head>
-        <title>{post.title}</title>
-      </Head>
-      <article>
-        <h1 className={utilStyles.headingXl}>{post.title}</h1>
-        <div className={utilStyles.lightText}>
-          <Date date={post.date} />
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
-      </article>
-    </Layout>
+    <>
+      <Header />
+      <Layout maxWidth="md">
+        <article>
+          <h1 className={utilStyles.headingXl}>{title}</h1>
+          <div className={utilStyles.lightText}>
+            <Date date={date} />
+          </div>
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+        </article>
+      </Layout>
+    </>
   )
 }
 

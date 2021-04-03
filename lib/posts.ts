@@ -60,10 +60,11 @@ export const getAllPostIds = () => {
 }
 
 export const getPostData = async (id: string): Promise<Post> => {
-  const fileName = `${id}.md`
+  const fileName: string = `${id}.md`
 
-  const { title, date, image, content } = util.getPostData(fileName).data
-  const contentHtml = await util.getContents(content)
+  const { title, date, image } = util.getPostData(fileName).data
+  const content: string = util.getPostData(fileName).content
+  const contentHtml: string = await util.getContents(content)
   return {
     id,
     content: contentHtml,

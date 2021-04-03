@@ -20,17 +20,18 @@ const useStyles = makeStyles({
 })
 
 type PostProps = {
+  id: string
   title: string
   date: string
   image: string
   content: string
 }
-export const Post = ({ title, date, image, content }: PostProps) => {
+export const Post = ({ id, title, date, image, content }: PostProps) => {
   const classes = useStyles()
   return (
     <>
       <Card className={classes.root}>
-        <CardActionArea className={classes.btn}>
+        <CardActionArea className={classes.btn} href={`/${id}`}>
           <CardMedia
             component="img"
             alt="Contemplative Reptile"
