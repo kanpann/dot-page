@@ -21,6 +21,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import TreeItem from '@material-ui/lab/TreeItem'
 import { MenuList } from './MenuList'
 import { CommonPopover } from './CommonPopover'
+import { Hidden } from '@material-ui/core'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -97,22 +98,50 @@ export const Header = () => {
               <ArrowDropDownIcon />
             </IconButton>
             <ProfilePop anchorEl={anchorEl} handleClose={handleClose} />
+            <Hidden smDown>
+              {' '}
+              <span>
+                개발{' '}
+                <IconButton
+                  edge="start"
+                  className={classes.menuButton}
+                  color="inherit"
+                  aria-label="menu"
+                >
+                  <ArrowDropDownIcon />
+                </IconButton>
+              </span>{' '}
+              <span>
+                생각{' '}
+                <IconButton
+                  edge="start"
+                  className={classes.menuButton}
+                  color="inherit"
+                  aria-label="menu"
+                >
+                  <ArrowDropDownIcon />
+                </IconButton>
+              </span>{' '}
+              <span>컴퓨터 사이언스</span>
+            </Hidden>
           </Typography>
           <IconButton aria-label="search" color="inherit">
             <SearchIcon />
           </IconButton>
-          <IconButton
-            aria-describedby={id}
-            onClick={handleClick2}
-            aria-label="display more actions"
-            edge="end"
-            color="inherit"
-          >
-            <MenuIcon />
-          </IconButton>
-          <CommonPopover id={id} open={open} anchorEl={anchorEl2} handleClose={handleClose2}>
-            <MenuList />
-          </CommonPopover>
+          <Hidden mdUp>
+            <IconButton
+              aria-describedby={id}
+              onClick={handleClick2}
+              aria-label="display more actions"
+              edge="end"
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <CommonPopover id={id} open={open} anchorEl={anchorEl2} handleClose={handleClose2}>
+              <MenuList />
+            </CommonPopover>
+          </Hidden>
         </Toolbar>
       </AppBar>
     </div>
