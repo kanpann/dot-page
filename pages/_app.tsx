@@ -1,9 +1,9 @@
 import '../styles/global.css'
 import NextApp from 'next/app'
 import React from 'react'
-import { ThemeProvider } from 'styled-components'
+import { DefaultTheme, ThemeProvider } from 'styled-components'
 
-const theme = {
+const theme: DefaultTheme = {
   primary: 'green',
 }
 export default class App extends NextApp {
