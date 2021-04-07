@@ -1,4 +1,4 @@
-export * from './Date'
+export * from './DateView'
 export * from './Header'
 export * from './Layout'
 export * from './Post'

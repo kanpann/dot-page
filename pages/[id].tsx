@@ -1,6 +1,6 @@
 import React from 'react'
 import { getAllPostIds, getPostData, Post as PostType } from '../lib/posts'
-import { Date, Header, Layout } from '../components'
+import { DateView, Header, Layout } from '../components'
 import styled, { PostHeaderTheme } from 'styled-components'
 
 const PostHeader = styled.div`
@@ -46,7 +46,7 @@ export default function Post({ post }: PostProps) {
             <PostTitle>{title}</PostTitle>
             <DateFrame>
               <span>
-                <Date date={date} />
+                <DateView date={date} />
               </span>
             </DateFrame>
           </PostHeaderFrame>
