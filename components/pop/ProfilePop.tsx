@@ -5,6 +5,7 @@ import { StyledMenu, StyledMenuItem } from './common'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import EmailIcon from '@material-ui/icons/Email'
 import RssFeedIcon from '@material-ui/icons/RssFeed'
+import { SiteMeta } from '../../site.config'
 
 type ProfilePopProps = {
   handleClose: () => void
@@ -20,14 +21,14 @@ export function ProfilePop({ anchorEl, handleClose }: ProfilePopProps) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <StyledMenuItem onClick={() => (location.href = 'https://github.com/kanpann')}>
+        <StyledMenuItem onClick={() => (location.href = SiteMeta.github)}>
           <ListItemIcon>
             <GitHubIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="Github" />
         </StyledMenuItem>
         <StyledMenuItem>
-          <ListItemIcon onClick={() => (location.href = 'mailto:gunkim.dev@gmail.com')}>
+          <ListItemIcon onClick={() => (location.href = `mailto:${SiteMeta.email}`)}>
             <EmailIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="Email" />
