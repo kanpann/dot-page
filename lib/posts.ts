@@ -3,17 +3,18 @@ import { removeHtml } from "./common-util";
 import * as util from "./posts-util"
 
 export interface Post {
-  id: string;
-  title: string;
+  id: string
+  title: string
+  category: string | ''
   content: string | ''
-  date: string;
-  image: string;
+  date: string
+  image: string
 }
 const getPostByFileName = async (fileName: string): Promise<Post> => {
   const id: string = fileName.replace(/\.md$/, '')
 
   const postData: GrayMatterFile<string> = util.getPostData(fileName);
-  const { title, date, image } = postData.data
+  const { title, date, image, category } = postData.data
 
   //Markdown 파일 전체 내용
   const content = postData.content
@@ -30,6 +31,7 @@ const getPostByFileName = async (fileName: string): Promise<Post> => {
     id,
     title: title,
     content: excerpt,
+    category: category,
     date: date,
     image: image
   }
@@ -68,6 +70,7 @@ export const getPostData = async (id: string): Promise<Post> => {
   return {
     id,
     content: contentHtml,
+    category: '',
     title: title,
     date: date,
     image: image
