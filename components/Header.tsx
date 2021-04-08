@@ -3,16 +3,15 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
-import Avatar from '@material-ui/core/Avatar'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import React, { useState } from 'react'
 import { ProfilePop } from './pop/ProfilePop'
 import SearchIcon from '@material-ui/icons/Search'
 import MenuIcon from '@material-ui/icons/Menu'
-import { MenuList } from './MenuList'
-import { CommonPopover } from './CommonPopover'
-import { Hidden } from '@material-ui/core'
 import { SiteMeta, Category } from '../site.config'
+import { SideMenuBar } from './SideMenuBar'
+import { Hidden } from '@material-ui/core'
+import { VCategories } from './VCategories'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -41,77 +40,37 @@ const useStyles = makeStyles((theme: Theme) =>
 export const Header = () => {
   const classes = useStyles()
 
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+  const [isOpenInfo, setIsOpenInfo] = useState<null | HTMLElement>(null)
+  const [isOpenMenu, setIsOpenMenu] = React.useState(false)
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    console.log(event.currentTarget)
-    setAnchorEl(event.currentTarget)
+  const handleInfoClick = (event: React.MouseEvent<HTMLElement>) => {
+    setIsOpenInfo(event.currentTarget)
   }
-  const handleClose = () => {
-    setAnchorEl(null)
+  const handleInfoClose = () => {
+    setIsOpenInfo(null)
   }
-  //-----
-  const [anchorEl2, setAnchorEl2] = React.useState<HTMLButtonElement | null>(null)
-
-  const handleClick2 = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl2(event.currentTarget)
+  const handleMenuClick = () => {
+    setIsOpenMenu(true)
   }
-
-  const handleClose2 = () => {
-    setAnchorEl2(null)
-  }
-
-  const open = Boolean(anchorEl2)
-  const id = open ? 'simple-popover' : undefined
 
   return (
     <div className={classes.root}>
       <AppBar position="static" color="inherit">
         <Toolbar className={classes.frame}>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-            href="/"
-          >
-            <Avatar src={SiteMeta.profileImage} />
-          </IconButton>
           <Typography variant="h6" className={classes.title}>
-            {SiteMeta.author}
+            {SiteMeta.title}
             <IconButton
               edge="start"
               className={classes.menuButton}
               color="inherit"
               aria-label="menu"
-              onClick={handleClick}
+              onClick={handleInfoClick}
             >
               <ArrowDropDownIcon />
             </IconButton>
-            <ProfilePop anchorEl={anchorEl} handleClose={handleClose} />
+            <ProfilePop anchorEl={isOpenInfo} handleClose={handleInfoClose} />
             <Hidden smDown>
-              {Object.keys(Category).map((categoryName) => {
-                const mainMenu = Category[categoryName]
-
-                const { isSub, url } = mainMenu
-                return (
-                  <>
-                    <span>
-                      <a href={url}>{categoryName}</a>
-                    </span>
-                    {isSub && (
-                      <IconButton
-                        edge="start"
-                        className={classes.menuButton}
-                        color="inherit"
-                        aria-label="menu"
-                      >
-                        <ArrowDropDownIcon />
-                      </IconButton>
-                    )}
-                  </>
-                )
-              })}
+              <VCategories />
             </Hidden>
           </Typography>
           <IconButton aria-label="search" color="inherit">
@@ -119,18 +78,15 @@ export const Header = () => {
           </IconButton>
           <Hidden mdUp>
             <IconButton
-              aria-describedby={id}
-              onClick={handleClick2}
+              onClick={handleMenuClick}
               aria-label="display more actions"
               edge="end"
               color="inherit"
             >
               <MenuIcon />
             </IconButton>
-            <CommonPopover id={id} open={open} anchorEl={anchorEl2} handleClose={handleClose2}>
-              <MenuList />
-            </CommonPopover>
           </Hidden>
+          <SideMenuBar open={isOpenMenu} />
         </Toolbar>
       </AppBar>
     </div>
