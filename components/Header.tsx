@@ -5,23 +5,14 @@ import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import Avatar from '@material-ui/core/Avatar'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
-import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
-import MenuItem from '@material-ui/core/MenuItem'
-import InputLabel from '@material-ui/core/InputLabel'
 import React, { useState } from 'react'
 import { ProfilePop } from './pop/ProfilePop'
 import SearchIcon from '@material-ui/icons/Search'
 import MenuIcon from '@material-ui/icons/Menu'
-import Popover from '@material-ui/core/Popover'
-import Button from '@material-ui/core/Button'
-import TreeView from '@material-ui/lab/TreeView'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import ChevronRightIcon from '@material-ui/icons/ChevronRight'
-import TreeItem from '@material-ui/lab/TreeItem'
 import { MenuList } from './MenuList'
 import { CommonPopover } from './CommonPopover'
 import { Hidden } from '@material-ui/core'
+import { SiteMeta, Category } from '../site.config'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -84,10 +75,10 @@ export const Header = () => {
             aria-label="menu"
             href="/"
           >
-            <Avatar src="https://avatars.githubusercontent.com/u/45007556?v=4" />
+            <Avatar src={SiteMeta.profileImage} />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Gunkim
+            {SiteMeta.author}
             <IconButton
               edge="start"
               className={classes.menuButton}
@@ -99,30 +90,28 @@ export const Header = () => {
             </IconButton>
             <ProfilePop anchorEl={anchorEl} handleClose={handleClose} />
             <Hidden smDown>
-              {' '}
-              <span>
-                개발{' '}
-                <IconButton
-                  edge="start"
-                  className={classes.menuButton}
-                  color="inherit"
-                  aria-label="menu"
-                >
-                  <ArrowDropDownIcon />
-                </IconButton>
-              </span>{' '}
-              <span>
-                생각{' '}
-                <IconButton
-                  edge="start"
-                  className={classes.menuButton}
-                  color="inherit"
-                  aria-label="menu"
-                >
-                  <ArrowDropDownIcon />
-                </IconButton>
-              </span>{' '}
-              <span>컴퓨터 사이언스</span>
+              {Object.keys(Category).map((categoryName) => {
+                const mainMenu = Category[categoryName]
+
+                const { isSub, url } = mainMenu
+                return (
+                  <>
+                    <span>
+                      <a href={url}>{categoryName}</a>
+                    </span>
+                    {isSub && (
+                      <IconButton
+                        edge="start"
+                        className={classes.menuButton}
+                        color="inherit"
+                        aria-label="menu"
+                      >
+                        <ArrowDropDownIcon />
+                      </IconButton>
+                    )}
+                  </>
+                )
+              })}
             </Hidden>
           </Typography>
           <IconButton aria-label="search" color="inherit">
