@@ -5,8 +5,12 @@ import Link from 'next/link'
 
 const List = styled.ul`
   list-style: none;
+  padding: 0px;
 `
-const Item = styled.li``
+const Item = styled.li`
+  padding-top: 5px;
+  padding-left: 20px;
+`
 
 export const HCategories = () => {
   return (
@@ -24,7 +28,14 @@ export const HCategories = () => {
           <List>
             <Item>
               <Link href={url}>{categoryName}</Link>
-              <List>{isSub && Object.keys(subMenus).map((subMenu) => <Item>{subMenu}</Item>)}</List>
+              <List>
+                {isSub &&
+                  Object.keys(subMenus).map((subMenu, index) => (
+                    <Item key={index}>
+                      <Link href={`/category?category=${subMenu}`}>{subMenu}</Link>
+                    </Item>
+                  ))}
+              </List>
             </Item>
           </List>
         )

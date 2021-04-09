@@ -10,23 +10,71 @@ module.exports = {
     개발: {
       url: '/category?category=?',
       isSub: true,
+      image: '',
+      descript: '',
       sub: {
-        Linux: '/category?category=?',
-        Spring: '/category?category=?',
-        JavaScript: '/category?category=?',
-        React: '/category?category=?',
-        Vue: '/category?category=?',
-        Kotlin: '/category?category=?',
-        'Data Structure': '/category?category=?',
-        'Error Log': '/category?category=?',
-        Python: '/category?category=?',
-        Java: '/category?category=?',
-        Other: '/category?category=?',
+        Linux: {
+          url: '/category?category=?',
+          image: '',
+          descript: '',
+        },
+        Spring: {
+          url: '/category?category=?',
+          image: '',
+          descript: '',
+        },
+        JavaScript: {
+          url: '/category?category=?',
+          image: '',
+          descript: '',
+        },
+        React: {
+          url: '/category?category=?',
+          image: '',
+          descript: '',
+        },
+        Vue: {
+          url: '/category?category=?',
+          image: '',
+          descript: '',
+        },
+        Kotlin: {
+          url: '/category?category=?',
+          image: '',
+          descript: '',
+        },
+        'Data Structure': {
+          url: '/category?category=?',
+          image: '',
+          descript: '',
+        },
+        'Error Log': {
+          url: '/category?category=?',
+          image: '',
+          descript: '',
+        },
+        Python: {
+          url: '/category?category=?',
+          image: '',
+          descript: '',
+        },
+        Java: {
+          url: '/category?category=?',
+          image: '',
+          descript: '',
+        },
+        Other: {
+          url: '/category?category=?',
+          image: '',
+          descript: '',
+        },
       },
     },
     생각: {
       url: '/category?category=Think',
       isSub: false,
+      image: '',
+      descript: '',
     },
   },
 }
