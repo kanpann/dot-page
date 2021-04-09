@@ -45,9 +45,7 @@ export default function Post({ post }: PostProps) {
           <PostHeaderFrame>
             <PostTitle>{title}</PostTitle>
             <DateFrame>
-              <span>
-                <DateView date={date} />
-              </span>
+              <DateView date={date} />
             </DateFrame>
           </PostHeaderFrame>
         </PostHeader>
