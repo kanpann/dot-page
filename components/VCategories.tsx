@@ -4,6 +4,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import React from 'react'
 import { Category } from '../site.config'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
+import Link from 'next/link'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -23,9 +24,7 @@ export const VCategories = () => {
         const { isSub, url } = mainMenu
         return (
           <>
-            <span>
-              <a href={url}>{categoryName}</a>
-            </span>
+            <Link href={url}>{categoryName}</Link>
             {isSub && (
               <IconButton
                 edge="start"
