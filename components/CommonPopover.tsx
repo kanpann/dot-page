@@ -7,6 +7,8 @@ type CommonPopoverProps = {
   anchorEl: any
   handleClose: any
   children: any
+  top: number
+  left: number
 }
 
 export const CommonPopover = ({
@@ -14,12 +16,14 @@ export const CommonPopover = ({
   open,
   anchorEl,
   handleClose,
+  top,
+  left,
   children,
 }: CommonPopoverProps) => {
   return (
     <Popover
       anchorReference="anchorPosition"
-      anchorPosition={{ top: 79, left: 1820 }}
+      anchorPosition={{ top: top, left: left }}
       id={id}
       open={open}
       anchorEl={anchorEl}
