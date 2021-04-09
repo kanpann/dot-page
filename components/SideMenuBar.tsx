@@ -1,12 +1,34 @@
 import React from 'react'
-import { Avatar, Drawer, Grid, Typography } from '@material-ui/core'
-import { SiteMeta, Category } from '../site.config'
+import {
+  Avatar,
+  createStyles,
+  Drawer,
+  Grid,
+  IconButton,
+  makeStyles,
+  Theme,
+  Typography,
+} from '@material-ui/core'
+import { SiteMeta } from '../site.config'
 import { HCategories } from './HCategories'
+import ArrowBackIcon from '@material-ui/icons/ArrowBack'
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    back: {
+      position: 'absolute',
+      bottom: '0',
+      padding: '20px',
+    },
+  }),
+)
 
 type SideMenuProps = {
   open: boolean
+  handleClose: () => void
 }
-export const SideMenuBar = ({ open }: SideMenuProps) => {
+export const SideMenuBar = ({ open, handleClose }: SideMenuProps) => {
+  const classes = useStyles()
   const { title, profileImage, author } = SiteMeta
   return (
     <Drawer open={open}>
@@ -26,6 +48,9 @@ export const SideMenuBar = ({ open }: SideMenuProps) => {
           <HCategories />
         </Grid>
       </Grid>
+      <IconButton onClick={handleClose} className={classes.back}>
+        <ArrowBackIcon />
+      </IconButton>
     </Drawer>
   )
 }

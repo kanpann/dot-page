@@ -8,10 +8,11 @@ import React, { useState } from 'react'
 import { ProfilePop } from './pop/ProfilePop'
 import SearchIcon from '@material-ui/icons/Search'
 import MenuIcon from '@material-ui/icons/Menu'
-import { SiteMeta, Category } from '../site.config'
 import { SideMenuBar } from './SideMenuBar'
 import { Hidden } from '@material-ui/core'
 import { VCategories } from './VCategories'
+import Link from 'next/link'
+import { SiteMeta } from '../site.config'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -49,8 +50,8 @@ export const Header = () => {
   const handleInfoClose = () => {
     setIsOpenInfo(null)
   }
-  const handleMenuClick = () => {
-    setIsOpenMenu(true)
+  const handleMenuPoper = () => {
+    setIsOpenMenu(!isOpenMenu)
   }
 
   return (
@@ -58,7 +59,7 @@ export const Header = () => {
       <AppBar position="static" color="inherit">
         <Toolbar className={classes.frame}>
           <Typography variant="h6" className={classes.title}>
-            {SiteMeta.title}
+            <Link href="/">{SiteMeta.title}</Link>
             <IconButton
               edge="start"
               className={classes.menuButton}
@@ -78,7 +79,7 @@ export const Header = () => {
           </IconButton>
           <Hidden mdUp>
             <IconButton
-              onClick={handleMenuClick}
+              onClick={handleMenuPoper}
               aria-label="display more actions"
               edge="end"
               color="inherit"
@@ -86,7 +87,7 @@ export const Header = () => {
               <MenuIcon />
             </IconButton>
           </Hidden>
-          <SideMenuBar open={isOpenMenu} />
+          <SideMenuBar open={isOpenMenu} handleClose={handleMenuPoper} />
         </Toolbar>
       </AppBar>
     </div>
