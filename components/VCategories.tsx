@@ -5,6 +5,8 @@ import React from 'react'
 import { Category } from '../site.config'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import Link from 'next/link'
+import { CommonPopover } from './CommonPopover'
+import { SubMenu } from './SubMenu'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,20 +22,14 @@ export const VCategories = () => {
     <>
       {Object.keys(Category).map((categoryName) => {
         const mainMenu = Category[categoryName]
-
         const { isSub, url } = mainMenu
         return (
           <>
             <Link href={url}>{categoryName}</Link>
             {isSub && (
-              <IconButton
-                edge="start"
-                className={classes.menuButton}
-                color="inherit"
-                aria-label="menu"
-              >
-                <ArrowDropDownIcon />
-              </IconButton>
+              <>
+                <SubMenu mainMenu={mainMenu} />
+              </>
             )}
           </>
         )
