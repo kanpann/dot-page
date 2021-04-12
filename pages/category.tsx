@@ -46,11 +46,6 @@ export default function Category({ posts }: CategoryProps) {
   return (
     <>
       <Layout>
-        <Header />
-        <img
-          style={{ margin: '0 auto', marginTop: '10px', marginBottom: '100px' }}
-          src="/images/logo.png"
-        />
         <Grid container direction="row" justify="center" alignItems="flex-start">
           <Grid xs={3}>
             <SideMenuBar />
@@ -66,7 +61,6 @@ export default function Category({ posts }: CategoryProps) {
                 <DateFrame>스프링에 대한 글들을 모아놓은 카테고리입니다.</DateFrame>
               </PostHeaderFrame>
             </PostHeader>
-            <hr />
             <PostList posts={categoryPosts} />
           </Grid>
         </Grid>
