@@ -10,7 +10,9 @@ export const PostList = ({ posts }: PostListProps) => {
   return (
     <Grid container item direction="row" justify="center" alignItems="flex-start">
       {posts.map(({ id, date, title, image, content }) => (
-        <Post key={id} id={id} title={title} date={date} image={image} content={content} />
+        <Grid xs={12}>
+          <Post key={id} id={id} title={title} date={date} image={image} content={content} />
+        </Grid>
       ))}
     </Grid>
   )

@@ -17,7 +17,7 @@ import Link from 'next/link'
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     frame: {
-      padding: '10px 50px',
+      padding: '10px',
     },
     back: {
       position: 'absolute',
@@ -32,24 +32,18 @@ const useStyles = makeStyles((theme: Theme) =>
     category: {
       marginTop: '30px',
       textAlign: 'center',
-      borderBottom: '1px solid black',
-    },
-    bottom: {
-      borderBottom: '1px solid black',
-      width: '100%',
     },
   }),
 )
 
 type SideMenuProps = {
-  open: boolean
-  handleClose: () => void
+  handleClose?: () => void
 }
-export const SideMenuBar = ({ open, handleClose }: SideMenuProps) => {
+export const SideMenuBar = ({ handleClose }: SideMenuProps) => {
   const classes = useStyles()
   const { title, profileImage, author } = SiteMeta
   return (
-    <Drawer open={open}>
+    <>
       <Grid
         className={classes.frame}
         container
@@ -58,9 +52,6 @@ export const SideMenuBar = ({ open, handleClose }: SideMenuProps) => {
         alignItems="center"
       >
         <Grid>
-          <Typography variant="h3">
-            <Link href="/">{title}</Link>
-          </Typography>
           <Avatar src={profileImage} className={classes.image} />
         </Grid>
         <Grid>
@@ -70,13 +61,16 @@ export const SideMenuBar = ({ open, handleClose }: SideMenuProps) => {
           <Typography variant="h4" className={classes.category}>
             카테고리
           </Typography>
+          <hr />
           <HCategories />
-          <div className={classes.bottom}></div>
+          <hr />
         </Grid>
       </Grid>
-      <IconButton onClick={handleClose} className={classes.back}>
-        <ArrowBackIcon />
-      </IconButton>
-    </Drawer>
+      {handleClose && (
+        <IconButton onClick={handleClose} className={classes.back}>
+          <ArrowBackIcon />
+        </IconButton>
+      )}
+    </>
   )
 }
