@@ -21,7 +21,7 @@ export const Post = ({ title, date, image, content }: PostProps) => {
         title="Contemplative Reptile"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
+        <Typography gutterBottom variant="h5" component="h2" style={{ fontFamily: 'nanumSquare' }}>
           {title}
         </Typography>
         <span>

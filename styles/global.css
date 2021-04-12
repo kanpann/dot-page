@@ -1,6 +1,15 @@
+@font-face {
+  font-family: 'nanumSquare';
+  src: url('../public/fonts/NanumSquare.ttf');
+}
+@font-face {
+  font-family: 'nanumBarunGothic';
+  src: url('../public/fonts/NanumBarunGothic.ttf');
+}
 body {
   margin: 0px;
   background-color: #8ed4c7;
+  font-family: 'nanumBarunGothic';
 }
 img {
   max-width: 100%;
