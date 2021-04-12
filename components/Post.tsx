@@ -11,7 +11,7 @@ import { DateView } from './DateView'
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    maxWidth: '100%',
     margin: '10px',
   },
   btn: {
@@ -30,28 +30,24 @@ export const Post = ({ id, title, date, image, content }: PostProps) => {
   const classes = useStyles()
   return (
     <>
-      <Card className={classes.root}>
-        <CardActionArea className={classes.btn} href={`/${id}`}>
-          <CardMedia
-            component="img"
-            alt="Contemplative Reptile"
-            height="200"
-            image={image}
-            title="Contemplative Reptile"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              {title}
-            </Typography>
-            <span>
-              <DateView date={date} />
-            </span>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {content}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
+      <CardMedia
+        component="img"
+        alt="Contemplative Reptile"
+        height="200"
+        image={image}
+        title="Contemplative Reptile"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="h2">
+          {title}
+        </Typography>
+        <span>
+          <DateView date={date} />
+        </span>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {content}
+        </Typography>
+      </CardContent>
     </>
   )
 }
