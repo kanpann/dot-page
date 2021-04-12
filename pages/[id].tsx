@@ -1,36 +1,7 @@
 import React from 'react'
 import { getAllPostIds, getPostData, Post as PostType } from '../lib/posts'
-import { DateView, Header, Layout } from '../components'
-import styled, { PostHeaderTheme } from 'styled-components'
+import { Layout } from '../components'
 
-const PostHeader = styled.div`
-  background-size: cover;
-  background-position: center;
-  height: 20rem;
-  margin-bottom: 2rem;
-  background-image: ${(props: PostHeaderTheme) => `url(${props.image})`};
-`
-const PostHeaderFrame = styled.div`
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-`
-const PostTitle = styled.div`
-  font-size: 2.5em;
-  text-align: center;
-  margin-bottom: 2rem;
-  line-height: 3.2rem;
-  word-break: break-word;
-  color: #fff;
-`
-const DateFrame = styled.div`
-  font-size: 1.125em;
-  color: #ffffffc2;
-`
 type PostProps = {
   post: PostType
 }
@@ -39,16 +10,11 @@ export default function Post({ post }: PostProps) {
 
   return (
     <>
-      <Header />
       <Layout maxWidth="md">
-        <PostHeader image={image}>
-          <PostHeaderFrame>
-            <PostTitle>{title}</PostTitle>
-            <DateFrame>
-              <DateView date={date} />
-            </DateFrame>
-          </PostHeaderFrame>
-        </PostHeader>
+        <span>
+          {title}
+          {date}
+        </span>
         <div dangerouslySetInnerHTML={{ __html: content }} />
       </Layout>
     </>
