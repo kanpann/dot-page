@@ -15,8 +15,9 @@ module.exports = {
       sub: {
         Linux: {
           url: '/category?category=?',
-          image: '',
-          descript: '',
+          image:
+            'https://user-images.githubusercontent.com/45007556/103328175-0e958b80-4a9b-11eb-9db7-66230e0f057c.png',
+          descript: '스프링에 대한 포스팅을 모아놓는 카테고리입니다.',
         },
         Spring: {
           url: '/category?category=?',
