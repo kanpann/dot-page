@@ -2,7 +2,6 @@ import React from 'react'
 import {
   Avatar,
   createStyles,
-  Drawer,
   Grid,
   IconButton,
   makeStyles,
@@ -10,9 +9,8 @@ import {
   Typography,
 } from '@material-ui/core'
 import { SiteMeta } from '../site.config'
-import { HCategories } from './HCategories'
+import { Categories } from './Categories'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
-import Link from 'next/link'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -62,7 +60,7 @@ export const SideMenuBar = ({ handleClose }: SideMenuProps) => {
             카테고리
           </Typography>
           <hr />
-          <HCategories />
+          <Categories />
           <hr />
         </Grid>
       </Grid>

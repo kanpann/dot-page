@@ -12,7 +12,7 @@ const Item = styled.li`
   padding-left: 20px;
 `
 
-export const HCategories = () => {
+export const Categories = () => {
   return (
     <>
       {Object.keys(Category).map((categoryName) => {

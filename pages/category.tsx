@@ -1,7 +1,7 @@
 import { Grid } from '@material-ui/core'
 import { useRouter } from 'next/dist/client/router'
 import React from 'react'
-import { Header, Layout, PostList } from '../components'
+import { Layout, PostList } from '../components'
 import { SideMenuBar } from '../components/SideMenuBar'
 import { getSortedPostsData, Post } from '../lib/posts'
 import styled, { PostHeaderTheme } from 'styled-components'
