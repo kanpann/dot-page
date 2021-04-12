@@ -10,6 +10,19 @@ const List = styled.ul`
 const Item = styled.li`
   padding-top: 5px;
   padding-left: 20px;
+
+  a {
+    color: black;
+    &:link {
+      text-decoration: none;
+    }
+    &:visited {
+      text-decoration: none;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
 `
 
 export const Categories = () => {

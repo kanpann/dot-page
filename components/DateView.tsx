@@ -1,4 +1,5 @@
 import { parseISO, format } from 'date-fns'
+import styled from 'styled-components'
 
 function printElapsedDate(date: string): string {
   const postDate = new Date(date)
@@ -17,15 +18,19 @@ function printElapsedDate(date: string): string {
   }
 }
 
+const Time = styled.time`
+  font-size: larger;
+`
+
 type DateProps = {
   date: string
 }
 export const DateView = ({ date }: DateProps) => {
   return (
     <>
-      <time dateTime={date}>
+      <Time dateTime={date}>
         {format(parseISO(date), 'LLLL d, yyyy')} ({printElapsedDate(date)})
-      </time>
+      </Time>
     </>
   )
 }
