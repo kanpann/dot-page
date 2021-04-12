@@ -44,7 +44,6 @@ export const getSortedPostsData = async (): Promise<Post[]> => {
   for(let i = 0; i < fileNames.length; i++){
     const fileName = fileNames[i]
     const post: Post = await getPostByFileName(fileName);
-    post.title = util.getExcept(post.title, 38);
     posts.push(post)
   }
   return util.sort(posts)
