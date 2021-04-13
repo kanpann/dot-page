@@ -1,10 +1,33 @@
 import fs from 'fs'
 import path from 'path'
-import remark from 'remark'
-import html from 'remark-html'
 import matter, { GrayMatterFile } from 'gray-matter'
 import { Post } from './posts'
 import { getByteLength, substrToByte } from './common-util'
+import hljs from 'highlight.js'
+const md = require("markdown-it")({
+  html: false,
+  xhtmlOut: false,
+  breaks: false,
+  langPrefix: "language-",
+  linkify: true,
+  typographer: true,
+  quotes: "“”‘’",
+  highlight: function(str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return (
+          '<pre class="hljs"><code>' +
+          hljs.highlight(lang, str, true).value +
+          "</code></pre>"
+        );
+      } catch (__) {}
+    }
+
+    return (
+      '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + "</code></pre>"
+    );
+  }
+});
 
 const postsDirectory: string = path.join(process.cwd(), 'posts')
 
@@ -13,13 +36,11 @@ export const getFileNames = (): string[] => { return fs.readdirSync(postsDirecto
 export const getPostData = (fileName: string): GrayMatterFile<string> => {
   const fullPath: string = path.join(postsDirectory, fileName)
   const fileContents: string = fs.readFileSync(fullPath, 'utf8')
+
   return matter(fileContents);
 }
 export const getContents = async (content: string): Promise<string> => {
-  const processedContent = await remark()
-    .use(html)
-    .process(content)
-  return processedContent.toString()
+  return md.render(content);
 }
 export const sort = (posts: Post[]) => {
   return posts.sort((a, b) => {

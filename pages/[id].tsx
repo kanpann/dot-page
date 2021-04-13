@@ -4,6 +4,7 @@ import { DateView, Layout } from '../components'
 import { Grid, Typography } from '@material-ui/core'
 import { SideMenuBar } from '../components/SideMenuBar'
 import styled from 'styled-components'
+import 'highlight.js/styles/atom-one-dark.css'
 
 const Content = styled.div`
   a {
