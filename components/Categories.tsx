@@ -43,9 +43,9 @@ export const Categories = () => {
               <Link href={url}>{categoryName}</Link>
               <List>
                 {isSub &&
-                  Object.keys(subMenus).map((subMenu, index) => (
+                  subMenus.map((subMenu, index) => (
                     <Item key={index}>
-                      <Link href={`/category?category=${subMenu}`}>{subMenu}</Link>
+                      <Link href={`/category?menu=${subMenu}`}>{subMenu}</Link>
                     </Item>
                   ))}
               </List>
