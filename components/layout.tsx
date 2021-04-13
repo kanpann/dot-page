@@ -1,11 +1,11 @@
 import React from 'react'
 import { Container, Grid, Hidden } from '@material-ui/core'
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import { createStyles, makeStyles } from '@material-ui/core/styles'
 import { Logo } from './Logo'
 import { Header } from '.'
 import { SideMenuBar } from './SideMenuBar'
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       backgroundColor: 'white',
