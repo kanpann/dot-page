@@ -46,24 +46,17 @@ export default function Category({ posts }: CategoryProps) {
   return (
     <>
       <Layout>
-        <Grid container direction="row" justify="center" alignItems="flex-start">
-          <Grid xs={3}>
-            <SideMenuBar />
-          </Grid>
-          <Grid xs={9}>
-            <PostHeader
-              image={
-                'https://user-images.githubusercontent.com/45007556/103328175-0e958b80-4a9b-11eb-9db7-66230e0f057c.png'
-              }
-            >
-              <PostHeaderFrame>
-                <PostTitle>Spring</PostTitle>
-                <DateFrame>스프링에 대한 글들을 모아놓은 카테고리입니다.</DateFrame>
-              </PostHeaderFrame>
-            </PostHeader>
-            <PostList posts={categoryPosts} />
-          </Grid>
-        </Grid>
+        <PostHeader
+          image={
+            'https://user-images.githubusercontent.com/45007556/103328175-0e958b80-4a9b-11eb-9db7-66230e0f057c.png'
+          }
+        >
+          <PostHeaderFrame>
+            <PostTitle>Spring</PostTitle>
+            <DateFrame>스프링에 대한 글들을 모아놓은 카테고리입니다.</DateFrame>
+          </PostHeaderFrame>
+        </PostHeader>
+        <PostList posts={categoryPosts} />
       </Layout>
     </>
   )

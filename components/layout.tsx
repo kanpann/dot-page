@@ -1,8 +1,9 @@
 import React from 'react'
-import { Container } from '@material-ui/core'
+import { Container, Grid, Hidden } from '@material-ui/core'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { Logo } from './Logo'
 import { Header } from '.'
+import { SideMenuBar } from './SideMenuBar'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -27,7 +28,16 @@ export const Layout = ({ children, maxWidth = 'lg' }: LayoutProps) => {
     >
       <Header />
       <Logo />
-      {children}
+      <Grid container direction="row" justify="center" alignItems="flex-start">
+        <Hidden smDown>
+          <Grid sm={3}>
+            <SideMenuBar />
+          </Grid>
+        </Hidden>
+        <Grid xs={12} sm={9}>
+          {children}
+        </Grid>
+      </Grid>
     </Container>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { getAllPostIds, getPostData, Post as PostType } from '../lib/posts'
 import { DateView, Layout } from '../components'
-import { Grid, Typography } from '@material-ui/core'
+import { Grid, Hidden, Typography } from '@material-ui/core'
 import { SideMenuBar } from '../components/SideMenuBar'
 import styled from 'styled-components'
 import 'highlight.js/styles/atom-one-dark.css'
@@ -27,19 +27,12 @@ export default function Post({ post }: PostProps) {
   return (
     <>
       <Layout>
-        <Grid container direction="row" justify="center" alignItems="flex-start">
-          <Grid xs={3}>
-            <SideMenuBar />
-          </Grid>
-          <Grid xs={9}>
-            <Typography variant="h3" style={{ fontFamily: 'nanumSquare' }}>
-              {title}
-            </Typography>
-            <DateView date={date} />
-            <hr />
-            <Content dangerouslySetInnerHTML={{ __html: content }} />
-          </Grid>
-        </Grid>
+        <Typography variant="h3" style={{ fontFamily: 'nanumSquare' }}>
+          {title}
+        </Typography>
+        <DateView date={date} />
+        <hr />
+        <Content dangerouslySetInnerHTML={{ __html: content }} />
       </Layout>
     </>
   )
