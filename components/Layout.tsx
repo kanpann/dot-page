@@ -30,11 +30,11 @@ export const Layout = ({ children, maxWidth = 'lg' }: LayoutProps) => {
       <Logo />
       <Grid container direction="row" justify="center" alignItems="flex-start">
         <Hidden smDown>
-          <Grid sm={3}>
+          <Grid item sm={3}>
             <SideMenuBar />
           </Grid>
         </Hidden>
-        <Grid xs={12} sm={9}>
+        <Grid item xs={12} sm={9}>
           {children}
         </Grid>
       </Grid>

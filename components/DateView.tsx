@@ -18,7 +18,7 @@ function printElapsedDate(date: string): string {
   }
 }
 
-const Time = styled.time`
+const Time = styled.div`
   font-size: larger;
 `
 
@@ -28,7 +28,7 @@ type DateProps = {
 export const DateView = ({ date }: DateProps) => {
   return (
     <>
-      <Time dateTime={date}>
+      <Time>
         {format(parseISO(date), 'LLLL d, yyyy')} ({printElapsedDate(date)})
       </Time>
     </>

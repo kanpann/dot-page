@@ -28,7 +28,7 @@ const Item = styled.li`
 export const Categories = () => {
   return (
     <>
-      {Object.keys(Category).map((categoryName) => {
+      {Object.keys(Category).map((categoryName, index) => {
         const mainMenu = Category[categoryName]
 
         const { isSub, url } = mainMenu
@@ -38,7 +38,7 @@ export const Categories = () => {
           subMenus = Category[categoryName]['sub']
         }
         return (
-          <List>
+          <List key={index}>
             <Item>
               <Link href={url}>{categoryName}</Link>
               <List>
