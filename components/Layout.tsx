@@ -17,12 +17,11 @@ type LayoutProps = {
   children: JSX.Element[] | JSX.Element
   maxWidth?: false | 'lg' | 'xs' | 'sm' | 'md' | 'xl' | undefined
 }
-export const Layout = ({ children, maxWidth = 'lg' }: LayoutProps) => {
+export const Layout = ({ children, maxWidth = 'md' }: LayoutProps) => {
   const classes = useStyles()
   return (
     <Container
       className={classes.root}
-      fixed
       maxWidth={maxWidth}
       style={{ paddingTop: '20px', paddingBottom: '80px' }}
     >
