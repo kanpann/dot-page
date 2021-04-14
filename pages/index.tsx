@@ -40,7 +40,8 @@ type HomeProps = {
 }
 export default function Home({ posts }: HomeProps) {
   const router = useRouter()
-  const { keyword, menu } = router.query
+  const keyword = router.query.keyword as string
+  const menu = router.query.menu as string
 
   let printPosts
   if (keyword) {
