@@ -5,6 +5,7 @@ import Layout from '../components/common/Layout'
 import { useRouter } from 'next/dist/client/router'
 import styled, { PostHeaderTheme } from 'styled-components'
 import { CategoryInfo } from '../site.config'
+import { Typography } from '@material-ui/core'
 
 const PostHeader = styled.div`
   background-size: cover;
@@ -45,13 +46,19 @@ export default function Home({ posts }: HomeProps) {
 
   let printPosts
   if (keyword) {
-    printPosts = (
-      <PostList
-        posts={posts.filter((post) => {
-          return post.title.indexOf(keyword) > 0 || post.content.indexOf(keyword) > 0
-        })}
-      />
-    )
+    posts = posts.filter((post) => {
+      return post.title.indexOf(keyword) > 0 || post.content.indexOf(keyword) > 0
+    })
+
+    printPosts =
+      posts.length > 0 ? (
+        <PostList posts={posts} />
+      ) : (
+        <Typography variant="h5" align="center">
+          검색 결과가 없습니다.
+          <br /> 검색 알고리즘이 그리 좋지 않으니 키워드 위주로 검색해주세요!
+        </Typography>
+      )
   } else if (menu) {
     const categoryInfo = CategoryInfo[menu]
     printPosts = (
