@@ -35,7 +35,6 @@ const useStyles = makeStyles(() =>
 
 const InfoFrame = styled.div`
   text-align: center;
-  width: 300px;
 `
 const Contents = styled.p`
   width: 80%;
