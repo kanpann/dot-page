@@ -1,6 +1,6 @@
 import React from 'react'
 import { getAllPostIds, getPostData, Post as PostType } from '../lib/posts'
-import DateView from '../components/post/Comments'
+import DateView from '../components/post/DateView'
 import { Typography } from '@material-ui/core'
 import styled from 'styled-components'
 import 'highlight.js/styles/atom-one-dark.css'
