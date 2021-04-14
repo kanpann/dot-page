@@ -41,12 +41,12 @@ const Categories = () => {
         return (
           <List key={index}>
             <Item>
-              <Link href={`/category?menu=${categoryName}`}>{categoryName}</Link>
+              <Link href={`/?menu=${categoryName}`}>{categoryName}</Link>
               <List>
                 {isSub &&
                   subMenus.map((subMenu, index) => (
                     <Item key={index}>
-                      <Link href={`/category?menu=${subMenu}`}>{subMenu}</Link>
+                      <Link href={`/?menu=${subMenu}`}>{subMenu}</Link>
                     </Item>
                   ))}
               </List>

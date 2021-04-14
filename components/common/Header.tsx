@@ -24,7 +24,7 @@ const Header = () => {
   const onKeyPress = (e: any) => {
     if (e.key == 'Enter') {
       const value = e.target.value
-      location.href = '/search?keyword=' + value
+      location.href = '/?keyword=' + value
     }
   }
   return (
