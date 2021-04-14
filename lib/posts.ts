@@ -71,6 +71,7 @@ export const getPostData = async (id: string): Promise<Post> => {
   return {
     id,
     content: contentHtml,
+    excerpt: '',
     category: '',
     title: title,
     date: date,
