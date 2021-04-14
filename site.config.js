@@ -5,29 +5,41 @@ function Category(image, descript) {
 module.exports = {
   SiteMeta: {
     title: 'Gunlog',
-    author: 'Gunkim',
-    github: 'https://github.com/kanpann',
     profileImage: 'https://avatars.githubusercontent.com/u/45007556?v=4',
-    email: 'gunkim0318@gmail.com',
+    info: {
+      author: 'Gunkim',
+      descript: '안녕하세요. Gunkim입니다. 공부한 내용들을 정제하기 위해서 블로그를 시작했습니다.',
+      github: 'https://github.com/kanpann',
+      email: 'gunkim0318@gmail.com',
+    },
   },
   Category: {
-    개발: {
-      url: '/category?menu=개발&subMenu=개발',
-      isSub: true,
-      sub: [
-        'Linux',
-        'Spring',
-        'JavaScript',
-        'React',
-        'Vue',
-        'Kotlin',
-        'Data Structure',
-        'Error Log',
-        'Python',
-        'Java',
-        'Other',
-      ],
+    개발환경: {
+      url: '',
+      isSub: false,
     },
+    Java: {
+      url: '',
+      isSub: true,
+      sub: ['Spring', 'JPA/Querydsl', 'Kotlin'],
+    },
+    JavaScript: { url: '', isSub: true, sub: ['TypeScript', 'React', 'Vue'] },
+    Python: {
+      url: '',
+      isSub: true,
+      sub: ['Flask', 'Django', '자동화'],
+    },
+    Linux: {
+      url: '',
+      isSub: true,
+      sub: ['Ubuntu', 'CentOS'],
+    },
+    '컴퓨터 사이언스': {
+      url: '',
+      isSub: true,
+      sub: ['자료구조', '알고리즘'],
+    },
+
     생각: {
       url: '/category?menu=생각&subMenu=생각',
       isSub: false,
