@@ -26,12 +26,13 @@ const Item = styled.li`
 `
 
 const Categories = () => {
+  const categoryNames = Object.keys(Category)
   return (
     <>
-      {Object.keys(Category).map((categoryName, index) => {
+      {categoryNames.map((categoryName, index) => {
         const mainMenu = Category[categoryName]
 
-        const { isSub, url } = mainMenu
+        const { isSub } = mainMenu
 
         let subMenus
         if (isSub) {
@@ -40,7 +41,7 @@ const Categories = () => {
         return (
           <List key={index}>
             <Item>
-              <Link href={url}>{categoryName}</Link>
+              <Link href={`/category?menu=${categoryName}`}>{categoryName}</Link>
               <List>
                 {isSub &&
                   subMenus.map((subMenu, index) => (

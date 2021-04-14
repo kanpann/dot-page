@@ -22,33 +22,26 @@ module.exports = {
   },
   Category: {
     개발환경: {
-      url: '',
       isSub: false,
     },
     Java: {
-      url: '',
       isSub: true,
       sub: ['Spring', 'JPA/Querydsl', 'Kotlin'],
     },
-    JavaScript: { url: '', isSub: true, sub: ['TypeScript', 'React', 'Vue'] },
+    JavaScript: { isSub: true, sub: ['TypeScript', 'React', 'Vue'] },
     Python: {
-      url: '',
       isSub: true,
       sub: ['Flask', 'Django', '자동화'],
     },
     Linux: {
-      url: '',
       isSub: true,
       sub: ['Ubuntu', 'CentOS'],
     },
     '컴퓨터 사이언스': {
-      url: '',
       isSub: true,
       sub: ['자료구조', '알고리즘'],
     },
-
     생각: {
-      url: '/category?menu=생각&subMenu=생각',
       isSub: false,
     },
   },
