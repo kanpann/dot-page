@@ -16,6 +16,11 @@ const Content = styled.div`
     border-left: 5px solid #99cfff;
     padding-left: 10px;
   }
+  p code {
+    background: #dadada;
+    padding: 0px 5px;
+    font-weight: bold;
+  }
 `
 
 type PostProps = {
