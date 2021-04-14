@@ -25,7 +25,7 @@ const Time = styled.div`
 type DateProps = {
   date: string
 }
-export const DateView = ({ date }: DateProps) => {
+const DateView = ({ date }: DateProps) => {
   return (
     <>
       <Time>
@@ -34,3 +34,4 @@ export const DateView = ({ date }: DateProps) => {
     </>
   )
 }
+export default DateView

@@ -9,10 +9,11 @@ const CustomLogo = styled.img`
   cursor: pointer;
 `
 
-export const Logo = () => {
+const Logo = () => {
   return (
     <Link href="/">
       <CustomLogo src="/images/logo.png" />
     </Link>
   )
 }
+export default Logo

@@ -2,7 +2,7 @@ import React from 'react'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
-import { DateView } from './DateView'
+import DateView from './DateView'
 
 type PostProps = {
   title: string

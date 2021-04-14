@@ -1,8 +1,9 @@
 import React from 'react'
 import { Grid, Hidden } from '@material-ui/core'
-import { PostList, Layout } from '../components'
-import { SideMenuBar } from '../components/SideMenuBar'
+import PostList from '../components/post/PostList'
+import SideMenuBar from '../components/common/SideMenuBar'
 import { getSortedPostsData, Post } from '../lib/posts'
+import Layout from '../components/common/Layout'
 
 type HomeProps = {
   posts: Post[]

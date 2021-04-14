@@ -1,6 +1,6 @@
 import { createStyles, Grid, Link, makeStyles, Theme } from '@material-ui/core'
 import React from 'react'
-import { Post as PostType } from '../lib/posts'
+import { Post as PostType } from '../../lib/posts'
 import { Post } from './Post'
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
 type PostListProps = {
   posts: PostType[]
 }
-export const PostList = ({ posts }: PostListProps) => {
+const PostList = ({ posts }: PostListProps) => {
   const classes = useStyles()
   return (
     <Grid container item direction="row" justify="center" alignItems="flex-start">
@@ -38,3 +38,4 @@ export const PostList = ({ posts }: PostListProps) => {
     </Grid>
   )
 }
+export default PostList

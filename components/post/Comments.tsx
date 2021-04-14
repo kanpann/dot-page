@@ -2,9 +2,9 @@ import React from 'react'
 import loadable from '@loadable/component'
 const GitalkComponent = loadable(() => import('gitalk/dist/gitalk-component'))
 import 'gitalk/dist/gitalk.css'
-import { SiteMeta } from '../site.config'
+import { SiteMeta } from '../../site.config'
 
-export const Comments = () => {
+const Comments = () => {
   const { clientID, clientSecret, repo, owner, admin } = SiteMeta.gitalk
   return (
     <GitalkComponent
@@ -18,3 +18,4 @@ export const Comments = () => {
     />
   )
 }
+export default Comments

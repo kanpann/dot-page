@@ -1,12 +1,11 @@
 import React from 'react'
 import { getAllPostIds, getPostData, Post as PostType } from '../lib/posts'
-import { DateView, Layout } from '../components'
-import { Grid, Hidden, Typography } from '@material-ui/core'
-import { SideMenuBar } from '../components/SideMenuBar'
+import DateView from '../components/post/Comments'
+import { Typography } from '@material-ui/core'
 import styled from 'styled-components'
 import 'highlight.js/styles/atom-one-dark.css'
-import { Comments } from '../components/Comments'
-
+import Comments from '../components/post/Comments'
+import Layout from '../components/common/Layout'
 const Content = styled.div`
   a {
     text-decoration: none;

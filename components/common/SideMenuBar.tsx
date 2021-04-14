@@ -1,7 +1,7 @@
 import React from 'react'
 import { Avatar, createStyles, Grid, IconButton, makeStyles, Typography } from '@material-ui/core'
-import { SiteMeta } from '../site.config'
-import { Categories } from './Categories'
+import { SiteMeta } from '../../site.config'
+import Categories from './Categories'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import EmailIcon from '@material-ui/icons/Email'
@@ -47,7 +47,7 @@ const Social = styled.div`
 type SideMenuProps = {
   handleClose?: () => void
 }
-export const SideMenuBar = ({ handleClose }: SideMenuProps) => {
+const SideMenuBar = ({ handleClose }: SideMenuProps) => {
   const classes = useStyles()
   const { profileImage, info } = SiteMeta
   const { github, email, author, descript } = info
@@ -99,3 +99,4 @@ export const SideMenuBar = ({ handleClose }: SideMenuProps) => {
     </>
   )
 }
+export default SideMenuBar

@@ -2,10 +2,10 @@ import React from 'react'
 import IconButton from '@material-ui/core/IconButton'
 import SearchIcon from '@material-ui/icons/Search'
 import MenuIcon from '@material-ui/icons/Menu'
-import { SideMenuBar } from './SideMenuBar'
+import SideMenuBar from './SideMenuBar'
 import { Drawer, Hidden } from '@material-ui/core'
 
-export const Header = () => {
+const Header = () => {
   const [isOpenMenu, setIsOpenMenu] = React.useState(false)
 
   const handleMenuPoper = () => {
@@ -42,3 +42,4 @@ export const Header = () => {
     </>
   )
 }
+export default Header

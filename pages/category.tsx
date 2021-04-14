@@ -1,9 +1,10 @@
 import React from 'react'
 import { useRouter } from 'next/dist/client/router'
-import { Layout, PostList } from '../components'
-import { getSortedPostsData, Post } from '../lib/posts'
 import styled, { PostHeaderTheme } from 'styled-components'
+import { getSortedPostsData, Post } from '../lib/posts'
 import { CategoryInfo } from '../site.config'
+import PostList from '../components/post/PostList'
+import Layout from '../components/common/Layout'
 
 const PostHeader = styled.div`
   background-size: cover;

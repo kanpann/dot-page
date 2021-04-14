@@ -1,9 +1,9 @@
 import React from 'react'
 import { Container, Grid, Hidden } from '@material-ui/core'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
-import { Logo } from './Logo'
-import { Header } from '.'
-import { SideMenuBar } from './SideMenuBar'
+import Logo from './Logo'
+import Header from './Header'
+import SideMenuBar from './SideMenuBar'
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -17,7 +17,7 @@ type LayoutProps = {
   children: JSX.Element[] | JSX.Element
   maxWidth?: false | 'lg' | 'xs' | 'sm' | 'md' | 'xl' | undefined
 }
-export const Layout = ({ children, maxWidth = 'md' }: LayoutProps) => {
+const Layout = ({ children, maxWidth = 'md' }: LayoutProps) => {
   const classes = useStyles()
   return (
     <Container
@@ -40,3 +40,4 @@ export const Layout = ({ children, maxWidth = 'md' }: LayoutProps) => {
     </Container>
   )
 }
+export default Layout
