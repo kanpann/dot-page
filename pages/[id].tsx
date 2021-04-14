@@ -5,6 +5,7 @@ import { Grid, Hidden, Typography } from '@material-ui/core'
 import { SideMenuBar } from '../components/SideMenuBar'
 import styled from 'styled-components'
 import 'highlight.js/styles/atom-one-dark.css'
+import { Comments } from '../components/Comments'
 
 const Content = styled.div`
   a {
@@ -38,6 +39,7 @@ export default function Post({ post }: PostProps) {
         <DateView date={date} />
         <hr />
         <Content dangerouslySetInnerHTML={{ __html: content }} />
+        <Comments />
       </Layout>
     </>
   )

@@ -12,6 +12,13 @@ module.exports = {
       github: 'https://github.com/kanpann',
       email: 'gunkim0318@gmail.com',
     },
+    gitalk: {
+      clientID: '950a9f1473b04652cbc0',
+      clientSecret: '6b42fe4d369ba3a4918c0b629b35115111fb33ac',
+      repo: 'blog-gitalk',
+      owner: 'kanpann',
+      admin: ['kanpann'],
+    },
   },
   Category: {
     개발환경: {
