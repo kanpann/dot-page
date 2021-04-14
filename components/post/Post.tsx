@@ -8,9 +8,9 @@ type PostProps = {
   title: string
   date: string
   image: string
-  content: string
+  excerpt: string
 }
-export const Post = ({ title, date, image, content }: PostProps) => {
+export const Post = ({ title, date, image, excerpt }: PostProps) => {
   return (
     <>
       <CardMedia
@@ -28,7 +28,7 @@ export const Post = ({ title, date, image, content }: PostProps) => {
           <DateView date={date} />
         </span>
         <Typography variant="body2" color="textSecondary" component="p">
-          {content}
+          {excerpt}
         </Typography>
       </CardContent>
     </>

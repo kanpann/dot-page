@@ -7,6 +7,7 @@ export interface Post {
   title: string
   category: string | ''
   content: string | ''
+  excerpt: string | ''
   date: string
   image: string
 }
@@ -30,7 +31,8 @@ const getPostByFileName = async (fileName: string): Promise<Post> => {
   return {
     id,
     title: title,
-    content: excerpt,
+    content: content,
+    excerpt: excerpt,
     category: category,
     date: date,
     image: image

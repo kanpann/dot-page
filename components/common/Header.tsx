@@ -1,23 +1,35 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import IconButton from '@material-ui/core/IconButton'
 import SearchIcon from '@material-ui/icons/Search'
 import MenuIcon from '@material-ui/icons/Menu'
 import SideMenuBar from './SideMenuBar'
 import { Drawer, Hidden } from '@material-ui/core'
+import styled from 'styled-components'
+
+const SearchItem = styled.input`
+  border: none;
+  font-size: 1rem;
+  &:focus {
+    outline: none;
+  }
+`
 
 const Header = () => {
-  const [isOpenMenu, setIsOpenMenu] = React.useState(false)
+  const [isOpenMenu, setIsOpenMenu] = useState(false)
+  const [isOpenSearch, setIsOpenSearch] = useState(false)
 
   const handleMenuPoper = () => {
     setIsOpenMenu(!isOpenMenu)
   }
-
+  const onKeyPress = (e: any) => {
+    if (e.key == 'Enter') {
+      const value = e.target.value
+      location.href = '/search?keyword=' + value
+    }
+  }
   return (
     <>
       <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
-      <IconButton aria-label="search" color="inherit">
-        <SearchIcon />
-      </IconButton>
       <Hidden mdUp>
         <IconButton
           onClick={handleMenuPoper}
@@ -28,6 +40,14 @@ const Header = () => {
           <MenuIcon />
         </IconButton>
       </Hidden>
+      <IconButton
+        aria-label="search"
+        color="inherit"
+        onClick={() => setIsOpenSearch(!isOpenSearch)}
+      >
+        <SearchIcon />
+      </IconButton>
+      {isOpenSearch && <SearchItem placeholder="검색어를 입력해주세요." onKeyPress={onKeyPress} />}
       <Drawer open={isOpenMenu}>
         <img
           style={{
