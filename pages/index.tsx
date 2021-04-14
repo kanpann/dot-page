@@ -44,6 +44,7 @@ export default function Home({ posts }: HomeProps) {
   const router = useRouter()
   const keyword = router.query.keyword as string
   const menu = router.query.menu as string
+  const topMenu = router.query.topMenu as string
 
   let printPosts
   if (keyword) {
@@ -66,7 +67,10 @@ export default function Home({ posts }: HomeProps) {
       <>
         <PostHeader image={categoryInfo.image}>
           <PostHeaderFrame>
-            <PostTitle>{menu}</PostTitle>
+            <PostTitle>
+              {topMenu && topMenu + '/' + menu}
+              {!topMenu && menu}
+            </PostTitle>
             <DateFrame>{categoryInfo.descript}</DateFrame>
           </PostHeaderFrame>
         </PostHeader>

@@ -46,7 +46,7 @@ const Categories = () => {
                 {isSub &&
                   subMenus.map((subMenu, index) => (
                     <Item key={index}>
-                      <Link href={`/?menu=${subMenu}`}>{subMenu}</Link>
+                      <Link href={`/?topMenu=${categoryName}&menu=${subMenu}`}>{subMenu}</Link>
                     </Item>
                   ))}
               </List>
