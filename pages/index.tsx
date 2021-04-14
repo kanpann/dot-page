@@ -34,6 +34,7 @@ const PostTitle = styled.div`
 const DateFrame = styled.div`
   font-size: 1.125em;
   color: #ffffffc2;
+  padding: 0px 30px;
 `
 
 type HomeProps = {

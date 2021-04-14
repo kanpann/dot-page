@@ -13,8 +13,7 @@ const Content = styled.div`
     font-weight: bold;
   }
   h1 {
-    border-left: 5px solid #99cfff;
-    padding-left: 10px;
+    border-bottom: 3px solid #dcdcdc;
   }
   p code {
     background: #dadada;
