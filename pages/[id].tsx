@@ -21,6 +21,10 @@ const Content = styled.div`
     padding: 0px 5px;
     font-weight: bold;
   }
+  pre {
+    padding: 15px;
+    border-radius: 10px;
+  }
 `
 
 type PostProps = {
