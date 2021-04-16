@@ -43,7 +43,9 @@ const Categories = () => {
         return (
           <List key={index}>
             <Item>
-              <Link href={`/?menu=${categoryName}`}>{categoryName}</Link>
+              <Link href={`/?menu=${categoryName}`}>
+                <a style={{ fontSize: '1.3rem' }}>{categoryName}</a>
+              </Link>
               <List>
                 {isSub &&
                   subMenus.map((subMenu, index) => (
