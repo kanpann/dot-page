@@ -8,6 +8,7 @@ export interface Post {
   category: string | ''
   content: string | ''
   excerpt: string | ''
+  tags: string[]
   date: string
   image: string
 }
@@ -15,7 +16,7 @@ const getPostByFileName = async (fileName: string): Promise<Post> => {
   const id: string = fileName.replace(/\.md$/, '')
 
   const postData: GrayMatterFile<string> = util.getPostData(fileName);
-  const { title, date, image, category } = postData.data
+  const { title, date, image, category, tags } = postData.data
 
   //Markdown 파일 전체 내용
   const content = postData.content
@@ -33,6 +34,7 @@ const getPostByFileName = async (fileName: string): Promise<Post> => {
     title: title,
     content: content,
     excerpt: excerpt,
+    tags: tags !== undefined ? tags : [],
     category: category,
     date: date,
     image: image
@@ -65,14 +67,16 @@ export const getAllPostIds = () => {
 export const getPostData = async (id: string): Promise<Post> => {
   const fileName: string = `${id}.md`
 
-  const { title, date, image } = util.getPostData(fileName).data
+  const { title, date, image, tags } = util.getPostData(fileName).data
   const content: string = util.getPostData(fileName).content
   const contentHtml: string = await util.getContents(content)
+ 
   return {
     id,
     content: contentHtml,
     excerpt: '',
     category: '',
+    tags: tags !== undefined ? tags : [],
     title: title,
     date: date,
     image: image

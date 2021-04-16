@@ -27,6 +27,16 @@ const Header = () => {
       location.href = '/?keyword=' + value
     }
   }
+  const toggleDrawer = () => (event: React.KeyboardEvent | React.MouseEvent) => {
+    if (
+      event.type === 'keydown' &&
+      ((event as React.KeyboardEvent).key === 'Tab' ||
+        (event as React.KeyboardEvent).key === 'Shift')
+    ) {
+      return
+    }
+    setIsOpenMenu(!isOpenMenu)
+  }
   return (
     <>
       <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
@@ -48,7 +58,7 @@ const Header = () => {
         <SearchIcon />
       </IconButton>
       {isOpenSearch && <SearchItem placeholder="검색어를 입력해주세요." onKeyPress={onKeyPress} />}
-      <Drawer open={isOpenMenu}>
+      <Drawer open={isOpenMenu} anchor="left" onClose={toggleDrawer()}>
         <img
           style={{
             margin: '0 auto',

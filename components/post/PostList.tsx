@@ -28,10 +28,10 @@ const PostList = ({ posts }: PostListProps) => {
   const classes = useStyles()
   return (
     <Grid container item direction="row" justify="center" alignItems="flex-start">
-      {posts.map(({ id, date, title, image, excerpt }) => (
+      {posts.map(({ id, date, title, image, excerpt, tags }) => (
         <Grid item key={id}>
           <Link href={id} className={classes.link}>
-            <Post title={title} date={date} image={image} excerpt={excerpt} />
+            <Post title={title} date={date} image={image} excerpt={excerpt} tags={tags} />
           </Link>
         </Grid>
       ))}

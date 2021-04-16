@@ -3,14 +3,22 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 import DateView from './DateView'
+import { Chip } from '@material-ui/core'
+import styled from 'styled-components'
+
+const TagFrame = styled.div`
+  margin-top: 5px;
+  margin-bottom: 10px;
+`
 
 type PostProps = {
   title: string
   date: string
   image: string
+  tags: string[]
   excerpt: string
 }
-export const Post = ({ title, date, image, excerpt }: PostProps) => {
+export const Post = ({ title, date, image, excerpt, tags }: PostProps) => {
   return (
     <>
       <CardMedia
@@ -24,6 +32,19 @@ export const Post = ({ title, date, image, excerpt }: PostProps) => {
         <Typography gutterBottom variant="h5" component="h2" style={{ fontFamily: 'nanumSquare' }}>
           {title}
         </Typography>
+        <TagFrame>
+          {tags.map((tag) => (
+            <Chip
+              key={tag}
+              style={{ marginRight: '5px' }}
+              label={tag}
+              component="a"
+              href="#chip"
+              clickable
+              color="primary"
+            />
+          ))}
+        </TagFrame>
         <span>
           <DateView date={date} />
         </span>
