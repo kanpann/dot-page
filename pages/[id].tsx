@@ -39,7 +39,7 @@ export default function Post({ post }: PostProps) {
   return (
     <>
       <Layout>
-        <Typography variant="h3" style={{ fontFamily: 'nanumSquare' }}>
+        <Typography variant="h3" style={{ fontFamily: 'nanumSquare', wordBreak: 'break-all' }}>
           {title}
         </Typography>
         <TagFrame>
