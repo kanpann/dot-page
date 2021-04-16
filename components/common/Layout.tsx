@@ -17,7 +17,7 @@ type LayoutProps = {
   children: JSX.Element[] | JSX.Element
   maxWidth?: false | 'lg' | 'xs' | 'sm' | 'md' | 'xl' | undefined
 }
-const Layout = ({ children, maxWidth = 'md' }: LayoutProps) => {
+const Layout = ({ children, maxWidth = 'lg' }: LayoutProps) => {
   const classes = useStyles()
   return (
     <Container
