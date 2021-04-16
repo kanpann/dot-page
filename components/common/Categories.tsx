@@ -6,11 +6,13 @@ import Link from 'next/link'
 const List = styled.ul`
   list-style: none;
   padding: 0px;
+  font-family: 'nanumSquare';
 `
 const Item = styled.li`
   padding-top: 5px;
   padding-left: 20px;
-
+  margin-top: 10px;
+  font-weight: bold;
   a {
     color: black;
     &:link {
