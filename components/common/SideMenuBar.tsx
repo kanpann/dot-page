@@ -39,7 +39,6 @@ const InfoFrame = styled.div`
 const Contents = styled.p`
   width: 80%;
   margin: 0 auto;
-  line-height: 30px;
 `
 const Social = styled.div`
   cursor: pointer;

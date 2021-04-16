@@ -10,6 +10,7 @@ body {
   margin: 0px;
   background-color: #8ed4c7;
   font-family: 'nanumBarunGothic';
+  line-height: 30px;
 }
 img {
   max-width: 100%;
