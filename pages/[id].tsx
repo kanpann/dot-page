@@ -15,6 +15,9 @@ const Content = styled.div`
   }
   h1 {
     border-bottom: 3px solid #dcdcdc;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 40px;
   }
   p code {
     background: #dadada;
