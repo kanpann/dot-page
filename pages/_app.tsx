@@ -2,6 +2,7 @@ import '../styles/global.css'
 import NextApp from 'next/app'
 import React from 'react'
 import { DefaultTheme, ThemeProvider } from 'styled-components'
+import TopScrollBtn from '../components/common/TopScrollBtn'
 
 const theme: DefaultTheme = {
   primary: 'green',
@@ -17,6 +18,7 @@ export default class App extends NextApp {
     return (
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
+        <TopScrollBtn />
       </ThemeProvider>
     )
   }
