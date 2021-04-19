@@ -7,6 +7,7 @@ const List = styled.ul`
   list-style: none;
   padding: 0px;
   font-family: 'nanumSquare';
+  margin: 0px;
 `
 const Item = styled.li`
   padding-top: 5px;
@@ -14,7 +15,7 @@ const Item = styled.li`
   margin-top: 10px;
   font-weight: bold;
   a {
-    color: black;
+    color: ${(props) => (props.color ? props.color : 'black')};
     &:link {
       text-decoration: none;
     }
@@ -41,7 +42,7 @@ const Categories = () => {
           subMenus = Category[categoryName]['sub']
         }
         return (
-          <List key={index}>
+          <List key={index} style={{ width: '85%', float: 'right' }}>
             <Item>
               <Link href={`/?menu=${categoryName}`}>
                 <a style={{ fontSize: '1.3rem' }}>{categoryName}</a>
@@ -49,7 +50,7 @@ const Categories = () => {
               <List>
                 {isSub &&
                   subMenus.map((subMenu, index) => (
-                    <Item key={index}>
+                    <Item key={index} color="#808080">
                       <Link href={`/?topMenu=${categoryName}&menu=${subMenu}`}>{subMenu}</Link>
                     </Item>
                   ))}

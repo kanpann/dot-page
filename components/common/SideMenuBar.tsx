@@ -29,6 +29,9 @@ const useStyles = makeStyles(() =>
     category: {
       marginTop: '30px',
       textAlign: 'center',
+      fontWeight: 300,
+      borderBottom: '1px solid black',
+      paddingBottom: '10px',
     },
   }),
 )
@@ -43,6 +46,9 @@ const Contents = styled.p`
 const Social = styled.div`
   cursor: pointer;
   margin-top: 20px;
+  span {
+    margin: 10px;
+  }
 `
 
 type SideMenuProps = {
@@ -69,27 +75,31 @@ const SideMenuBar = ({ handleClose }: SideMenuProps) => {
             <Social>
               {github && (
                 <Link href={github}>
-                  <GitHubIcon />
+                  <span>
+                    <GitHubIcon />
+                  </span>
                 </Link>
               )}
               {email && (
                 <Link href={`mailto:${email}`}>
-                  <EmailIcon />
+                  <span>
+                    <EmailIcon />
+                  </span>
                 </Link>
               )}
               <Link href="/feed.xml">
-                <RssFeedIcon />
+                <span>
+                  <RssFeedIcon />
+                </span>
               </Link>
             </Social>
           </InfoFrame>
         </Grid>
-        <Grid>
-          <Typography variant="h4" className={classes.category}>
-            카테고리
+        <Grid style={{ width: '80%' }}>
+          <Typography variant="h5" className={classes.category}>
+            Categories
           </Typography>
-          <hr />
           <Categories />
-          <hr />
         </Grid>
       </Grid>
       {handleClose && (
