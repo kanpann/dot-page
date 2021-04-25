@@ -36,16 +36,25 @@ const useStyles = makeStyles(() =>
   }),
 )
 
+const Name = styled.div`
+  color: ${(props) => props.theme.color.title};
+  font-size: 1.5rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+`
 const InfoFrame = styled.div`
   text-align: center;
+  color: ${(props) => props.theme.color.font};
 `
 const Contents = styled.p`
   width: 80%;
   margin: 0 auto;
+  text-shadow: 5px 5px 10px #656565;
 `
 const Social = styled.div`
   cursor: pointer;
   margin-top: 20px;
+  color: ${(props) => props.theme.color.title};
   span {
     margin: 10px;
   }
@@ -70,7 +79,7 @@ const SideMenuBar = ({ handleClose }: SideMenuProps) => {
         <Grid>
           <InfoFrame>
             <Avatar src={profileImage} className={classes.image} />
-            <Typography variant="h5">{author}</Typography>
+            <Name>{author}</Name>
             <Contents>{descript}</Contents>
             <Social>
               {github && (

@@ -13,7 +13,6 @@ const SearchItem = styled.input`
     outline: none;
   }
 `
-
 const Header = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [isOpenSearch, setIsOpenSearch] = useState(false)

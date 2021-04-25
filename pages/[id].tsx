@@ -7,7 +7,14 @@ import 'highlight.js/styles/atom-one-dark.css'
 import Comments from '../components/post/Comments'
 import Layout from '../components/common/Layout'
 
+const Title = styled.h3`
+  font-size: 3rem;
+  font-family: nanumSquare;
+  word-break: break-all;
+  color: ${(props) => props.theme.color.title};
+`
 const Content = styled.div`
+  color: ${(props) => props.theme.color.font};
   a {
     text-decoration: none;
     color: #3535f7;
@@ -18,6 +25,7 @@ const Content = styled.div`
     padding-bottom: 10px;
     padding-top: 10px;
     margin-bottom: 40px;
+    color: ${(props) => props.theme.color.title};
   }
   p code {
     background: #dadada;
@@ -42,9 +50,8 @@ export default function Post({ post }: PostProps) {
   return (
     <>
       <Layout>
-        <Typography variant="h3" style={{ fontFamily: 'nanumSquare', wordBreak: 'break-all' }}>
-          {title}
-        </Typography>
+        <DateView date={date} />
+        <Title>{title}</Title>
         <TagFrame>
           {tags.map((tag) => (
             <Chip
@@ -58,7 +65,6 @@ export default function Post({ post }: PostProps) {
             />
           ))}
         </TagFrame>
-        <DateView date={date} />
         <hr />
         <Content dangerouslySetInnerHTML={{ __html: content }} />
         <Comments />

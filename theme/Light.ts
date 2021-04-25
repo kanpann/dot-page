@@ -2,8 +2,8 @@ export default {
     color: {
         background: '#8ed4c7',
         font: '',
-        a: '',
+        a: 'black',
         title: '',
-        box: ''
+        box: 'white'
     }
   }

@@ -1,11 +1,14 @@
-import '../styles/global.css'
+import '../theme/fonts.css'
 import NextApp from 'next/app'
-import React from 'react'
+import React, { useState } from 'react'
 import { DefaultTheme, ThemeProvider } from 'styled-components'
 import TopScrollBtn from '../components/common/TopScrollBtn'
+import { darkTheme, defaultTheme, Theme } from '../theme/Theme'
+import GlobalTheme from '../theme/Global'
 
-const theme: DefaultTheme = {
-  primary: 'green',
+const themes = {
+  default: defaultTheme,
+  dark: darkTheme,
 }
 export default class App extends NextApp {
   // remove it here
@@ -15,8 +18,10 @@ export default class App extends NextApp {
   }
   render() {
     const { Component, pageProps } = this.props
+
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={themes['dark']}>
+        <GlobalTheme />
         <Component {...pageProps} />
         <TopScrollBtn />
       </ThemeProvider>

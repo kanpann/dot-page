@@ -20,45 +20,38 @@ type PostProps = {
 }
 export const Post = ({ title, date, image, excerpt, tags }: PostProps) => {
   return (
-    <>
-      <Card>
-        <CardMedia
-          component="img"
-          alt="Contemplative Reptile"
-          height="200"
-          image={image}
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="h2"
-            style={{ fontFamily: 'nanumSquare' }}
-          >
-            {title}
-          </Typography>
-          <TagFrame>
-            {tags.map((tag) => (
-              <Chip
-                key={tag}
-                style={{ marginRight: '5px' }}
-                label={tag}
-                component="a"
-                href="#chip"
-                clickable
-                color="primary"
-              />
-            ))}
-          </TagFrame>
-          <span>
-            <DateView date={date} />
-          </span>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {excerpt}
-          </Typography>
-        </CardContent>
-      </Card>
-    </>
+    <Card style={{ backgroundColor: 'gray', color: 'white' }}>
+      <CardMedia
+        component="img"
+        alt="Contemplative Reptile"
+        height="200"
+        image={image}
+        title="Contemplative Reptile"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="h2" style={{ fontFamily: 'nanumSquare' }}>
+          {title}
+        </Typography>
+        <TagFrame>
+          {tags.map((tag) => (
+            <Chip
+              key={tag}
+              style={{ marginRight: '5px' }}
+              label={tag}
+              component="a"
+              href="#chip"
+              clickable
+              color="primary"
+            />
+          ))}
+        </TagFrame>
+        <span>
+          <DateView date={date} />
+        </span>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {excerpt}
+        </Typography>
+      </CardContent>
+    </Card>
   )
 }

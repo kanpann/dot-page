@@ -20,6 +20,9 @@ function printElapsedDate(date: string): string {
 
 const Time = styled.div`
   font-size: larger;
+  text-align: center;
+  color: #7d7d7d;
+  margin-bottom: 15px;
 `
 
 type DateProps = {
