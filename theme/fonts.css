@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'sunspots';
+  src: url('../public/fonts/sunspots.ttf');
+}
+@font-face {
+  font-family: 'nanumSquare';
+  src: url('../public/fonts/NanumSquare.ttf');
+}
+@font-face {
+  font-family: 'nanumBarunGothic';
+  src: url('../public/fonts/NanumBarunGothic.ttf');
+}

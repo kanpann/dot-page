@@ -1,14 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
 const lightTheme = createGlobalStyle`
-  @font-face {
-    font-family: 'nanumSquare';
-    src: url('../public/fonts/NanumSquare.ttf');
-  }
-  @font-face {
-    font-family: 'nanumBarunGothic';
-    src: url('../public/fonts/NanumBarunGothic.ttf');
-  }
   body {
     margin: 0px;
     background-color: ${props => props.theme.color.background};
