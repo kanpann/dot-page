@@ -20,7 +20,7 @@ export default class App extends NextApp {
     const { Component, pageProps } = this.props
 
     return (
-      <ThemeProvider theme={themes['dark']}>
+      <ThemeProvider theme={themes['default']}>
         <GlobalTheme />
         <Component {...pageProps} />
         <TopScrollBtn />

@@ -10,6 +10,8 @@ import Layout from '../components/common/Layout'
 const Title = styled.h3`
   font-size: 3rem;
   font-family: nanumSquare;
+  line-height: 70px;
+  margin: 0px;
   word-break: break-all;
   color: ${(props) => props.theme.color.title};
 `
