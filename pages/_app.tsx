@@ -6,6 +6,7 @@ import GlobalTheme from '../theme/Global'
 import { StylesProvider, ThemeProvider as MuiThemeProvider } from '@material-ui/styles'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { LightTheme, DarkTheme } from '../theme/theme'
+import ThemeProvider from '../components/style/ThemeProvider'
 
 const themes = {
   light: LightTheme,
@@ -20,17 +21,13 @@ export default class App extends NextApp {
   render() {
     const { Component, pageProps } = this.props
 
-    const nowTheme = themes['light']
+    const nowTheme = themes['dark']
     return (
-      <StylesProvider injectFirst>
-        <StyledThemeProvider theme={nowTheme}>
-          <MuiThemeProvider theme={nowTheme}>
-            <GlobalTheme />
-            <Component {...pageProps} />
-            <TopScrollBtn />
-          </MuiThemeProvider>
-        </StyledThemeProvider>
-      </StylesProvider>
+      <ThemeProvider theme={nowTheme}>
+        <GlobalTheme />
+        <Component {...pageProps} />
+        <TopScrollBtn />
+      </ThemeProvider>
     )
   }
 }
