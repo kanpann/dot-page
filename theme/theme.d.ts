@@ -8,6 +8,7 @@ declare module 'styled-components' {
       a: string;
       title: string;
       box: string;
+      card: string;
     }
   }
 }

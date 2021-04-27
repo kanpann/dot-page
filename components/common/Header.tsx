@@ -15,6 +15,10 @@ const MySearchIcon = styled(withTheme(SearchIcon))((props) => ({
 const MyMenuIcon = styled(withTheme(MenuIcon))((props) => ({
   color: props.theme.app.title,
 }))
+const MyThemeIcon = styled(withTheme(IconButton))((props) => ({
+  float: 'right',
+  color: props.theme.app.title,
+}))
 const SearchItem = styled.input`
   border: none;
   font-size: 1rem;
@@ -67,15 +71,14 @@ const Header = () => {
       >
         <MySearchIcon />
       </IconButton>
-      <IconButton
+      <MyThemeIcon
         onClick={handleMenuPoper}
         aria-label="display more actions"
         edge="end"
         color="inherit"
-        style={{ float: 'right' }}
       >
-        <MoonIcon style={{ color: 'white' }} />
-      </IconButton>
+        <MoonIcon />
+      </MyThemeIcon>
       {isOpenSearch && <SearchItem placeholder="검색어를 입력해주세요." onKeyPress={onKeyPress} />}
       <Drawer open={isOpenMenu} anchor="left" onClose={toggleDrawer()}>
         <Logo />

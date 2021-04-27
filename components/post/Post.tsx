@@ -11,7 +11,7 @@ const TagFrame = styled.div`
   margin-bottom: 10px;
 `
 const MyCard = styled(withTheme(Card))((props) => ({
-  backgroundColor: props.theme.app.box,
+  backgroundColor: props.theme.app.card,
 }))
 const MyTitle = styled(withTheme(Typography))((props) => ({
   color: props.theme.app.title,

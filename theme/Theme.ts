@@ -24,7 +24,8 @@ export const LightTheme = {
     font: 'black',
     a: 'black',
     title: 'black',
-    box: 'white'
+    box: 'white',
+    card: 'white'
   },
 }
 export const DarkTheme = {
@@ -34,7 +35,8 @@ export const DarkTheme = {
     font: '#ababab',
     a: '',
     title: 'white',
-    box: '#0a0f1b'
+    box: '#0a0f1b',
+    card: '#011931'
   },
 }
 
