@@ -1,9 +1,20 @@
-import baseStyled, { ThemedStyledInterface } from 'styled-components';
-import Light from './Light';
-import Dark from './Dark';
-
-export const defaultTheme = Light;
-export const darkTheme = Dark;
-
-export type Theme = typeof defaultTheme;
-export const styled = baseStyled as ThemedStyledInterface<Theme>;
+import { createMuiTheme, Theme as MuiTheme } from '@material-ui/core/styles';
+const muiTheme: MuiTheme = createMuiTheme({
+  palette: {
+    type: 'dark',
+    primary: {
+      main: '#222232',
+    },
+  },
+});
+export const theme = {
+  ...muiTheme,
+  app: {
+    background: '#011931',
+    font: '#ababab',
+    a: '',
+    title: 'white',
+    box: '#0a0f1b'
+  },
+};
+export type Theme = typeof theme;
