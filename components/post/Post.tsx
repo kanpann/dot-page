@@ -11,7 +11,7 @@ const TagFrame = styled.div`
   margin-bottom: 10px;
 `
 const MyCard = styled(withTheme(Card))((props) => ({
-  backgroundColor: props.theme.app.background,
+  backgroundColor: props.theme.app.box,
 }))
 const MyTitle = styled(withTheme(Typography))((props) => ({
   color: props.theme.app.title,
@@ -36,7 +36,7 @@ export const Post = ({ title, date, image, excerpt, tags }: PostProps) => {
         title="Contemplative Reptile"
       />
       <CardContent>
-        <MyTitle gutterBottom variant="h5" component="h2">
+        <MyTitle gutterBottom variant="h5">
           {title}
         </MyTitle>
         <TagFrame>
