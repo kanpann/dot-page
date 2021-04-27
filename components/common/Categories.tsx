@@ -15,7 +15,7 @@ const Item = styled.li`
   margin-top: 10px;
   font-weight: bold;
   a {
-    color: ${(props) => (props.color ? props.color : props.theme.color.title)};
+    color: ${(props) => (props.color ? props.color : props.theme.app.title)};
     &:link {
       text-decoration: none;
     }

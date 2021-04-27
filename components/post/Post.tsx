@@ -3,13 +3,20 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 import DateView from './DateView'
-import { Card, Chip } from '@material-ui/core'
+import { Card, Chip, withTheme } from '@material-ui/core'
 import styled from 'styled-components'
 
 const TagFrame = styled.div`
   margin-top: 5px;
   margin-bottom: 10px;
 `
+const MyCard = styled(withTheme(Card))((props) => ({
+  backgroundColor: props.theme.app.background,
+}))
+const MyTitle = styled(withTheme(Typography))((props) => ({
+  color: props.theme.app.title,
+  fontFamily: 'nanumSquare',
+}))
 
 type PostProps = {
   title: string
@@ -20,7 +27,7 @@ type PostProps = {
 }
 export const Post = ({ title, date, image, excerpt, tags }: PostProps) => {
   return (
-    <Card style={{ backgroundColor: 'gray', color: 'white' }}>
+    <MyCard>
       <CardMedia
         component="img"
         alt="Contemplative Reptile"
@@ -29,9 +36,9 @@ export const Post = ({ title, date, image, excerpt, tags }: PostProps) => {
         title="Contemplative Reptile"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="h2" style={{ fontFamily: 'nanumSquare' }}>
+        <MyTitle gutterBottom variant="h5" component="h2">
           {title}
-        </Typography>
+        </MyTitle>
         <TagFrame>
           {tags.map((tag) => (
             <Chip
@@ -52,6 +59,6 @@ export const Post = ({ title, date, image, excerpt, tags }: PostProps) => {
           {excerpt}
         </Typography>
       </CardContent>
-    </Card>
+    </MyCard>
   )
 }

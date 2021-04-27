@@ -11,12 +11,12 @@ const CustomLogo = styled.div`
   font-size: 6rem;
   text-align: center;
   padding: 50px 10px;
-  color: ${(props) => props.theme.color.title};
   -ms-user-select: none;
   -moz-user-select: -moz-none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   user-select: none;
+  color: ${(props) => props.theme.app.title};
 `
 
 const Logo = () => {

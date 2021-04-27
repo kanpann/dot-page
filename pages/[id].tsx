@@ -13,10 +13,10 @@ const Title = styled.h3`
   line-height: 70px;
   margin: 0px;
   word-break: break-all;
-  color: ${(props) => props.theme.color.title};
+  color: ${(props) => props.theme.app.title};
 `
 const Content = styled.div`
-  color: ${(props) => props.theme.color.font};
+  color: ${(props) => props.theme.app.font};
   a {
     text-decoration: none;
     color: #3535f7;
@@ -27,7 +27,7 @@ const Content = styled.div`
     padding-bottom: 10px;
     padding-top: 10px;
     margin-bottom: 40px;
-    color: ${(props) => props.theme.color.title};
+    color: ${(props) => props.theme.app.title};
   }
   p code {
     background: #dadada;

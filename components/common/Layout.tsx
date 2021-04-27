@@ -3,12 +3,12 @@ import { Container, Grid, Hidden } from '@material-ui/core'
 import Logo from './Logo'
 import Header from './Header'
 import SideMenuBar from './SideMenuBar'
+import { withTheme } from '@material-ui/core'
 import styled from 'styled-components'
 
-const Box = styled.div`
-  background-color: ${(props) => props.theme.color.box};
-  padding: 20px;
-`
+const MyContainer = styled(withTheme(Container))((props) => ({
+  backgroundColor: props.theme.app.box,
+}))
 
 type LayoutProps = {
   children: JSX.Element[] | JSX.Element
@@ -16,22 +16,20 @@ type LayoutProps = {
 }
 const Layout = ({ children, maxWidth = 'lg' }: LayoutProps) => {
   return (
-    <Container maxWidth={maxWidth}>
-      <Box>
-        <Header />
-        <Logo />
-        <Grid container direction="row" justify="center" alignItems="flex-start">
-          <Hidden smDown>
-            <Grid item sm={3}>
-              <SideMenuBar />
-            </Grid>
-          </Hidden>
-          <Grid item xs={12} sm={9}>
-            {children}
+    <MyContainer maxWidth={maxWidth}>
+      <Header />
+      <Logo />
+      <Grid container direction="row" justify="center" alignItems="flex-start">
+        <Hidden smDown>
+          <Grid item sm={3}>
+            <SideMenuBar />
           </Grid>
+        </Hidden>
+        <Grid item xs={12} sm={9}>
+          {children}
         </Grid>
-      </Box>
-    </Container>
+      </Grid>
+    </MyContainer>
   )
 }
 export default Layout

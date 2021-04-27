@@ -3,19 +3,29 @@ import loadable from '@loadable/component'
 const GitalkComponent = loadable(() => import('gitalk/dist/gitalk-component'))
 import 'gitalk/dist/gitalk.css'
 import { SiteMeta } from '../../site.config'
+import { createGlobalStyle } from 'styled-components'
+
+const Style = createGlobalStyle`
+  p {
+    color: ${(props) => props.theme.app.title}
+  }
+`
 
 const Comments = () => {
   const { clientID, clientSecret, repo, owner, admin } = SiteMeta.gitalk
   return (
-    <GitalkComponent
-      options={{
-        clientID: clientID,
-        clientSecret: clientSecret,
-        repo: repo,
-        owner: owner,
-        admin: admin,
-      }}
-    />
+    <>
+      <Style />
+      <GitalkComponent
+        options={{
+          clientID: clientID,
+          clientSecret: clientSecret,
+          repo: repo,
+          owner: owner,
+          admin: admin,
+        }}
+      />
+    </>
   )
 }
 export default Comments

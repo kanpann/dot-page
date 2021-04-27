@@ -3,15 +3,24 @@ import IconButton from '@material-ui/core/IconButton'
 import SearchIcon from '@material-ui/icons/Search'
 import MenuIcon from '@material-ui/icons/Menu'
 import SideMenuBar from './SideMenuBar'
-import { Drawer, Hidden } from '@material-ui/core'
+import { Drawer, Hidden, withTheme } from '@material-ui/core'
 import styled from 'styled-components'
+import Logo from './Logo'
 
+const MySearchIcon = styled(withTheme(SearchIcon))((props) => ({
+  color: props.theme.app.title,
+}))
+const MyMenuIcon = styled(withTheme(MenuIcon))((props) => ({
+  color: props.theme.app.title,
+}))
 const SearchItem = styled.input`
   border: none;
   font-size: 1rem;
   &:focus {
     outline: none;
   }
+  background: none;
+  color: ${(props) => props.theme.app.title};
 `
 const Header = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
@@ -46,7 +55,7 @@ const Header = () => {
           edge="end"
           color="inherit"
         >
-          <MenuIcon />
+          <MyMenuIcon />
         </IconButton>
       </Hidden>
       <IconButton
@@ -54,18 +63,11 @@ const Header = () => {
         color="inherit"
         onClick={() => setIsOpenSearch(!isOpenSearch)}
       >
-        <SearchIcon />
+        <MySearchIcon />
       </IconButton>
       {isOpenSearch && <SearchItem placeholder="검색어를 입력해주세요." onKeyPress={onKeyPress} />}
       <Drawer open={isOpenMenu} anchor="left" onClose={toggleDrawer()}>
-        <img
-          style={{
-            margin: '0 auto',
-            maxWidth: '200px',
-            padding: '30px',
-          }}
-          src="/images/logo.png"
-        />
+        <Logo />
         <SideMenuBar handleClose={handleMenuPoper} />
       </Drawer>
     </>
