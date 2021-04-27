@@ -6,6 +6,8 @@ import SideMenuBar from './SideMenuBar'
 import { Drawer, Hidden, withTheme } from '@material-ui/core'
 import styled from 'styled-components'
 import Logo from './Logo'
+import SunIcon from '@material-ui/icons/BrightnessLow'
+import MoonIcon from '@material-ui/icons/Brightness2'
 
 const MySearchIcon = styled(withTheme(SearchIcon))((props) => ({
   color: props.theme.app.title,
@@ -64,6 +66,15 @@ const Header = () => {
         onClick={() => setIsOpenSearch(!isOpenSearch)}
       >
         <MySearchIcon />
+      </IconButton>
+      <IconButton
+        onClick={handleMenuPoper}
+        aria-label="display more actions"
+        edge="end"
+        color="inherit"
+        style={{ float: 'right' }}
+      >
+        <MoonIcon style={{ color: 'white' }} />
       </IconButton>
       {isOpenSearch && <SearchItem placeholder="검색어를 입력해주세요." onKeyPress={onKeyPress} />}
       <Drawer open={isOpenMenu} anchor="left" onClose={toggleDrawer()}>
