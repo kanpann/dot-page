@@ -3,9 +3,7 @@ import NextApp from 'next/app'
 import React from 'react'
 import TopScrollBtn from '../components/common/TopScrollBtn'
 import GlobalTheme from '../theme/Global'
-import { StylesProvider, ThemeProvider as MuiThemeProvider } from '@material-ui/styles'
-import { ThemeProvider as StyledThemeProvider } from 'styled-components'
-import { LightTheme, DarkTheme } from '../theme/theme'
+import { LightTheme, DarkTheme } from '../theme/Theme'
 import ThemeProvider from '../components/style/ThemeProvider'
 
 const themes = {
