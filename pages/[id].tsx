@@ -34,6 +34,9 @@ const Content = styled.div`
     padding: 0px 5px;
     font-weight: bold;
   }
+  img {
+    background: white;
+  }
   pre {
     padding: 15px;
     border-radius: 10px;

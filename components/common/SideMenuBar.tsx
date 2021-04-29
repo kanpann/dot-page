@@ -22,6 +22,7 @@ const CategoryName = styled(withTheme(Typography))((props) => ({
   fontWeight: 300,
   borderBottom: '1px solid ' + props.theme.app.title,
   paddingBottom: '10px',
+  color: '1px solid ' + props.theme.app.title,
 }))
 const MyAvatar = styled(withTheme(Avatar))({
   width: '150px',
