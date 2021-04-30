@@ -7,24 +7,26 @@ import GitHubIcon from '@material-ui/icons/GitHub'
 import EmailIcon from '@material-ui/icons/Email'
 import RssFeedIcon from '@material-ui/icons/RssFeed'
 import Link from 'next/link'
+import { styled as muiStyled } from '@material-ui/core/styles';
 import styled from 'styled-components'
+import { DefaultTheme } from '../../theme/Theme'
 
-const BackButton = styled(withTheme(IconButton))({
+const BackButton = muiStyled(withTheme(IconButton))({
   position: 'fixed',
   bottom: '0',
   padding: '20px',
   width: '20px',
   height: '20px',
 })
-const CategoryName = styled(withTheme(Typography))((props) => ({
+const CategoryName = muiStyled(withTheme(Typography))((props: DefaultTheme) => ({
   marginTop: '30px',
   textAlign: 'center',
   fontWeight: 300,
-  borderBottom: '1px solid ' + props.theme.app.title,
   paddingBottom: '10px',
+  borderBottom: '1px solid ' + props.theme.app.title,
   color: '1px solid ' + props.theme.app.title,
 }))
-const MyAvatar = styled(withTheme(Avatar))({
+const MyAvatar = muiStyled(withTheme(Avatar))({
   width: '150px',
   height: '150px',
   margin: '0 auto',
@@ -33,11 +35,11 @@ const Name = styled.div`
   font-size: 1.5rem;
   padding-top: 10px;
   padding-bottom: 10px;
-  color: ${(props) => props.theme.app.title};
+  color: ${(props: DefaultTheme) => props.theme.app.title};
 `
 const InfoFrame = styled.div`
   text-align: center;
-  color: ${(props) => props.theme.app.font};
+  color: ${(props: DefaultTheme) => props.theme.app.font};
 `
 const Contents = styled.p`
   width: 80%;
@@ -47,7 +49,7 @@ const Contents = styled.p`
 const Social = styled.div`
   cursor: pointer;
   margin-top: 20px;
-  color: ${(props) => props.theme.app.title};
+  color: ${(props: DefaultTheme) => props.theme.app.title};
   span {
     margin: 10px;
   }

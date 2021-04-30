@@ -5,17 +5,19 @@ import MenuIcon from '@material-ui/icons/Menu'
 import SideMenuBar from './SideMenuBar'
 import { Drawer, Hidden, withTheme } from '@material-ui/core'
 import styled from 'styled-components'
+import { styled as muiStyled } from '@material-ui/core/styles';
 import Logo from './Logo'
 import SunIcon from '@material-ui/icons/BrightnessLow'
 import MoonIcon from '@material-ui/icons/Brightness2'
+import { DefaultTheme } from '../../theme/Theme'
 
-const MySearchIcon = styled(withTheme(SearchIcon))((props) => ({
+const MySearchIcon = muiStyled(withTheme(SearchIcon))((props: DefaultTheme) => ({
   color: props.theme.app.title,
 }))
-const MyMenuIcon = styled(withTheme(MenuIcon))((props) => ({
+const MyMenuIcon = muiStyled(withTheme(MenuIcon))((props: DefaultTheme) => ({
   color: props.theme.app.title,
 }))
-const MyThemeIcon = styled(withTheme(IconButton))((props) => ({
+const MyThemeIcon = muiStyled(withTheme(IconButton))((props: DefaultTheme) => ({
   float: 'right',
   color: props.theme.app.title,
 }))
@@ -26,7 +28,7 @@ const SearchItem = styled.input`
     outline: none;
   }
   background: none;
-  color: ${(props) => props.theme.app.title};
+  color: ${(props: DefaultTheme) => props.theme.app.title};
 `
 const Header = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)

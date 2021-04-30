@@ -2,6 +2,7 @@
 import { Category } from '../../site.config'
 import styled from 'styled-components'
 import Link from 'next/link'
+import { DefaultTheme } from '../../theme/Theme'
 
 const List = styled.ul`
   list-style: none;
@@ -15,7 +16,7 @@ const Item = styled.li`
   margin-top: 10px;
   font-weight: bold;
   a {
-    color: ${(props) => (props.color ? props.color : props.theme.app.title)};
+    color: ${(props: DefaultTheme) => props.theme.app.title};
     &:link {
       text-decoration: none;
     }
@@ -50,7 +51,7 @@ const Categories = () => {
               <List>
                 {isSub &&
                   subMenus.map((subMenu, index) => (
-                    <Item key={index} color="#808080">
+                    <Item key={index}>
                       <Link href={`/?topMenu=${categoryName}&menu=${subMenu}`}>{subMenu}</Link>
                     </Item>
                   ))}

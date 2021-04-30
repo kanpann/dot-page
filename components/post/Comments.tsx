@@ -4,10 +4,11 @@ const GitalkComponent = loadable(() => import('gitalk/dist/gitalk-component'))
 import 'gitalk/dist/gitalk.css'
 import { SiteMeta } from '../../site.config'
 import { createGlobalStyle } from 'styled-components'
+import { DefaultTheme } from '../../theme/Theme'
 
 const Style = createGlobalStyle`
   p {
-    color: ${(props) => props.theme.app.title}
+    color: ${(props: DefaultTheme) => props.theme.app.title}
   }
 `
 

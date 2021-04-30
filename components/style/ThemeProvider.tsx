@@ -1,10 +1,9 @@
 import React from 'react'
 import { StylesProvider, ThemeProvider as MuiThemeProvider } from '@material-ui/styles'
-import { ThemeProvider as StyledThemeProvider } from 'styled-components'
-import { Theme } from '../../theme/Theme'
+import { DefaultTheme, ThemeProvider as StyledThemeProvider } from 'styled-components'
 
 type ThemeProviderProps = {
-  theme: Theme
+  theme: DefaultTheme
   children: JSX.Element[] | JSX.Element
 }
 const ThemeProvider = ({ theme, children }: ThemeProviderProps) => {

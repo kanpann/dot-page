@@ -1,10 +1,11 @@
 import { createGlobalStyle } from 'styled-components'
+import { DefaultTheme } from './Theme'
 
 const lightTheme = createGlobalStyle`
   body {
     margin: 0px;
     font-family: 'nanumBarunGothic';
-    background-color: ${props => props.theme.app.background};
+    background-color: ${(props: DefaultTheme) => props.theme.app.background};
     line-height: 30px;
   }
   img {

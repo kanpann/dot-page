@@ -40,4 +40,6 @@ export const DarkTheme = {
   },
 }
 
-export type Theme = typeof DarkTheme
+export type DefaultTheme = {
+  theme: typeof DarkTheme;
+}

@@ -5,8 +5,9 @@ import Header from './Header'
 import SideMenuBar from './SideMenuBar'
 import { withTheme } from '@material-ui/core'
 import styled from 'styled-components'
+import { DefaultTheme } from '../../theme/Theme'
 
-const MyContainer = styled(withTheme(Container))((props) => ({
+const MyContainer = styled(withTheme(Container))((props: DefaultTheme) => ({
   backgroundColor: props.theme.app.box,
 }))
 

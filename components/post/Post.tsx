@@ -5,15 +5,16 @@ import Typography from '@material-ui/core/Typography'
 import DateView from './DateView'
 import { Card, Chip, withTheme } from '@material-ui/core'
 import styled from 'styled-components'
+import { DefaultTheme } from '../../theme/Theme'
 
 const TagFrame = styled.div`
   margin-top: 5px;
   margin-bottom: 10px;
 `
-const MyCard = styled(withTheme(Card))((props) => ({
+const MyCard = styled(withTheme(Card))((props: DefaultTheme) => ({
   backgroundColor: props.theme.app.card,
 }))
-const MyTitle = styled(withTheme(Typography))((props) => ({
+const MyTitle = styled(withTheme(Typography))((props: DefaultTheme) => ({
   color: props.theme.app.title,
   fontFamily: 'nanumSquare',
 }))

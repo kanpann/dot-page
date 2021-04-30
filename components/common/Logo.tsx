@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
+import { DefaultTheme } from '../../theme/Theme'
 
 const CustomLogo = styled.div`
   margin: 0 auto;
@@ -16,7 +17,7 @@ const CustomLogo = styled.div`
   -webkit-user-select: none;
   -khtml-user-select: none;
   user-select: none;
-  color: ${(props) => props.theme.app.title};
+  color: ${(props: DefaultTheme) => props.theme.app.title};
 `
 
 const Logo = () => {
