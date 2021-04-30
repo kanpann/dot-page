@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import { DefaultTheme } from '../../theme/Theme'
 
+import { styled as muiStyled } from '@material-ui/core/styles';
+import { Typography, withTheme } from '@material-ui/core';
 const List = styled.ul`
   list-style: none;
   padding: 0px;
@@ -28,11 +30,20 @@ const Item = styled.li`
     }
   }
 `
+const CategoryName = muiStyled(withTheme(Typography))((props: DefaultTheme) => ({
+  marginTop: '30px',
+  textAlign: 'center',
+  fontWeight: 300,
+  paddingBottom: '10px',
+  borderBottom: '1px solid ' + props.theme.app.title,
+  color: props.theme.app.title,
+}))
 
 const Categories = () => {
   const categoryNames = Object.keys(Category)
   return (
     <>
+      <CategoryName variant="h5">Categories</CategoryName>
       {categoryNames.map((categoryName, index) => {
         const mainMenu = Category[categoryName]
 
