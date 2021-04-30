@@ -24,7 +24,7 @@ const CategoryName = muiStyled(withTheme(Typography))((props: DefaultTheme) => (
   fontWeight: 300,
   paddingBottom: '10px',
   borderBottom: '1px solid ' + props.theme.app.title,
-  color: '1px solid ' + props.theme.app.title,
+  color: props.theme.app.title,
 }))
 const MyAvatar = muiStyled(withTheme(Avatar))({
   width: '150px',
