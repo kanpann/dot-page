@@ -6,6 +6,8 @@ import GlobalTheme from '../theme/Global'
 import { LightTheme, DarkTheme } from '../theme/Theme'
 import ThemeProvider from '../components/style/ThemeProvider'
 
+const MyContext = React.createContext('dark');
+
 const themes = {
   light: LightTheme,
   dark: DarkTheme,
@@ -19,7 +21,7 @@ export default class App extends NextApp {
   render() {
     const { Component, pageProps } = this.props
 
-    const nowTheme = themes['dark']
+    const nowTheme = themes['light']
     return (
       <ThemeProvider theme={nowTheme}>
         <GlobalTheme />

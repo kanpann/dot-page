@@ -5,8 +5,7 @@ import { DefaultTheme } from '../../theme/Theme'
 
 const CustomLogo = styled.div`
   margin: 0 auto;
-  margin-top: 10px;
-  margin-bottom: 100px;
+  margin: 50px 0px;
   cursor: pointer;
   font-family: 'sunspots';
   font-size: 6rem;

@@ -5,7 +5,9 @@ import Layout from '../components/common/Layout'
 import { useRouter } from 'next/dist/client/router'
 import styled, { PostHeaderTheme } from 'styled-components'
 import { CategoryInfo } from '../site.config'
-import { Typography } from '@material-ui/core'
+import { Typography, withTheme } from '@material-ui/core'
+import { styled as muiStyled } from '@material-ui/core/styles';
+import { DefaultTheme } from '../theme/Theme'
 
 const PostHeader = styled.div`
   background-size: cover;
@@ -36,6 +38,9 @@ const DateFrame = styled.div`
   color: #ffffffc2;
   padding: 0px 30px;
 `
+const SearchResult = muiStyled(withTheme(Typography))((props: DefaultTheme) => ({
+  color: props.theme.app.title,
+}))
 
 type HomeProps = {
   posts: Post[]
@@ -56,10 +61,10 @@ export default function Home({ posts }: HomeProps) {
       posts.length > 0 ? (
         <PostList posts={posts} />
       ) : (
-        <Typography variant="h5" align="center">
+        <SearchResult variant="h5" align="center">
           검색 결과가 없습니다.
           <br /> 검색 알고리즘이 그리 좋지 않으니 키워드 위주로 검색해주세요!
-        </Typography>
+        </SearchResult>
       )
   } else if (menu) {
     const categoryInfo = CategoryInfo[menu]

@@ -1,9 +1,8 @@
 import React from 'react'
-import { Avatar, Grid, IconButton, Typography, withTheme } from '@material-ui/core'
+import { Avatar, Grid, IconButton, withTheme } from '@material-ui/core'
 import { SiteMeta } from '../../site.config'
 import Categories from './Categories'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
-import Link from 'next/link'
 import { styled as muiStyled } from '@material-ui/core/styles';
 import styled from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'

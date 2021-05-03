@@ -9,7 +9,7 @@ import Layout from '../components/common/Layout'
 import { DefaultTheme } from '../theme/Theme'
 
 const Title = styled.h3`
-  font-size: 3rem;
+  font-size: 2rem;
   font-family: nanumSquare;
   line-height: 70px;
   margin: 0px;
@@ -44,7 +44,7 @@ const Content = styled.div`
   }
 `
 const TagFrame = styled.div`
-  margin: 20px 0px;
+  margin-bottom: 20px;
 `
 
 type PostProps = {
