@@ -1,11 +1,11 @@
 // 카테고리 정보를 밖에서 주입 받게 수정하면 이 컴포넌트를 재사용할 수 있을 것 같음. 나중에 고려해봄
 import { Category } from '../../site.config'
-import styled from 'styled-components'
+import styled, { CategoryTheme } from 'styled-components'
 import Link from 'next/link'
 import { DefaultTheme } from '../../theme/Theme'
-
 import { styled as muiStyled } from '@material-ui/core/styles';
 import { Typography, withTheme } from '@material-ui/core';
+
 const List = styled.ul`
   list-style: none;
   padding: 0px;
@@ -18,7 +18,7 @@ const Item = styled.li`
   margin-top: 10px;
   font-weight: bold;
   a {
-    color: ${(props: DefaultTheme) => props.theme.app.title};
+    color: ${(props: CategoryTheme) => props.color == null ? props.theme.app.title : props.color};
     &:link {
       text-decoration: none;
     }
@@ -62,7 +62,7 @@ const Categories = () => {
               <List>
                 {isSub &&
                   subMenus.map((subMenu, index) => (
-                    <Item key={index}>
+                    <Item key={index} color="#717171">
                       <Link href={`/?topMenu=${categoryName}&menu=${subMenu}`}>{subMenu}</Link>
                     </Item>
                   ))}
