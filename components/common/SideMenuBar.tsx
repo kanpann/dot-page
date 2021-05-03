@@ -34,6 +34,7 @@ const Contents = styled.p`
   width: 80%;
   margin: 0 auto;
   text-shadow: 5px 5px 10px #656565;
+  word-break: keep-all;
 `
 
 type SideMenuProps = {
