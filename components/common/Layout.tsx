@@ -8,7 +8,7 @@ import { DefaultTheme } from '../../theme/Theme'
 
 const Frame = styled.div`
   background-color: ${(props:DefaultTheme) => props.theme.app.box};
-  padding: 10px 30px;
+  padding: 10px 10px;
   margin-bottom: 20px;
 `
 
