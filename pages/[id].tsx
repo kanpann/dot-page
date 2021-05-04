@@ -58,6 +58,7 @@ export default function Post({ post }: PostProps) {
       <Layout>
         <Title>{title}</Title>
         <DateView date={date} />
+        <hr />
         <TagFrame>
           {tags.map((tag) => (
             <Chip
@@ -71,7 +72,6 @@ export default function Post({ post }: PostProps) {
             />
           ))}
         </TagFrame>
-        <hr />
         <Content dangerouslySetInnerHTML={{ __html: content }} />
         <Comments />
       </Layout>
