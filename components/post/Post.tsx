@@ -6,6 +6,7 @@ import DateView from './DateView'
 import { Card, Chip, withTheme } from '@material-ui/core'
 import styled from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
+import Link from 'next/link'
 
 const TagFrame = styled.div`
   margin-top: 5px;
@@ -13,6 +14,7 @@ const TagFrame = styled.div`
 `
 const MyCard = styled(withTheme(Card))((props: DefaultTheme) => ({
   backgroundColor: props.theme.app.card,
+  cursor: 'pointer',
 }))
 const MyTitle = styled(withTheme(Typography))((props: DefaultTheme) => ({
   color: props.theme.app.title,
@@ -20,46 +22,49 @@ const MyTitle = styled(withTheme(Typography))((props: DefaultTheme) => ({
 }))
 
 type PostProps = {
+  id: string
   title: string
   date: string
   image: string
   tags: string[]
   excerpt: string
 }
-export const Post = ({ title, date, image, excerpt, tags }: PostProps) => {
+export const Post = ({ id, title, date, image, excerpt, tags }: PostProps) => {
   return (
-    <MyCard>
-      <CardMedia
-        component="img"
-        alt="Contemplative Reptile"
-        height="200"
-        image={image}
-        title="Contemplative Reptile"
-      />
-      <CardContent>
-        <MyTitle gutterBottom variant="h5">
-          {title}
-        </MyTitle>
-        <TagFrame>
-          {tags.map((tag) => (
-            <Chip
-              key={tag}
-              style={{ marginRight: '5px' }}
-              label={tag}
-              component="a"
-              href="#chip"
-              clickable
-              color="primary"
-            />
-          ))}
-        </TagFrame>
-        <span>
-          <DateView date={date} />
-        </span>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {excerpt}
-        </Typography>
-      </CardContent>
-    </MyCard>
+    <Link href={id}>
+      <MyCard>
+        <CardMedia
+          component="img"
+          alt="Contemplative Reptile"
+          height="200"
+          image={image}
+          title="Contemplative Reptile"
+        />
+        <CardContent>
+          <MyTitle gutterBottom variant="h5">
+            {title}
+          </MyTitle>
+          <span>
+            <DateView date={date} />
+          </span>
+          <TagFrame>
+            {tags.map((tag) => (
+              <Chip
+                key={tag}
+                style={{ marginRight: '5px' }}
+                label={tag}
+                component="a"
+                href="#chip"
+                clickable
+                color="primary"
+              />
+            ))}
+          </TagFrame>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {excerpt}
+          </Typography>
+        </CardContent>
+      </MyCard>
+    </Link>
   )
 }

@@ -1,10 +1,9 @@
 import React from 'react'
-import Link from 'next/link'
 import { createStyles, Grid, makeStyles, Theme } from '@material-ui/core'
 import { Post as PostType } from '../../lib/posts'
 import { Post } from './Post'
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     link: {
       padding: '10px',
@@ -21,12 +20,11 @@ const PostList = ({ posts }: PostListProps) => {
     <Grid container item direction="row" justify="center" alignItems="flex-start">
       {posts.map(({ id, date, title, image, excerpt, tags }) => (
         <Grid item key={id} className={classes.link}>
-          <Link href={id}>
-            <Post title={title} date={date} image={image} excerpt={excerpt} tags={tags} />
-          </Link>
+          <Post id={id} title={title} date={date} image={image} excerpt={excerpt} tags={tags} />
         </Grid>
       ))}
     </Grid>
   )
 }
+
 export default PostList
