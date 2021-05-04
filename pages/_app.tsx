@@ -7,6 +7,7 @@ import { LightTheme, DarkTheme } from '../theme/Theme'
 import ThemeProvider from '../components/style/ThemeProvider'
 import styled from 'styled-components'
 import Header from '../components/common/Header'
+import { SiteMeta } from '../site.config'
 
 const Footer = styled.div`
   text-align: center;
@@ -33,16 +34,17 @@ export default class App extends NextApp {
   render() {
     const { Component, pageProps } = this.props
 
+    const { title } = pageProps.post != undefined ? pageProps.post : { title: SiteMeta.title }
     const nowTheme = themes['light']
     return (
       <ThemeProvider theme={nowTheme}>
         <GlobalTheme />
-        <Header />
+        <Header title={title} />
         <Component {...pageProps} />
         <TopScrollBtn />
         <Footer>
           ©<a href="https://github.com/gunkims">gunkims</a>, Built with{' '}
-          <a href="https://github.com/gunkims/gunlog">Gunlog</a>
+          <a href="https://github.com/gunkims/gunlog">gunlog</a>
         </Footer>
       </ThemeProvider>
     )
