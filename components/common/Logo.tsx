@@ -18,6 +18,10 @@ const CustomLogo = styled.div`
   user-select: none;
   color: ${(props: DefaultTheme) => props.theme.app.box};
   text-shadow: ${(props: DefaultTheme) => '2px 2px 10px ' + props.theme.app.title};
+
+  &:hover {
+    text-shadow: ${(props: DefaultTheme) => '2px 2px 50px ' + props.theme.app.title};
+  }
 `
 
 const Logo = () => {
