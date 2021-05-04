@@ -11,9 +11,9 @@ import { DefaultTheme } from '../theme/Theme'
 const Title = styled.h3`
   font-size: 2rem;
   font-family: nanumSquare;
-  line-height: 70px;
+  line-height: 50px;
   margin: 0px;
-  word-break: break-all;
+  word-break: keep-all;
   color: ${(props: DefaultTheme) => props.theme.app.title};
 `
 const Content = styled.div`
@@ -56,8 +56,8 @@ export default function Post({ post }: PostProps) {
   return (
     <>
       <Layout>
-        <DateView date={date} />
         <Title>{title}</Title>
+        <DateView date={date} />
         <TagFrame>
           {tags.map((tag) => (
             <Chip
