@@ -29,7 +29,7 @@ const Item = styled.li`
       text-shadow: 0px 4px 10px;
 
       &::before {
-        content: '▶ ';
+        content: 'ᗔ ';
       }
     }
   }
