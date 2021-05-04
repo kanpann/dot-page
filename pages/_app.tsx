@@ -5,8 +5,20 @@ import TopScrollBtn from '../components/common/TopScrollBtn'
 import GlobalTheme from '../theme/Global'
 import { LightTheme, DarkTheme } from '../theme/Theme'
 import ThemeProvider from '../components/style/ThemeProvider'
+import styled from 'styled-components'
+import Header from '../components/common/Header'
 
-const MyContext = React.createContext('dark');
+const Footer = styled.div`
+  text-align: center;
+  color: white;
+  text-shadow: 0px 0px 10px black;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  color: white;
+  a {
+    color: #cacaca;
+  }
+`
 
 const themes = {
   light: LightTheme,
@@ -25,8 +37,13 @@ export default class App extends NextApp {
     return (
       <ThemeProvider theme={nowTheme}>
         <GlobalTheme />
+        <Header />
         <Component {...pageProps} />
         <TopScrollBtn />
+        <Footer>
+          ©<a href="https://github.com/gunkims">gunkims</a>, Built with{' '}
+          <a href="https://github.com/gunkims/gunlog">Gunlog</a>
+        </Footer>
       </ThemeProvider>
     )
   }
