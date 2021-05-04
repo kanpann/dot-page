@@ -16,7 +16,8 @@ const CustomLogo = styled.div`
   -webkit-user-select: none;
   -khtml-user-select: none;
   user-select: none;
-  color: ${(props: DefaultTheme) => props.theme.app.title};
+  color: white;
+  text-shadow: ${(props: DefaultTheme) => '2px 2px 10px ' + props.theme.app.title};
 `
 
 const Logo = () => {
