@@ -7,9 +7,10 @@ import styled from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
 
 const Frame = styled.div`
-  background-color: ${(props:DefaultTheme) => props.theme.app.box};
+  background-color: ${(props: DefaultTheme) => props.theme.app.box};
   padding: 10px 10px;
   margin-bottom: 20px;
+  border-radius: 15px;
 `
 
 type LayoutProps = {
@@ -19,7 +20,7 @@ type LayoutProps = {
 const Layout = ({ children, maxWidth = 'lg' }: LayoutProps) => {
   return (
     <Container maxWidth={maxWidth}>
-      <Logo/>
+      <Logo />
       <Frame>
         <Header />
         <Grid container direction="row" justify="center" alignItems="flex-start">
