@@ -15,6 +15,11 @@ const TagFrame = styled.div`
 const MyCard = styled(withTheme(Card))((props: DefaultTheme) => ({
   backgroundColor: props.theme.app.card,
   cursor: 'pointer',
+  '&:hover': {
+    marginLeft: '10px',
+    marginTop: '10px',
+    boxShadow: '1px 1px 5px 1px'
+  }
 }))
 const MyTitle = styled(withTheme(Typography))((props: DefaultTheme) => ({
   color: props.theme.app.title,
