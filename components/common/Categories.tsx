@@ -3,8 +3,8 @@ import { Category } from '../../site.config'
 import styled, { CategoryTheme } from 'styled-components'
 import Link from 'next/link'
 import { DefaultTheme } from '../../theme/Theme'
-import { styled as muiStyled } from '@material-ui/core/styles';
-import { Typography, withTheme } from '@material-ui/core';
+import { styled as muiStyled } from '@material-ui/core/styles'
+import { Typography, withTheme } from '@material-ui/core'
 
 const List = styled.ul`
   list-style: none;
@@ -18,7 +18,7 @@ const Item = styled.li`
   margin-top: 10px;
   font-weight: bold;
   a {
-    color: ${(props: CategoryTheme) => props.color == null ? props.theme.app.title : props.color};
+    color: ${(props: CategoryTheme) => (props.color == null ? props.theme.app.title : props.color)};
     &:link {
       text-decoration: none;
     }
@@ -26,7 +26,11 @@ const Item = styled.li`
       text-decoration: none;
     }
     &:hover {
-      text-decoration: none;
+      text-shadow: 0px 4px 10px;
+
+      &::before {
+        content: '▶ ';
+      }
     }
   }
 `
