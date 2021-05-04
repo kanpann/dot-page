@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Grid, Hidden } from '@material-ui/core'
 import Logo from './Logo'
-import Header from './Header'
+import Head from './Head'
 import SideMenuBar from './SideMenuBar'
 import styled from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
@@ -9,6 +9,7 @@ import { DefaultTheme } from '../../theme/Theme'
 const Frame = styled.div`
   background-color: ${(props: DefaultTheme) => props.theme.app.box};
   padding: 10px 10px;
+  padding-bottom: 20px;
   margin-bottom: 20px;
   border-radius: 15px;
 `
@@ -22,7 +23,7 @@ const Layout = ({ children, maxWidth = 'lg' }: LayoutProps) => {
     <Container maxWidth={maxWidth}>
       <Logo />
       <Frame>
-        <Header />
+        <Head />
         <Grid container direction="row" justify="center" alignItems="flex-start">
           <Hidden smDown>
             <Grid item sm={3}>
