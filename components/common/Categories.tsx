@@ -18,13 +18,9 @@ const Item = styled.li`
   margin-top: 10px;
   font-weight: bold;
   a {
-    color: ${(props: CategoryTheme) => (props.color == null ? props.theme.app.title : props.color)};
-    &:link {
-      text-decoration: none;
-    }
-    &:visited {
-      text-decoration: none;
-    }
+    color: ${(props: CategoryTheme) =>
+      props.color == null ? props.theme.app.title : props.color} !important;
+
     &:hover {
       text-shadow: 0px 4px 10px;
 

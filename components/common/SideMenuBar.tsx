@@ -40,6 +40,7 @@ const Contents = styled.p`
   margin: 0 auto;
   text-shadow: 5px 5px 10px #656565;
   word-break: keep-all;
+  color: ${(props: DefaultTheme) => props.theme.app.font};
 `
 
 type SideMenuProps = {
