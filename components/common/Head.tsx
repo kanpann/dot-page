@@ -6,7 +6,6 @@ import { styled as muiStyled } from '@material-ui/core/styles'
 import { DefaultTheme } from '../../theme/Theme'
 import SearchForm from './SearchForm'
 import ThemeSwitch from './ThemeSwitch'
-import Logo from './Logo'
 import SideMenuBar from './SideMenuBar'
 
 const MyMenuIcon = muiStyled(withTheme(MenuIcon))((props: DefaultTheme) => ({
@@ -35,8 +34,7 @@ const Head = () => {
       <ThemeSwitch />
       <SearchForm />
       <Drawer open={isOpenMenu} anchor="left" onClose={handleMenuPoper}>
-        <Logo />
-        <SideMenuBar handleClose={handleMenuPoper} />
+        <SideMenuBar isLogo={true} isBorder={true} handleClose={handleMenuPoper} />
       </Drawer>
     </>
   )

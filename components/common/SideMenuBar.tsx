@@ -3,11 +3,16 @@ import { Avatar, Grid, IconButton, withTheme } from '@material-ui/core'
 import { SiteMeta } from '../../site.config'
 import Categories from './Categories'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
-import { styled as muiStyled } from '@material-ui/core/styles';
-import styled from 'styled-components'
+import { styled as muiStyled } from '@material-ui/core/styles'
+import styled, { SideBarTheme } from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
 import Social from './Social'
+import Logo from './Logo'
 
+const MainFrame = styled.div`
+  background-color: ${(props: SideBarTheme) => props.theme.app.box};
+  ${(props: SideBarTheme) => (props.isBorder ? 'border: 1px solid gray' : '')};
+`
 const BackButton = muiStyled(withTheme(IconButton))({
   position: 'fixed',
   bottom: '0',
@@ -38,13 +43,16 @@ const Contents = styled.p`
 `
 
 type SideMenuProps = {
+  isLogo?: boolean
+  isBorder?: boolean
   handleClose?: () => void
 }
-const SideMenuBar = ({ handleClose }: SideMenuProps) => {
+const SideMenuBar = ({ isLogo, isBorder, handleClose }: SideMenuProps) => {
   const { profileImage, info } = SiteMeta
   const { github, email, author, descript } = info
   return (
-    <>
+    <MainFrame isBorder={isBorder}>
+      {isLogo && <Logo />}
       <Grid
         style={{ padding: '10px' }}
         container
@@ -69,7 +77,7 @@ const SideMenuBar = ({ handleClose }: SideMenuProps) => {
           <ArrowBackIcon />
         </BackButton>
       )}
-    </>
+    </MainFrame>
   )
 }
 export default SideMenuBar
