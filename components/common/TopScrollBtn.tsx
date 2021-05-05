@@ -2,6 +2,7 @@ import { Collapse, IconButton } from '@material-ui/core'
 import VerticalAlignTopIcon from '@material-ui/icons/VerticalAlignTop'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { DefaultTheme } from '../../theme/Theme'
 
 const ScrollBtn = styled.div`
   position: fixed;
@@ -9,8 +10,8 @@ const ScrollBtn = styled.div`
   right: 10px;
   padding: 5px;
   padding-bottom: 0px;
-  background-color: ${(props) => props.theme.app.box};
-  color: ${(props) => props.theme.app.title};
+  background-color: ${(props: DefaultTheme) => props.theme.app.box};
+  color: ${(props: DefaultTheme) => props.theme.app.title};
   padding: 10px;
   border-radius: 10px;
   padding-bottom: 0px;
