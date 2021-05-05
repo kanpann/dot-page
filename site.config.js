@@ -26,29 +26,11 @@ module.exports = {
     },
     Java: {
       isSub: true,
-      sub: ['Spring', 'JPA/Querydsl', 'Kotlin'],
+      sub: ['Spring'],
     },
-    JavaScript: { isSub: true, sub: ['TypeScript', 'React', 'Vue'] },
-    Python: {
-      isSub: true,
-      sub: ['Flask', 'Django', '자동화'],
-    },
-    Linux: {
-      isSub: true,
-      sub: ['Ubuntu', 'CentOS'],
-    },
-    '컴퓨터 사이언스': {
-      isSub: true,
-      sub: ['자료구조', '알고리즘'],
-    },
-    생각: {
-      isSub: false,
-    },
+    JavaScript: { isSub: true, sub: ['React', 'Vue'] },
   },
   CategoryInfo: {
-    개발: new Category('', ''),
-    생각: new Category('', ''),
-    Linux: new Category('', ''),
     Spring: new Category(
       'https://user-images.githubusercontent.com/45007556/103328175-0e958b80-4a9b-11eb-9db7-66230e0f057c.png',
       '스프링에 대한 글들을 모아놓은 카테고리입니다.',
@@ -59,11 +41,6 @@ module.exports = {
     ),
     React: new Category('', ''),
     Vue: new Category('', ''),
-    Kotlin: new Category('', ''),
-    'Data Structure': new Category('', ''),
-    'Error Log': new Category('', ''),
-    Python: new Category('', ''),
     Java: new Category('', ''),
-    Other: new Category('', ''),
   },
 }
