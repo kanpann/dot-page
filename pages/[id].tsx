@@ -28,12 +28,22 @@ const Content = styled.div`
     padding-bottom: 10px;
     padding-top: 10px;
     margin-bottom: 40px;
+  }
+  p {
+    color: ${(props: DefaultTheme) => props.theme.app.font};
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     color: ${(props: DefaultTheme) => props.theme.app.title};
   }
   p code {
     background: #dadada;
     padding: 0px 5px;
     font-weight: bold;
+    color: black;
   }
   img {
     background: white;
