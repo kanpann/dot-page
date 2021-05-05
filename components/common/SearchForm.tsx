@@ -4,6 +4,7 @@ import { Collapse, withTheme, IconButton } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
 import { DefaultTheme } from '../../theme/Theme'
 import styled from 'styled-components'
+import { useRouter } from 'next/dist/client/router'
 
 const MySearchIcon = muiStyled(withTheme(SearchIcon))((props: DefaultTheme) => ({
   color: props.theme.app.title,
@@ -29,12 +30,14 @@ const SearchFrame = styled.div`
 `
 
 const SearchForm = () => {
+  const router = useRouter()
   const [isOpenSearch, setIsOpenSearch] = useState(false)
 
   const onKeyPress = (e: any) => {
     if (e.key == 'Enter') {
       const value = e.target.value
-      location.href = '/?keyword=' + value
+
+      router.push(`/?keyword=${value}`)
     }
   }
   return (
