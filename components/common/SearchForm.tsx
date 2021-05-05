@@ -21,10 +21,10 @@ const SearchItem = styled.input`
 `
 const SearchFrame = styled.div`
   position: absolute;
-  background-color: white;
+  background-color: ${(props: DefaultTheme) => props.theme.app.box};
   padding: 15px;
   border-radius: 5px;
-  box-shadow: 0px 1px 5px 0px;
+  box-shadow: ${(props: DefaultTheme) => `0px 1px 5px 0px ${props.theme.app.title}`};
   z-index: 10001;
   margin-left: 20px;
 `
