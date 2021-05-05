@@ -12,6 +12,7 @@ import Logo from './Logo'
 const MainFrame = styled.div`
   background-color: ${(props: SideBarTheme) => props.theme.app.box};
   ${(props: SideBarTheme) => (props.isBorder ? 'border: 1px solid gray' : '')};
+  height: 100%;
 `
 const BackButton = muiStyled(withTheme(IconButton))({
   position: 'fixed',
