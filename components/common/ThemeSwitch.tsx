@@ -4,8 +4,8 @@ import IconButton from '@material-ui/core/IconButton'
 import { DefaultTheme } from '../../theme/Theme'
 import React from 'react'
 import { ThemeCtxConsumer } from '../provider/ThemeCtxProvider'
-import Brightness7Icon from '@material-ui/icons/Brightness7'
-import Brightness4Icon from '@material-ui/icons/Brightness4'
+import Brightness3Icon from '@material-ui/icons/Brightness3'
+import WbSunnyIcon from '@material-ui/icons/WbSunny'
 
 const MyThemeIcon = muiStyled(withTheme(IconButton))((props: DefaultTheme) => ({
   float: 'right',
@@ -18,7 +18,7 @@ const ThemeSwitch = () => {
     <ThemeCtxConsumer>
       {({ theme, fn }) => (
         <MyThemeIcon onClick={fn} aria-label="display more actions" edge="end" color="inherit">
-          {theme == 'light' ? <Brightness7Icon /> : <Brightness4Icon />}
+          {theme == 'light' ? <WbSunnyIcon /> : <Brightness3Icon />}
         </MyThemeIcon>
       )}
     </ThemeCtxConsumer>
