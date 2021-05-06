@@ -44,7 +44,7 @@ export const Post = ({ id, title, date, image, excerpt, tags }: PostProps) => {
           title="Contemplative Reptile"
         />
         <CardContent>
-          <MyTitle gutterBottom variant="h5">
+          <MyTitle gutterBottom variant="h4">
             {title}
           </MyTitle>
           <span>
