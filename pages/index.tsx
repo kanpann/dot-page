@@ -6,7 +6,7 @@ import { useRouter } from 'next/dist/client/router'
 import styled, { PostHeaderTheme } from 'styled-components'
 import { CategoryInfo } from '../site.config'
 import { Typography, withTheme } from '@material-ui/core'
-import { styled as muiStyled } from '@material-ui/core/styles';
+import { styled as muiStyled } from '@material-ui/core/styles'
 import { DefaultTheme } from '../theme/Theme'
 
 const PostHeader = styled.div`
@@ -85,11 +85,7 @@ export default function Home({ posts }: HomeProps) {
   } else {
     printPosts = <PostList posts={posts} />
   }
-  return (
-    <>
-      <Layout>{printPosts}</Layout>
-    </>
-  )
+  return <Layout>{printPosts}</Layout>
 }
 
 export async function getStaticProps() {
