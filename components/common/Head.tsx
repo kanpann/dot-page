@@ -7,6 +7,7 @@ import { DefaultTheme } from '../../theme/Theme'
 import SearchForm from './SearchForm'
 import ThemeSwitch from './ThemeSwitch'
 import SideMenuBar from './SideMenuBar'
+import styled from 'styled-components'
 
 const MyMenuIcon = muiStyled(withTheme(MenuIcon))((props: DefaultTheme) => ({
   color: props.theme.app.title,
@@ -28,11 +29,10 @@ const Head = () => {
           edge="end"
           color="inherit"
         >
-          <MyMenuIcon />
+          <MyMenuIcon fontSize="large" />
         </IconButton>
       </Hidden>
       <ThemeSwitch />
-      <SearchForm />
       <Drawer open={isOpenMenu} anchor="left" onClose={handleMenuPoper}>
         <SideMenuBar isLogo={true} isBorder={true} handleClose={handleMenuPoper} />
       </Drawer>

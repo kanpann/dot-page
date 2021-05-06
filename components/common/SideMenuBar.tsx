@@ -8,6 +8,7 @@ import styled, { SideBarTheme } from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
 import Social from './Social'
 import Logo from './Logo'
+import SearchForm from './SearchForm'
 
 const MainFrame = styled.div`
   background-color: ${(props: SideBarTheme) => props.theme.app.box};
@@ -68,6 +69,7 @@ const SideMenuBar = ({ isLogo, isBorder, handleClose }: SideMenuProps) => {
             <Name>{author}</Name>
             <Contents>{descript}</Contents>
             <Social github={github} email={email} />
+            <SearchForm />
           </InfoFrame>
         </Grid>
         <Grid style={{ width: '80%' }}>

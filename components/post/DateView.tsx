@@ -23,6 +23,7 @@ const Time = styled.div`
   text-align: left;
   color: #7d7d7d;
   line-height: 0px;
+  margin-top: 10px;
   margin-bottom: 20px;
 `
 
