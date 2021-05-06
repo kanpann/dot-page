@@ -9,8 +9,8 @@ module.exports = {
     info: {
       author: 'Gunkim',
       descript: '안녕하세요. Gunkim입니다. 공부한 내용들을 정제하기 위해서 블로그를 시작했습니다.',
-      github: 'https://github.com/kanpann',
-      email: 'gunkim0318@gmail.com',
+      github: 'https://github.com/gunkims',
+      email: 'gunkim.dev@gmail.com',
     },
     gitalk: {
       clientID: '950a9f1473b04652cbc0',
