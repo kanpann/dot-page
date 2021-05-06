@@ -33,10 +33,11 @@ const Item = styled.li`
 const CategoryName = muiStyled(withTheme(Typography))((props: DefaultTheme) => ({
   marginTop: '30px',
   textAlign: 'center',
-  fontWeight: 300,
   paddingBottom: '10px',
-  borderBottom: '1px solid ' + props.theme.app.title,
-  color: props.theme.app.title,
+  borderBottom: '4mm ridge rgba(185, 247, 255, .6)',
+  color: props.theme.app.box,
+  fontWeight: 'bold',
+  textShadow: `-1px 0 ${props.theme.app.title}, 0 1px ${props.theme.app.title}, 1px 0 ${props.theme.app.title}, 0 -1px ${props.theme.app.title}`,
 }))
 
 const Categories = () => {

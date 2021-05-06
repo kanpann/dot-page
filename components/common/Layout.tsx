@@ -8,7 +8,7 @@ import { DefaultTheme } from '../../theme/Theme'
 
 const Frame = styled.div`
   background-color: ${(props: DefaultTheme) => props.theme.app.box};
-  padding: 10px 10px;
+  padding: 10px 20px;
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-radius: 15px;
@@ -20,7 +20,7 @@ type LayoutProps = {
 }
 const Layout = ({ children, maxWidth = 'lg' }: LayoutProps) => {
   return (
-    <Container maxWidth={maxWidth}>
+    <Container disableGutters={true} maxWidth={maxWidth}>
       <Logo />
       <Frame>
         <Head />

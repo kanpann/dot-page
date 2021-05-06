@@ -8,9 +8,10 @@ import Brightness3Icon from '@material-ui/icons/Brightness3'
 import WbSunnyIcon from '@material-ui/icons/WbSunny'
 
 const MyThemeIcon = muiStyled(withTheme(IconButton))((props: DefaultTheme) => ({
-  float: 'right',
   color: props.theme.app.title,
   paddingLeft: '10px',
+  float: 'right',
+  right: '10px',
 }))
 
 const ThemeSwitch = () => {
@@ -18,7 +19,11 @@ const ThemeSwitch = () => {
     <ThemeCtxConsumer>
       {({ theme, fn }) => (
         <MyThemeIcon onClick={fn} aria-label="display more actions" edge="end" color="inherit">
-          {theme == 'light' ? <WbSunnyIcon /> : <Brightness3Icon />}
+          {theme == 'light' ? (
+            <WbSunnyIcon fontSize="large" />
+          ) : (
+            <Brightness3Icon fontSize="large" />
+          )}
         </MyThemeIcon>
       )}
     </ThemeCtxConsumer>
