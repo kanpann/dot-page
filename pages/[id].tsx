@@ -8,12 +8,12 @@ import Comments from '../components/post/Comments'
 import Layout from '../components/common/Layout'
 import { DefaultTheme } from '../theme/Theme'
 
-const Title = styled.h3`
-  font-size: 2rem;
+const Title = styled.h1`
+  font-size: 2.4rem;
   font-family: nanumSquare;
   line-height: 50px;
   margin: 0px;
-  word-break: keep-all;
+  word-break: initial;
   color: ${(props: DefaultTheme) => props.theme.app.title};
 `
 const Content = styled.div`
@@ -37,6 +37,8 @@ const Content = styled.div`
   h4,
   h5 {
     color: ${(props: DefaultTheme) => props.theme.app.title};
+    line-height: 40px;
+    word-break: keep-all;
   }
   p code {
     background: #dadada;
