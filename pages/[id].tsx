@@ -27,7 +27,6 @@ const Content = styled.div`
     border-bottom: 3px solid #dcdcdc;
     padding-bottom: 10px;
     padding-top: 10px;
-    margin-bottom: 40px;
   }
   p {
     color: ${(props: DefaultTheme) => props.theme.app.font};
