@@ -39,7 +39,7 @@ const InfoFrame = styled.div`
 const Contents = styled.p`
   width: 80%;
   margin: 0 auto;
-  text-shadow: 5px 5px 10px #656565;
+  text-shadow: ${(props: DefaultTheme) => `2px 2px 60px ${props.theme.app.title}`};
   word-break: keep-all;
   color: ${(props: DefaultTheme) => props.theme.app.font};
 `
