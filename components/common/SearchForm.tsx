@@ -11,7 +11,6 @@ const SearchItem = styled.input`
   }
   background: none;
   color: ${(props: DefaultTheme) => props.theme.app.title};
-  font-size: 1.4rem;
   border-bottom: ${(props: DefaultTheme) => `1px solid ${props.theme.app.title}`};
   text-align: center;
   padding: 10px;
