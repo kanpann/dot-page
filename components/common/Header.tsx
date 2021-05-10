@@ -1,4 +1,6 @@
+import React from 'react'
 import { Helmet } from 'react-helmet'
+import ScrollProgressBar from './ScrollProgressBar'
 
 type HeaderProps = {
   title: string
@@ -11,6 +13,7 @@ const Header = ({ title }: HeaderProps) => {
         <meta charSet="utf-8" />
         <title>{title}</title>
       </Helmet>
+      <ScrollProgressBar />
     </>
   )
 }
