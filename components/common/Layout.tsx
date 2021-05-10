@@ -16,21 +16,21 @@ const Frame = styled.div`
 
 type LayoutProps = {
   children: JSX.Element[] | JSX.Element
-  maxWidth?: false | 'lg' | 'xs' | 'sm' | 'md' | 'xl' | undefined
+  maxWidth?: false | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined
 }
 const Layout = ({ children, maxWidth = 'lg' }: LayoutProps) => {
   return (
-    <Container disableGutters={true} maxWidth={maxWidth}>
+    <Container fixed disableGutters={true} maxWidth={maxWidth}>
       <Logo />
       <Frame>
         <Head />
         <Grid container direction="row" justify="center" alignItems="flex-start">
           <Hidden smDown>
-            <Grid item sm={3}>
+            <Grid item md={3}>
               <SideMenuBar />
             </Grid>
           </Hidden>
-          <Grid item xs={12} sm={9}>
+          <Grid item xs={12} md={9}>
             {children}
           </Grid>
         </Grid>
