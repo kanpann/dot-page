@@ -51,7 +51,7 @@ const Content = styled.div`
   }
   pre {
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 5px;
   }
 `
 const TagFrame = styled.div`
