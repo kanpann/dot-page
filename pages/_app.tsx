@@ -29,22 +29,29 @@ const themes = {
 
 export default class App extends NextApp {
   state = {
-    theme: 'light'
+    theme: 'light',
   }
   componentDidMount() {
     const jssStyles = document.querySelector('#jss-server-side')
     if (jssStyles && jssStyles.parentNode) jssStyles.parentNode.removeChild(jssStyles)
+
+    const savedTheme = localStorage.getItem('theme')
+
+    savedTheme && this.setState({ theme: savedTheme })
   }
   render() {
     const { Component, pageProps } = this.props
     const { theme } = this.state
     const { title } = pageProps.post != undefined ? pageProps.post : { title: SiteMeta.title }
-    
+
     const handleTransTheme = () => {
-      this.setState({theme: theme == 'light'? 'dark': 'light'})
+      const changeTheme = theme === 'light' ? 'dark' : 'light'
+      localStorage.setItem('theme', changeTheme)
+      this.setState({ theme: changeTheme })
     }
 
     const nowTheme = themes[theme]
+
     return (
       <ThemeProvider theme={nowTheme}>
         <ThemeCtxProvider theme={theme} fn={handleTransTheme}>
