@@ -24,7 +24,7 @@ const Chips = ({ category, tags }: ChipsProps) => {
       <MyChip
         avatar={<Avatar>C</Avatar>}
         key={category}
-        style={{ marginRight: '5px', marginTop: '10px' }}
+        style={{ marginRight: '5px', marginBottom: '10px' }}
         label={category}
         color="primary"
         variant="outlined"
@@ -34,7 +34,7 @@ const Chips = ({ category, tags }: ChipsProps) => {
           <MyChip
             avatar={<Avatar>T</Avatar>}
             key={tag}
-            style={{ marginRight: '5px', marginTop: '10px' }}
+            style={{ marginRight: '5px', marginBottom: '10px' }}
             label={tag}
             clickable
             color="secondary"
