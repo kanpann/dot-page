@@ -14,6 +14,7 @@ const SearchItem = styled.input`
   border-bottom: ${(props: DefaultTheme) => `1px solid ${props.theme.app.title}`};
   text-align: center;
   padding: 10px;
+  width: 80%;
 `
 
 const SearchForm = () => {
