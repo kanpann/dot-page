@@ -29,6 +29,7 @@ const PostTitle = styled.div`
   line-height: 3.2rem;
   word-break: break-word;
   color: #fff;
+  font-family: 'sunspots';
 `
 const DateFrame = styled.div`
   font-size: 1.125em;
