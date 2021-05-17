@@ -7,13 +7,14 @@ import 'highlight.js/styles/atom-one-dark.css'
 import Comments from '../components/post/Comments'
 import Layout from '../components/common/Layout'
 import { DefaultTheme } from '../theme/Theme'
+import Link from 'next/link'
 
 const Title = styled.h1`
   font-size: 2.4rem;
   font-family: nanumSquare;
   line-height: 50px;
   margin: 0px;
-  word-break: initial;
+  word-break: keep-all;
   color: ${(props: DefaultTheme) => props.theme.app.title};
 `
 const Content = styled.div`
@@ -81,15 +82,16 @@ export default function Post({ post }: PostProps) {
           />
           {tags.length > 0 ? '|   ' : ''}
           {tags.map((tag) => (
-            <Chip
-              key={tag}
-              style={{ marginRight: '5px' }}
-              label={tag}
-              component="a"
-              href={'/tag?tag=' + tag}
-              clickable
-              color="secondary"
-            />
+            <Link href={'/tag?tag=' + tag}>
+              <Chip
+                key={tag}
+                style={{ marginRight: '5px' }}
+                label={tag}
+                component="a"
+                clickable
+                color="secondary"
+              />
+            </Link>
           ))}
         </TagFrame>
         <Content dangerouslySetInnerHTML={{ __html: content }} />
