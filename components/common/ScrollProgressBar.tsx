@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 const MyLinearProgress = withStyles((theme) => ({
   root: {
     height: 10,
-    borderRadius: 5,
     position: 'fixed',
     top: 0,
     left: 0,
@@ -15,7 +14,6 @@ const MyLinearProgress = withStyles((theme) => ({
     backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
   },
   bar: {
-    borderRadius: 5,
     backgroundColor: '#1a90ff',
   },
 }))(LinearProgress)
