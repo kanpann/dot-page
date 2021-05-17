@@ -1,7 +1,7 @@
 import React from 'react'
 import { getAllPostIds, getPostData, Post as PostType } from '../lib/posts'
 import DateView from '../components/post/DateView'
-import { Chip, Typography } from '@material-ui/core'
+import { Chip } from '@material-ui/core'
 import styled from 'styled-components'
 import 'highlight.js/styles/atom-one-dark.css'
 import Comments from '../components/post/Comments'
@@ -56,14 +56,14 @@ const Content = styled.div`
 `
 const TagFrame = styled.div`
   margin-bottom: 20px;
+  color: ${(props: DefaultTheme) => props.theme.app.title};
 `
 
 type PostProps = {
   post: PostType
 }
 export default function Post({ post }: PostProps) {
-  const { title, date, content, image, tags, category } = post
-  console.log(category)
+  const { title, date, content, tags, category } = post
 
   return (
     <>
@@ -77,19 +77,18 @@ export default function Post({ post }: PostProps) {
             style={{ marginRight: '5px' }}
             label={category}
             component="a"
-            href="#chip"
-            clickable
             color="primary"
           />
+          {tags.length > 0 ? '|   ' : ''}
           {tags.map((tag) => (
             <Chip
               key={tag}
               style={{ marginRight: '5px' }}
               label={tag}
               component="a"
-              href="#chip"
+              href={'/tag?tag=' + tag}
               clickable
-              color="primary"
+              color="secondary"
             />
           ))}
         </TagFrame>

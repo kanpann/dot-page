@@ -61,6 +61,7 @@ export const Post = ({ id, title, date, image, excerpt, tags, category }: PostPr
               clickable
               color="primary"
             />
+            {tags.length > 0 ? "|   ": ''}
             {tags.map((tag) => (
               <Chip
                 key={tag}
@@ -69,7 +70,7 @@ export const Post = ({ id, title, date, image, excerpt, tags, category }: PostPr
                 component="a"
                 href="#chip"
                 clickable
-                color="primary"
+                color="secondary"
               />
             ))}
           </TagFrame>
