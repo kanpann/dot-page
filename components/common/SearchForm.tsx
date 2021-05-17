@@ -23,7 +23,7 @@ const SearchForm = () => {
     if (e.key == 'Enter') {
       const value = e.target.value
 
-      router.push(`/?keyword=${value}`)
+      router.push(`/search?keyword=${value}`)
     }
   }
   return <SearchItem placeholder="검색어를 입력해주세요." onKeyPress={onKeyPress} />

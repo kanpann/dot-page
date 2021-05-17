@@ -57,14 +57,14 @@ const Categories = () => {
         return (
           <List key={index} style={{ width: '85%', float: 'right' }}>
             <Item>
-              <Link href={`/?menu=${categoryName}`}>
+              <Link href={`/menu?menu=${categoryName}`}>
                 <a style={{ fontSize: '1.3rem' }}>{categoryName}</a>
               </Link>
               <List>
                 {isSub &&
                   subMenus.map((subMenu, index) => (
                     <Item key={index} color="#717171">
-                      <Link href={`/?topMenu=${categoryName}&menu=${subMenu}`}>{subMenu}</Link>
+                      <Link href={`/menu?topMenu=${categoryName}&menu=${subMenu}`}>{subMenu}</Link>
                     </Item>
                   ))}
               </List>
