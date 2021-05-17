@@ -1,13 +1,12 @@
 import React from 'react'
 import { getAllPostIds, getPostData, Post as PostType } from '../lib/posts'
 import DateView from '../components/post/DateView'
-import { Chip } from '@material-ui/core'
 import styled from 'styled-components'
 import 'highlight.js/styles/atom-one-dark.css'
 import Comments from '../components/post/Comments'
 import Layout from '../components/common/Layout'
 import { DefaultTheme } from '../theme/Theme'
-import Link from 'next/link'
+import Chips from '../components/post/Chips'
 
 const Title = styled.h1`
   font-size: 2.4rem;
@@ -55,45 +54,19 @@ const Content = styled.div`
     border-radius: 5px;
   }
 `
-const TagFrame = styled.div`
-  margin-bottom: 20px;
-  color: ${(props: DefaultTheme) => props.theme.app.title};
-`
 
 type PostProps = {
   post: PostType
 }
 export default function Post({ post }: PostProps) {
   const { title, date, content, tags, category } = post
-
   return (
     <>
       <Layout>
         <Title>{title}</Title>
         <DateView date={date} />
         <hr />
-        <TagFrame>
-          <Chip
-            key={category}
-            style={{ marginRight: '5px' }}
-            label={category}
-            component="a"
-            color="primary"
-          />
-          {tags.length > 0 ? '|   ' : ''}
-          {tags.map((tag) => (
-            <Link href={'/tag?tag=' + tag}>
-              <Chip
-                key={tag}
-                style={{ marginRight: '5px' }}
-                label={tag}
-                component="a"
-                clickable
-                color="secondary"
-              />
-            </Link>
-          ))}
-        </TagFrame>
+        <Chips category={category} tags={tags} />
         <Content dangerouslySetInnerHTML={{ __html: content }} />
         <Comments />
       </Layout>

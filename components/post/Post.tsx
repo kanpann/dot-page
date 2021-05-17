@@ -3,10 +3,11 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 import DateView from './DateView'
-import { Card, Chip, withTheme } from '@material-ui/core'
+import { Card, withTheme } from '@material-ui/core'
 import styled from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
 import Link from 'next/link'
+import Chips from './Chips'
 
 const TagFrame = styled.div`
   margin-top: 5px;
@@ -51,29 +52,7 @@ export const Post = ({ id, title, date, image, excerpt, tags, category }: PostPr
           <span>
             <DateView date={date} />
           </span>
-          <TagFrame>
-            <Chip
-              key={category}
-              style={{ marginRight: '5px' }}
-              label={category}
-              component="a"
-              href="#chip"
-              clickable
-              color="primary"
-            />
-            {tags.length > 0 ? "|   ": ''}
-            {tags.map((tag) => (
-              <Chip
-                key={tag}
-                style={{ marginRight: '5px' }}
-                label={tag}
-                component="a"
-                href="#chip"
-                clickable
-                color="secondary"
-              />
-            ))}
-          </TagFrame>
+          <Chips category={category} tags={tags} />
           <Typography variant="body2" color="textSecondary" component="p">
             {excerpt}
           </Typography>
