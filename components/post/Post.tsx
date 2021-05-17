@@ -27,12 +27,13 @@ const MyTitle = styled(withTheme(Typography))((props: DefaultTheme) => ({
 type PostProps = {
   id: string
   title: string
+  category: string
   date: string
   image: string
   tags: string[]
   excerpt: string
 }
-export const Post = ({ id, title, date, image, excerpt, tags }: PostProps) => {
+export const Post = ({ id, title, date, image, excerpt, tags, category }: PostProps) => {
   return (
     <Link href={id}>
       <MyCard>
@@ -51,6 +52,15 @@ export const Post = ({ id, title, date, image, excerpt, tags }: PostProps) => {
             <DateView date={date} />
           </span>
           <TagFrame>
+            <Chip
+              key={category}
+              style={{ marginRight: '5px' }}
+              label={category}
+              component="a"
+              href="#chip"
+              clickable
+              color="primary"
+            />
             {tags.map((tag) => (
               <Chip
                 key={tag}

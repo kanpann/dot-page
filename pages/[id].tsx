@@ -62,7 +62,8 @@ type PostProps = {
   post: PostType
 }
 export default function Post({ post }: PostProps) {
-  const { title, date, content, image, tags } = post
+  const { title, date, content, image, tags, category } = post
+  console.log(category)
 
   return (
     <>
@@ -71,6 +72,15 @@ export default function Post({ post }: PostProps) {
         <DateView date={date} />
         <hr />
         <TagFrame>
+          <Chip
+            key={category}
+            style={{ marginRight: '5px' }}
+            label={category}
+            component="a"
+            href="#chip"
+            clickable
+            color="primary"
+          />
           {tags.map((tag) => (
             <Chip
               key={tag}

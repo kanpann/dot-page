@@ -67,7 +67,7 @@ export const getAllPostIds = () => {
 export const getPostData = async (id: string): Promise<Post> => {
   const fileName: string = `${id}.md`
 
-  const { title, date, image, tags } = util.getPostData(fileName).data
+  const { title, date, image, tags, category } = util.getPostData(fileName).data
   const content: string = util.getPostData(fileName).content
   const contentHtml: string = await util.getContents(content)
  
@@ -75,7 +75,7 @@ export const getPostData = async (id: string): Promise<Post> => {
     id,
     content: contentHtml,
     excerpt: '',
-    category: '',
+    category: category,
     tags: tags !== undefined ? tags : [],
     title: title,
     date: date,
