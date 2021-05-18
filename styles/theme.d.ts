@@ -10,9 +10,6 @@ declare module 'styled-components' {
   }
   export interface DefaultTheme extends Theme {
   }
-  export interface CategoryTheme extends Theme {
-    color?: string;
-  } 
   export interface SideBarTheme extends Theme {
     isBorder?: boolean;
   } 

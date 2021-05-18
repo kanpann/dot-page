@@ -16,10 +16,14 @@ const Item = styled.li`
   padding-left: 20px;
   margin-top: 10px;
   font-weight: bold;
-  a {
-    color: ${(props: CategoryTheme) =>
-      props.color == null ? props.theme.app.title : props.color} !important;
 
+  .parent {
+    color: ${(props: DefaultTheme) => props.theme.app.title};
+  }
+  .child {
+    color: #717171;
+  }
+  a {
     &:hover {
       text-shadow: 0px 4px 10px;
 
@@ -57,13 +61,17 @@ const Categories = () => {
           <List key={index} style={{ width: '85%', float: 'right' }}>
             <Item>
               <Link href={`/menu?menu=${categoryName}`}>
-                <a style={{ fontSize: '1.3rem' }}>{categoryName}</a>
+                <a className="parent" style={{ fontSize: '1.3rem' }}>
+                  {categoryName}
+                </a>
               </Link>
               <List>
                 {isSub &&
                   subMenus.map((subMenu, index) => (
-                    <Item key={index} color="#717171">
-                      <Link href={`/menu?topMenu=${categoryName}&menu=${subMenu}`}>{subMenu}</Link>
+                    <Item key={index}>
+                      <Link href={`/menu?topMenu=${categoryName}&menu=${subMenu}`}>
+                        <a className="child">{subMenu}</a>
+                      </Link>
                     </Item>
                   ))}
               </List>
