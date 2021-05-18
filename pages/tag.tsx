@@ -25,7 +25,9 @@ export default function Tag({ posts }: TagProps) {
   }
   return (
     <Layout>
-      <Title variant="h2">#{tag}</Title>
+      <Title variant="h2" align="center">
+        #{tag}
+      </Title>
       <PostList posts={posts.filter((post) => post.tags.indexOf(tag) != -1)} />
     </Layout>
   )
