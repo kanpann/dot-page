@@ -38,6 +38,7 @@ const Chips = ({ category, tags }: ChipsProps) => {
             label={tag}
             clickable
             color="secondary"
+            variant="outlined"
           />
         </Link>
       ))}
