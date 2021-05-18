@@ -5,6 +5,7 @@ function Category(image, descript) {
 module.exports = {
   SiteMeta: {
     title: 'Gunlog',
+    url: 'https://gunlog.dev',
     profileImage: 'https://avatars.githubusercontent.com/u/45007556?v=4',
     info: {
       author: 'Gunkim',

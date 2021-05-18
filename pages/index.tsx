@@ -2,6 +2,7 @@ import React from 'react'
 import PostList from '../components/post/PostList'
 import { getSortedPostsData, Post } from '../lib/posts'
 import Layout from '../components/common/Layout'
+import generateRss from '../lib/feed'
 
 type HomeProps = {
   posts: Post[]
@@ -16,6 +17,7 @@ export default function Home({ posts }: HomeProps) {
 
 export async function getStaticProps() {
   const posts = await getSortedPostsData()
+  generateRss(posts)
   return {
     props: {
       posts,
