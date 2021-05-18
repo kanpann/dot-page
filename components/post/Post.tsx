@@ -9,10 +9,6 @@ import { DefaultTheme } from '../../theme/Theme'
 import Link from 'next/link'
 import Chips from './Chips'
 
-const TagFrame = styled.div`
-  margin-top: 5px;
-  margin-bottom: 10px;
-`
 const MyCard = styled(withTheme(Card))((props: DefaultTheme) => ({
   backgroundColor: props.theme.app.card,
   cursor: 'pointer',
@@ -43,6 +39,7 @@ export const Post = ({ id, title, date, image, excerpt, tags, category }: PostPr
           alt="Contemplative Reptile"
           height="200"
           image={image}
+          style={{ backgroundColor: 'white' }}
           title="Contemplative Reptile"
         />
         <CardContent>
