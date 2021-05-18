@@ -23,7 +23,7 @@ const PostHeaderFrame = styled.div`
   height: 100%;
 `
 const PostTitle = styled.div`
-  font-size: 2.5em;
+  font-size: 4rem;
   text-align: center;
   margin-bottom: 2rem;
   line-height: 3.2rem;
@@ -57,7 +57,7 @@ export default function Menu({ posts }: MenuProps) {
     <Layout>
       <PostHeader image={categoryInfo.image}>
         <PostHeaderFrame>
-          <PostTitle>{topMenu ? topMenu + '/' + menu : menu}</PostTitle>
+          <PostTitle>{menu}</PostTitle>
           <DateFrame>{categoryInfo.descript}</DateFrame>
         </PostHeaderFrame>
       </PostHeader>
