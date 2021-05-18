@@ -10,8 +10,6 @@ import WbSunnyIcon from '@material-ui/icons/WbSunny'
 const MyThemeIcon = muiStyled(withTheme(IconButton))((props: DefaultTheme) => ({
   color: props.theme.app.title,
   paddingLeft: '10px',
-  float: 'right',
-  right: '10px',
 }))
 
 const ThemeSwitch = () => {
