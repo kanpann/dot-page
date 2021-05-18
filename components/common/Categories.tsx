@@ -9,7 +9,6 @@ import { Typography, withTheme } from '@material-ui/core'
 const List = styled.ul`
   list-style: none;
   padding: 0px;
-  font-family: 'nanumSquare';
   margin: 0px;
 `
 const Item = styled.li`
@@ -25,7 +24,7 @@ const Item = styled.li`
       text-shadow: 0px 4px 10px;
 
       &::before {
-        content: 'ᗔ ';
+        content: '_';
       }
     }
   }
