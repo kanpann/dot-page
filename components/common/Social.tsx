@@ -1,6 +1,6 @@
-import React from "react"
-import Link from "next/link"
-import styled from "styled-components"
+import React from 'react'
+import Link from 'next/link'
+import styled from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import EmailIcon from '@material-ui/icons/Email'
@@ -16,32 +16,32 @@ const Frame = styled.div`
 `
 
 type SocialProps = {
-  github: string;
-  email: string;
+  github: string
+  email: string
 }
-const Social = ({github, email}: SocialProps) => {
-    return (
-        <Frame>
-        {github && (
-          <Link href={github}>
-            <span>
-              <GitHubIcon />
-            </span>
-          </Link>
-        )}
-        {email && (
-          <Link href={`mailto:${email}`}>
-            <span>
-              <EmailIcon />
-            </span>
-          </Link>
-        )}
-        <Link href="/feed.xml">
+const Social = ({ github, email }: SocialProps) => {
+  return (
+    <Frame>
+      {github && (
+        <Link href={github}>
           <span>
-            <RssFeedIcon />
+            <GitHubIcon />
           </span>
         </Link>
-      </Frame>
-    )
+      )}
+      {email && (
+        <Link href={`mailto:${email}`}>
+          <span>
+            <EmailIcon />
+          </span>
+        </Link>
+      )}
+      <Link href="/rss.xml">
+        <span>
+          <RssFeedIcon />
+        </span>
+      </Link>
+    </Frame>
+  )
 }
 export default Social
