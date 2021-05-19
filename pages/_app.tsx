@@ -52,6 +52,7 @@ export default class App extends NextApp {
 
     const nowTheme = themes[theme]
 
+    const { author, github } = SiteMeta.info
     return (
       <ThemeProvider theme={nowTheme}>
         <ThemeCtxProvider theme={theme} fn={handleTransTheme}>
@@ -60,7 +61,7 @@ export default class App extends NextApp {
           <Component {...pageProps} />
           <TopScrollBtn />
           <Footer>
-            ©<a href="https://github.com/gunkims">gunkims</a>, Built with{' '}
+            ©<a href={github}>{author}</a>, Built with{' '}
             <a href="https://github.com/gunkims/gunlog">gunlog</a>
           </Footer>
         </ThemeCtxProvider>
