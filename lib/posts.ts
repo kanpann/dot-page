@@ -1,6 +1,6 @@
-import { GrayMatterFile } from "gray-matter";
-import { removeHtml } from "./common-util";
-import * as util from "./posts-util"
+import { GrayMatterFile } from 'gray-matter'
+import { removeHtml } from './common-util'
+import * as util from './posts-util'
 
 export interface Post {
   id: string
@@ -15,7 +15,7 @@ export interface Post {
 const getPostByFileName = async (fileName: string): Promise<Post> => {
   const id: string = fileName.replace(/\.md$/, '')
 
-  const postData: GrayMatterFile<string> = util.getPostData(fileName);
+  const postData: GrayMatterFile<string> = util.getPostData(fileName)
   const { title, date, image, category, tags } = postData.data
 
   //Markdown 파일 전체 내용
@@ -25,9 +25,9 @@ const getPostByFileName = async (fileName: string): Promise<Post> => {
   let excerpt: string = await util.getContents(content)
 
   //Html 요소 제거
-  excerpt = removeHtml(excerpt);
+  excerpt = removeHtml(excerpt)
 
-  excerpt = util.getExcept(excerpt, 400);
+  excerpt = util.getExcept(excerpt, 300)
 
   return {
     id,
@@ -37,7 +37,7 @@ const getPostByFileName = async (fileName: string): Promise<Post> => {
     tags: tags !== undefined ? tags : [],
     category: category,
     date: date,
-    image: image
+    image: image,
   }
 }
 
@@ -45,9 +45,9 @@ export const getSortedPostsData = async (): Promise<Post[]> => {
   const fileNames: string[] = util.getFileNames()
   const posts: Array<Post> = new Array()
 
-  for(let i = 0; i < fileNames.length; i++){
+  for (let i = 0; i < fileNames.length; i++) {
     const fileName = fileNames[i]
-    const post: Post = await getPostByFileName(fileName);
+    const post: Post = await getPostByFileName(fileName)
     posts.push(post)
   }
   return util.sort(posts)
@@ -58,8 +58,8 @@ export const getAllPostIds = () => {
   return fileNames.map((fileName: string) => {
     return {
       params: {
-        id: fileName.replace(/\.md$/, '')
-      }
+        id: fileName.replace(/\.md$/, ''),
+      },
     }
   })
 }
@@ -70,7 +70,7 @@ export const getPostData = async (id: string): Promise<Post> => {
   const { title, date, image, tags, category } = util.getPostData(fileName).data
   const content: string = util.getPostData(fileName).content
   const contentHtml: string = await util.getContents(content)
- 
+
   return {
     id,
     content: contentHtml,
@@ -79,6 +79,6 @@ export const getPostData = async (id: string): Promise<Post> => {
     tags: tags !== undefined ? tags : [],
     title: title,
     date: date,
-    image: image
+    image: image,
   }
 }
