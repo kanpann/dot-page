@@ -4,7 +4,6 @@ title: Gatsby.js - "window" is not available during server side rendering. 오�
 tags: [JavaScript, React, Gatsby]
 category: React
 image: https://user-images.githubusercontent.com/45007556/111966825-b7073900-8b3a-11eb-96dc-cf48486c6aef.png
-draft: false
 ---
 
 이번에 Gatsby.js 블로그 소스가 어느 정도 정리가 되고, Gitalk로 댓글을 적용하려고 코드를 작성하고 `Gatsby build`를 했더니 아래와 같은 에러가 발생했다.

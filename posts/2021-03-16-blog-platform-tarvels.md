@@ -2,9 +2,8 @@
 date: "2021-03-16"
 title: 2년 동안의 블로그 플랫폼 여행기, 그리고 정착
 tags: [Review]
-category: Think
+category: "생각 정리"
 image: https://user-images.githubusercontent.com/45007556/111398851-7e64fb00-8707-11eb-9833-ff5df1a92042.png
-draft: false
 ---
 
 약 2년이 넘도록 블로그를 이곳저곳 떠돌다 이번에 완전 Gatsby.js + Nelify에 정착하게 되어서 그동안의 여행기를 정리해보려고 한다.

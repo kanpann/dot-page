@@ -4,7 +4,6 @@ title: JavaScript에서 Byte로 문자열 자르기
 tags: [JavaScript]
 category: JavaScript
 image: https://user-images.githubusercontent.com/45007556/99826279-7c48c080-2b9b-11eb-8cce-3c92f971c803.png
-draft: false
 ---
 
 [Java에서 Byte로 문자열 자르기](/Java-Byte-String)에서 한번 소개했던 적은 있는데, 이번엔 JS에서 해야 하는 상황이 발생했다.
