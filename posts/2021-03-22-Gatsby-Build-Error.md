@@ -1,6 +1,6 @@
 ---
-date: "2021-03-22"
-title: Gatsby.js - "window" is not available during server side rendering. 오류에 대하여
+date: '2021-03-22'
+title: Gatsby.js - SSR 오류 해결
 tags: [JavaScript, React, Gatsby]
 category: React
 image: https://user-images.githubusercontent.com/45007556/111966825-b7073900-8b3a-11eb-96dc-cf48486c6aef.png
@@ -61,7 +61,7 @@ npm i --save @loadable/component
 ## 적용 전
 
 ```js
-import GitalkComponent from "gitalk/dist/gitalk-component";
+import GitalkComponent from 'gitalk/dist/gitalk-component'
 ```
 
 ## 적용 후
@@ -69,6 +69,6 @@ import GitalkComponent from "gitalk/dist/gitalk-component";
 아래와 같이 적용하게 되면 문제가 되는 라이브러리가 렌더링 후에 불러와지기 때문에 문제가 발생하지 않을 것이다. 때문에 렌더링 시 외부 라이브러리를 사용할 때 발생하는 여러 문제들을 해결할 수 있다.
 
 ```js
-import loadable from "@loadable/component";
-const GitalkComponent = loadable(() => import("gitalk/dist/gitalk-component"));
+import loadable from '@loadable/component'
+const GitalkComponent = loadable(() => import('gitalk/dist/gitalk-component'))
 ```
