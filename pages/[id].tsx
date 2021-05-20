@@ -58,7 +58,7 @@ const Content = styled.div`
 type PostProps = {
   post: PostType
 }
-export default function Post({ post }: PostProps) {
+const Post = ({ post }: PostProps) => {
   const { title, date, content, tags, category } = post
   return (
     <>
@@ -73,14 +73,14 @@ export default function Post({ post }: PostProps) {
     </>
   )
 }
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const paths = getAllPostIds()
   return {
     paths,
     fallback: false,
   }
 }
-export async function getStaticProps({ params }) {
+export const getStaticProps = async ({ params }) => {
   const post: PostType = await getPostData(params.id)
   return {
     props: {
@@ -88,3 +88,4 @@ export async function getStaticProps({ params }) {
     },
   }
 }
+export default Post

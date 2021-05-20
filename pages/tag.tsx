@@ -16,7 +16,7 @@ const Title = muiStyled(withTheme(Typography))((props: DefaultTheme) => ({
 type TagProps = {
   posts: Post[]
 }
-export default function Tag({ posts }: TagProps) {
+const Tag = ({ posts }: TagProps) => {
   const router = useRouter()
   const tag = router.query.tag as string
 
@@ -32,7 +32,7 @@ export default function Tag({ posts }: TagProps) {
     </Layout>
   )
 }
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const posts = await getSortedPostsData()
   return {
     props: {
@@ -40,3 +40,5 @@ export async function getStaticProps() {
     },
   }
 }
+
+export default Tag

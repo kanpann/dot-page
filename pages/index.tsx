@@ -7,7 +7,7 @@ import generateRss from '../lib/feed'
 type HomeProps = {
   posts: Post[]
 }
-export default function Home({ posts }: HomeProps) {
+const Home = ({ posts }: HomeProps) => {
   return (
     <Layout>
       <PostList posts={posts} />
@@ -15,7 +15,7 @@ export default function Home({ posts }: HomeProps) {
   )
 }
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const posts = await getSortedPostsData()
   generateRss(posts)
   return {
@@ -24,3 +24,4 @@ export async function getStaticProps() {
     },
   }
 }
+export default Home

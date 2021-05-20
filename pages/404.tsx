@@ -14,7 +14,7 @@ const ContentsMsg = muiStyled(withTheme(Typography))((props: DefaultTheme) => ({
   fontFamily: 'sunspots',
   margin: '25px 0px',
 }))
-export default function NotFound() {
+const NotFound = () => {
   return (
     <Layout>
       <NotFoundMsg variant="h1" align="center">
@@ -36,3 +36,4 @@ export default function NotFound() {
     </Layout>
   )
 }
+export default NotFound

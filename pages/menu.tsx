@@ -40,7 +40,7 @@ const DateFrame = styled.div`
 type MenuProps = {
   posts: Post[]
 }
-export default function Menu({ posts }: MenuProps) {
+const Menu = ({ posts }: MenuProps) => {
   const router = useRouter()
   const menu = router.query.menu as string
   const topMenu = router.query.topMenu as string
@@ -69,7 +69,7 @@ export default function Menu({ posts }: MenuProps) {
     </Layout>
   )
 }
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const posts = await getSortedPostsData()
   return {
     props: {
@@ -77,3 +77,4 @@ export async function getStaticProps() {
     },
   }
 }
+export default Menu

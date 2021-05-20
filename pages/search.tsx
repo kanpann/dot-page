@@ -14,7 +14,7 @@ const NotFoundMsg = muiStyled(withTheme(Typography))((props: DefaultTheme) => ({
 type SearchProps = {
   posts: Post[]
 }
-export default function Search({ posts }: SearchProps) {
+const Search = ({ posts }: SearchProps) => {
   const router = useRouter()
   const keyword = router.query.keyword as string
 
@@ -41,7 +41,7 @@ export default function Search({ posts }: SearchProps) {
     </Layout>
   )
 }
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const posts = await getSortedPostsData()
   return {
     props: {
@@ -49,3 +49,5 @@ export async function getStaticProps() {
     },
   }
 }
+
+export default Search
