@@ -51,7 +51,7 @@ const Categories = () => {
       {categoryNames.map((categoryName, index) => {
         const mainMenu = Category[categoryName]
 
-        const { isSub } = mainMenu
+        const { isSub, url } = mainMenu
 
         let subMenus
         if (isSub) {
@@ -60,7 +60,7 @@ const Categories = () => {
         return (
           <List key={index} style={{ width: '85%', float: 'right' }}>
             <Item>
-              <Link href={`/menu?menu=${categoryName}`}>
+              <Link href={url ? url : `/menu?menu=${categoryName}`}>
                 <a className="parent" style={{ fontSize: '1.3rem' }}>
                   {categoryName}
                 </a>
