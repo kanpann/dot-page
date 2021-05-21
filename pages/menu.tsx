@@ -12,6 +12,7 @@ const PostHeader = styled.div`
   height: 20rem;
   margin-bottom: 2rem;
   background-image: ${(props: PostHeaderTheme) => `url(${props.image})`};
+  background-color: white;
 `
 const PostHeaderFrame = styled.div`
   background-color: rgba(0, 0, 0, 0.3);
