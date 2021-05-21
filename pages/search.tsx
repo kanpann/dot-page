@@ -32,7 +32,6 @@ const Search = ({ posts }: SearchProps) => {
     <Layout
       helmetInfo={{
         title: `'${keyword}'의 검색결과`,
-        content: `'${keyword}'에 대한 검색결과입니다.`,
       }}
     >
       {searchResult.length > 0 ? (

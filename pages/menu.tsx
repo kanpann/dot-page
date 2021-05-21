@@ -58,7 +58,6 @@ const Menu = ({ posts }: MenuProps) => {
     <Layout
       helmetInfo={{
         title: `'${menu}' 메뉴`,
-        content: `'${menu}'에 대한 게시글들입니다.`,
       }}
     >
       <PostHeader image={categoryInfo.image}>
