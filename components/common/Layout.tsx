@@ -16,7 +16,7 @@ const Frame = styled.div`
 `
 type HelmetInfoType = {
   title: string
-  content: string
+  content?: string
   image?: string
 }
 type LayoutProps = {
