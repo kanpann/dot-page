@@ -42,7 +42,6 @@ export default class App extends NextApp {
   render() {
     const { Component, pageProps } = this.props
     const { theme } = this.state
-    const { title } = pageProps.post != undefined ? pageProps.post : { title: SiteMeta.title }
 
     const handleTransTheme = () => {
       const changeTheme = theme === 'light' ? 'dark' : 'light'
@@ -57,7 +56,7 @@ export default class App extends NextApp {
       <ThemeProvider theme={nowTheme}>
         <ThemeCtxProvider theme={theme} fn={handleTransTheme}>
           <GlobalTheme />
-          <Header title={title} />
+          <Header />
           <Component {...pageProps} />
           <TopScrollBtn />
           <Footer>
