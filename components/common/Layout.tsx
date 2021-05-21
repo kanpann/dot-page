@@ -6,6 +6,7 @@ import SideMenuBar from './SideMenuBar'
 import styled from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
 import { Helmet } from 'react-helmet'
+import { SiteMeta } from '../../site.config'
 
 const Frame = styled.div`
   background-color: ${(props: DefaultTheme) => props.theme.app.box};
@@ -30,10 +31,15 @@ const Layout = ({ children, maxWidth = 'lg', helmetInfo }: LayoutProps) => {
       {helmetInfo && (
         <Helmet
           meta={[
+            { name: 'description', content: helmetInfo.content },
             { property: 'og:title', content: helmetInfo.title },
             { property: 'og:description', content: helmetInfo.content },
             { property: 'og:image', content: helmetInfo.image },
-            { name: 'twitter:card', content: helmetInfo.content },
+            { property: 'og:type', content: 'website' },
+            { name: 'twitter:card', content: 'summary' },
+            { name: 'twitter:creator', content: SiteMeta.info.author },
+            { name: 'twitter:title', content: helmetInfo.title },
+            { name: 'twitter:description', content: helmetInfo.content },
           ]}
         >
           <meta charSet="utf-8" />
