@@ -24,7 +24,12 @@ const Tag = ({ posts }: TagProps) => {
     return <></>
   }
   return (
-    <Layout>
+    <Layout
+      helmetInfo={{
+        title: `'${tag}'태그의 글 목록`,
+        content: `'${tag}'태그에 해당하는 게시글들입니다.`,
+      }}
+    >
       <Title variant="h2" align="center">
         #{tag}
       </Title>

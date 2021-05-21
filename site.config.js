@@ -6,9 +6,10 @@ module.exports = {
   SiteMeta: {
     title: 'Gunlog',
     url: 'https://gunlog.dev',
-    profileImage: 'https://avatars.githubusercontent.com/u/45007556?v=4',
+    descript: '공부한 내용들을 정제하기 위한 블로그입니다.',
     info: {
       author: 'Gun kim',
+      image: 'https://avatars.githubusercontent.com/u/45007556?v=4',
       descript: '안녕하세요. 공부한 내용들을 정제하기 위해서 블로그를 시작했습니다.',
       github: 'https://github.com/gunkims',
       email: 'gunkim.dev@gmail.com',

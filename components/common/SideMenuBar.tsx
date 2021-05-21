@@ -49,8 +49,7 @@ type SideMenuProps = {
   handleClose?: () => void
 }
 const SideMenuBar = ({ isLogo, isBorder, handleClose }: SideMenuProps) => {
-  const { profileImage, info } = SiteMeta
-  const { github, email, author, descript } = info
+  const { github, email, author, descript, image } = SiteMeta.info
   return (
     <MainFrame isBorder={isBorder}>
       {isLogo && <Logo />}
@@ -63,7 +62,7 @@ const SideMenuBar = ({ isLogo, isBorder, handleClose }: SideMenuProps) => {
       >
         <Grid>
           <InfoFrame>
-            <MyAvatar src={profileImage} />
+            <MyAvatar src={image} />
             <Name>{author}</Name>
             <Contents>{descript}</Contents>
             <Social github={github} email={email} />

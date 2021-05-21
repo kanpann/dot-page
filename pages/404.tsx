@@ -16,7 +16,12 @@ const ContentsMsg = muiStyled(withTheme(Typography))((props: DefaultTheme) => ({
 }))
 const NotFound = () => {
   return (
-    <Layout>
+    <Layout
+      helmetInfo={{
+        title: `404 - Page Not Found`,
+        content: `페이지를 찾을 수 없어요.`,
+      }}
+    >
       <NotFoundMsg variant="h1" align="center">
         404
       </NotFoundMsg>

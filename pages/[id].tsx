@@ -7,7 +7,6 @@ import Comments from '../components/post/Comments'
 import Layout from '../components/common/Layout'
 import { DefaultTheme } from '../theme/Theme'
 import Chips from '../components/post/Chips'
-import { Helmet } from 'react-helmet'
 
 const Title = styled.h1`
   font-size: 2.4rem;
@@ -63,20 +62,9 @@ const Post = ({ post }: PostProps) => {
   const { title, date, content, tags, category, image } = post
   return (
     <>
-      <Layout>
+      <Layout helmetInfo={{ title: title, content: content.substr(0, 50), image: image }}>
         <Title>{title}</Title>
         <DateView date={date} />
-        <Helmet
-          meta={[
-            { property: 'og:title', content: title },
-            { property: 'og:description', content: content.substr(0, 50) },
-            { property: 'og:image', content: image },
-            { name: 'twitter:card', content: content.substr(0, 50) },
-          ]}
-        >
-          <meta charSet="utf-8" />
-          <title>{title}</title>
-        </Helmet>
         <hr />
         <Chips category={category} tags={tags} />
         <Content dangerouslySetInnerHTML={{ __html: content }} />
