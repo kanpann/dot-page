@@ -4,10 +4,10 @@ import { SiteMeta } from '../site.config'
 
 const generateRssItem = (post: Post): string => `
   <item>
-    <guid>https://gunlog.dev/${post.title}</guid>
-    <title>${post.title}</title>
-    <link>https://gunlog.dev/${post.title}</link>
-    <description>test</description>
+    <guid><![CDATA[https://gunlog.dev/${post.title}]]></guid>
+    <title><![CDATA[${post.title}]]></title>
+    <link><![CDATA[https://gunlog.dev/${post.title}]]></link>
+    <description><![CDATA[test]]></description>
     <pubDate>${new Date(post.date).toUTCString()}</pubDate>
   </item>
 `
@@ -30,9 +30,9 @@ const generateRssChannel = (posts: Post[]): string => {
 }
 
 const generateRss = (allPostsData: Post[]): void => {
-  if (process.env.NODE_ENV === 'development') {
-    return
-  }
+  // if (process.env.NODE_ENV === 'development') {
+  //   return
+  // }
 
   const rss = generateRssChannel(allPostsData)
 
