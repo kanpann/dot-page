@@ -19,10 +19,7 @@ const Header = ({ title }: HeaderProps) => {
   return (
     <>
       <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>{title}</title>
-      </Helmet>
+
       <ScrollProgressBar />
     </>
   )
