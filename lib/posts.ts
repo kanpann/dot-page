@@ -13,7 +13,7 @@ export interface Post {
   image: string
 }
 const getPostByFileName = async (fileName: string): Promise<Post> => {
-  const id: string = fileName.replace(/\.md$/, '')
+  const id: string = fileName.replace(/\.md$/, '').substr(fileName.lastIndexOf('/'), fileName.length)
 
   const postData: GrayMatterFile<string> = util.getPostData(fileName)
   const { title, date, image, category, tags } = postData.data
@@ -58,7 +58,7 @@ export const getAllPostIds = () => {
   return fileNames.map((fileName: string) => {
     return {
       params: {
-        id: fileName.replace(/\.md$/, ''),
+        id: fileName.replace(/\.md$/, '').substr(fileName.lastIndexOf('/')+1, fileName.length),
       },
     }
   })
