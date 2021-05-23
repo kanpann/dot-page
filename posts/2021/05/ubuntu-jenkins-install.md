@@ -61,7 +61,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 # Jenkins 접속
 
-[http://localhost:8080](http://localhost:8080) 으로 접속하면 아래 화면이 표출되니 비밀번호는 앞에서 확인한 초기 패스워드를 입력해주면 된다.
+포트 번호를 변경하지 않은 경우 [http://localhost:8080](http://localhost:8080)으로 접속하면 아래 화면이 표출되니 비밀번호는 앞에서 확인한 초기 패스워드를 입력해주면 된다.
 ![1](https://user-images.githubusercontent.com/45007556/119257892-5069ce80-bc02-11eb-8edc-2fbaa8194037.png)
 
 ## 플러그인 설치
