@@ -7,7 +7,7 @@ const generateRssItem = (post: Post): string => `
     <guid><![CDATA[https://gunlog.dev/${post.title}]]></guid>
     <title><![CDATA[${post.title}]]></title>
     <link><![CDATA[https://gunlog.dev/${post.title}]]></link>
-    <description><![CDATA[${SiteMeta.descript}]]></description>
+    <description><![CDATA[${post.excerpt}]]></description>
     <pubDate>${new Date(post.date).toUTCString()}</pubDate>
   </item>
 `
