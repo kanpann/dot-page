@@ -1,8 +1,9 @@
 ---
-date: "2021-03-31"
-title: "Ubuntu 18.0.4 하둡(Hadoop) 설치하기"
+date: '2021-03-31'
+title: 'Ubuntu 18.0.4 하둡(Hadoop) 설치하기'
 category: Linux
 image: https://user-images.githubusercontent.com/45007556/113100385-52349880-9236-11eb-9c6e-2ffda547aab1.png
+tags: [Ubuntu, Hadoop]
 ---
 
 Hadoop은 여러 대의 컴퓨터 클러스터에서 대규모 데이터 세트를 분산 처리할 수 있게 해주는 프레임워크이다. 주로 분산 처리가 많이 필요한 빅데이터 개발에 많이 쓰인다고 한다. 나도 같은 이유로 하둡 개발 환경을 세팅해야 하는 상황이라 하둡 설치 방법에 대해서 정리해보려고 한다.

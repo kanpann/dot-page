@@ -1,8 +1,9 @@
 ---
-date: "2021-05-14"
+date: '2021-05-14'
 title: 스프링 부트 Jpa Querydsl 설정 방법 정리
 category: Spring
 image: https://user-images.githubusercontent.com/45007556/117846103-17556400-b2bc-11eb-956f-238aab69a167.png
+tags: [Spring, Spring Boot, Jpa, Querydsl]
 ---
 
 그동안 간간히 Querydsl을 설정할 일이 있을 때마다 인터넷을 찾아보곤 했는데 매번 찾아보기 번거로워서 이번 기회에 Spring Boot+Jpa+Gradle 프로젝트에서 Querydsl 설정하는 방법을 정리해보려고 한다.

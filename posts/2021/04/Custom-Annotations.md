@@ -1,8 +1,9 @@
 ---
-date: "2021-04-09"
+date: '2021-04-09'
 title: 스프링 커스텀 어노테이션으로 소스를 간결하게 하자
 category: Spring
 image: https://user-images.githubusercontent.com/45007556/103328175-0e958b80-4a9b-11eb-9db7-66230e0f057c.png
+tags: [Spring]
 ---
 
 이번에 사내 소스를 살펴보던 중 매우 나쁜 냄새가 나는 소스가 있어서 개선 방법을 생각해 보았다.

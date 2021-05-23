@@ -1,8 +1,9 @@
 ---
-date: "2021-05-11"
+date: '2021-05-11'
 title: M1 맥북의 성능을 제대로 발휘하지 못하고 있었다...
-category: "생각 정리"
+category: '생각 정리'
 image: https://user-images.githubusercontent.com/45007556/117680644-51efcb80-b1ec-11eb-84b8-886969a07c50.png
+tags: [Tip]
 ---
 
 ![image](https://user-images.githubusercontent.com/45007556/117680421-1d7c0f80-b1ec-11eb-9bb4-72865c215308.png)
