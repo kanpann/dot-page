@@ -4,7 +4,7 @@ Next.js를 기반으로 한 계층형 카테고리를 지원하는 마크다운 
 
 ## Light Theme
 
-![image](https://user-images.githubusercontent.com/45007556/119343584-9c377900-bcd1-11eb-9596-3bd104712cff.png)
+![image](https://user-images.githubusercontent.com/45007556/119346276-f8e86300-bcd4-11eb-8f32-1fa38489e474.png)
 
 ## Dark Theme
 
@@ -12,7 +12,7 @@ Next.js를 기반으로 한 계층형 카테고리를 지원하는 마크다운 
 
 ## Mobile
 
-![image](https://user-images.githubusercontent.com/45007556/119343664-b7a28400-bcd1-11eb-968a-7ebf7931d5bc.png)
+![image](https://user-images.githubusercontent.com/45007556/119346401-21705d00-bcd5-11eb-80bc-c5b7497ca653.png)
 
 # 설정 팁
 
