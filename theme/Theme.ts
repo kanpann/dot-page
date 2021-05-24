@@ -20,7 +20,7 @@ const darkTheme: MuiTheme = createMuiTheme({
 export const LightTheme = {
   ...lightTheme,
   app: {
-    background: '#8ed4c7',
+    background: 'rgb(65 130 249)',
     font: 'black',
     a: 'black',
     title: 'black',
