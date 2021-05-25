@@ -55,6 +55,18 @@ const Content = styled.div`
     padding: 15px;
     border-radius: 5px;
   }
+  blockquote {
+    border-left: 15px solid #81dfed;
+    padding: 5px 0px 5px 20px;
+    background-color: #ececec;
+    margin: 0px;
+    font-style: oblique;
+    p {
+      color: #464646;
+      margin: 0px;
+      padding: 0px;
+    }
+  }
 `
 
 type PostProps = {
