@@ -21,7 +21,7 @@ export const LightTheme = {
   ...lightTheme,
   app: {
     background: 'rgb(65 130 249)',
-    font: 'black',
+    font: '#676767',
     a: 'black',
     title: 'black',
     box: 'white',
