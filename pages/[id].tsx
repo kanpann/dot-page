@@ -18,8 +18,8 @@ const Title = styled.h1`
 `
 const Content = styled.div`
   color: ${(props: DefaultTheme) => props.theme.app.font};
+  line-height: 2.2;
   font-size: 1.1rem;
-  line-height: 2;
   a {
     text-decoration: none;
     color: #3535f7;
