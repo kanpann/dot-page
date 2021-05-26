@@ -1,18 +1,8 @@
 import { GrayMatterFile } from 'gray-matter'
-import { removeHtml } from './common-util'
+import { getByteLength, removeHtml, substrToByte } from './common-util'
 import * as util from './posts-util'
+import { Post } from './types'
 
-export interface Post {
-  id: string
-  title: string
-  toc?: string
-  category: string
-  content: string
-  excerpt?: string
-  tags: string[]
-  date: string
-  image: string
-}
 const getPostByFileName = async (fileName: string): Promise<Post> => {
   const id: string = fileName
     .replace(/\.md$/, '')
@@ -22,7 +12,8 @@ const getPostByFileName = async (fileName: string): Promise<Post> => {
   const { title, date, image, category, tags } = postData.data
 
   const content: string = postData.content
-  const excerpt: string = util.getExcept(removeHtml(await util.getContents(content)), 300)
+  let excerpt: string = substrToByte(removeHtml(await util.getContents(content)), 300)
+  excerpt += (getByteLength(excerpt) > 300 ? '...' : '')
 
   return {
     id,
@@ -45,7 +36,13 @@ export const getSortedPostsData = async (): Promise<Post[]> => {
     const post: Post = await getPostByFileName(fileName)
     posts.push(post)
   }
-  return util.sort(posts)
+  return posts.sort((a: Post, b: Post) => {
+    if (a.date < b.date) {
+      return 1
+    } else {
+      return -1
+    }
+  })
 }
 
 export const getAllPostIds = () => {
