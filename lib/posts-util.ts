@@ -57,6 +57,22 @@ export const getPostData = (
 export const getContents = async (content: string): Promise<string> => {
   return md.render(content)
 }
+
+type RenderResult = {
+  toc: string
+  contents: string
+}
+export const getContentsAndToc = async (content: string): Promise<RenderResult> => {
+  let renderStr: string = md.render('@[toc](목차) \n@@Feel Good!@@' + content)
+  renderStr = renderStr.replace('<h3>', '<div class="toc"><h3>')
+  renderStr = renderStr.replace('@@Feel Good!@@', '</div>@@Feel Good!@@')
+
+  const [toc, contents] = renderStr.split('@@Feel Good!@@')
+  return {
+    toc: toc,
+    contents: contents,
+  }
+}
 export const sort = (posts: Post[]) => {
   return posts.sort((a: Post, b: Post) => {
     if (a.date < b.date) {
