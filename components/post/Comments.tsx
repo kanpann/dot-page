@@ -15,6 +15,19 @@ const Style = createGlobalStyle`
   }
   .gt-comment-content {
     background-color: ${(props: DefaultTheme) => props.theme.app.background} !important;
+    border-radius: 10px;
+  }
+  .gt-comment-username {
+    color: ${(props: DefaultTheme) => props.theme.app.title} !important;
+  }
+  .gt-comment-date {
+    color: ${(props: DefaultTheme) => props.theme.app.font} !important;
+  }
+  .gt-comment-body markdown-body {
+    p {
+      color: ${(props: DefaultTheme) => props.theme.app.title} !important;
+      font-weight: bold;
+    }
   }
 `
 
