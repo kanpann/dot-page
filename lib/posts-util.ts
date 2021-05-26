@@ -22,7 +22,7 @@ const md = require('markdown-it')({
 
     return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>'
   },
-})
+}).use(require('markdown-it-toc'))
 
 const postsDirectory: string = path.join(process.cwd(), 'posts')
 
@@ -43,7 +43,10 @@ function generateComponents(dir: string, arr: string[]) {
   })
 }
 
-export const getPostData = (fileName: string, dir: string = postsDirectory): GrayMatterFile<string> => {
+export const getPostData = (
+  fileName: string,
+  dir: string = postsDirectory,
+): GrayMatterFile<string> => {
   const arr = []
   generateComponents(dir, arr)
   const fullPath: string = arr.find((savedFile: string) => savedFile.indexOf(fileName) != -1)!!
