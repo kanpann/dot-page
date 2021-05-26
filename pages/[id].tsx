@@ -53,9 +53,11 @@ const Content = styled.div`
     font-weight: bold;
   }
   h1 {
-    border-bottom: 3px solid #dcdcdc;
+    border-bottom: 3px solid #949494;
+    border-left: 10px solid #dcdcdc;
     padding-bottom: 10px;
     padding-top: 10px;
+    padding-left: 10px;
   }
   p {
     color: ${(props: DefaultTheme) => props.theme.app.font};
