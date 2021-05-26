@@ -39,12 +39,12 @@ export const getContents = async (content: string): Promise<string> => {
 
 export const getContentsAndToc = async (content: string): Promise<RenderResult> => {
   const parserResult: string = md.render('@[toc](목차) \n@@Feel Good!@@' + content)
-  .replace('<h3>', '<div class="toc"><h3>')
+  .replace('<p><h3>', '<div class="toc"><h3>')
   .replace('@@Feel Good!@@', '</div>@@Feel Good!@@')
 
   const [toc, contents] = parserResult.split('@@Feel Good!@@')
   return {
-    toc: toc,
+    toc: toc.length == 35 ? '': toc,
     contents: contents,
   }
 }
