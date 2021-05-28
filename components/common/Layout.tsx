@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
 import { Helmet } from 'react-helmet'
 import { SiteMeta } from '../../site.config'
+import Footer from './Footer'
 
 const Frame = styled.div`
   background-color: ${(props: DefaultTheme) => props.theme.app.box};
@@ -60,6 +61,7 @@ const Layout = ({ children, maxWidth = 'lg', helmetInfo }: LayoutProps) => {
           </Grid>
         </Grid>
       </Frame>
+      <Footer github={SiteMeta.info.github} author={SiteMeta.info.author} />
     </Container>
   )
 }
