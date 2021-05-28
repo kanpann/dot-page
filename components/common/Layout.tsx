@@ -1,13 +1,19 @@
-import React from 'react'
-import { Container, Grid, Hidden } from '@material-ui/core'
+import React, { useState } from 'react'
+import { Container, Drawer, Grid, Hidden, IconButton, withTheme } from '@material-ui/core'
 import Logo from './Logo'
-import Head from './Head'
 import SideMenuBar from './SideMenuBar'
 import styled from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
 import { Helmet } from 'react-helmet'
 import { SiteMeta } from '../../site.config'
 import Footer from './Footer'
+import ThemeSwitch from './ThemeSwitch'
+import { styled as muiStyled } from '@material-ui/core/styles'
+import MenuIcon from '@material-ui/icons/Menu'
+
+const MyMenuIcon = muiStyled(withTheme(MenuIcon))((props: DefaultTheme) => ({
+  color: props.theme.app.title,
+}))
 
 const Frame = styled.div`
   background-color: ${(props: DefaultTheme) => props.theme.app.box};
@@ -27,6 +33,11 @@ type LayoutProps = {
   helmetInfo?: HelmetInfoType
 }
 const Layout = ({ children, maxWidth = 'lg', helmetInfo }: LayoutProps) => {
+  const [isOpenMenu, setIsOpenMenu] = useState(false)
+
+  const handleMenuPoper = () => {
+    setIsOpenMenu(!isOpenMenu)
+  }
   return (
     <Container fixed disableGutters={true} maxWidth={maxWidth}>
       {helmetInfo && (
@@ -49,7 +60,20 @@ const Layout = ({ children, maxWidth = 'lg', helmetInfo }: LayoutProps) => {
       )}
       <Logo />
       <Frame>
-        <Head />
+        <Hidden mdUp>
+          <IconButton
+            onClick={handleMenuPoper}
+            aria-label="display more actions"
+            edge="end"
+            color="inherit"
+          >
+            <MyMenuIcon fontSize="large" />
+          </IconButton>
+        </Hidden>
+        <ThemeSwitch />
+        <Drawer open={isOpenMenu} anchor="left" onClose={handleMenuPoper}>
+          <SideMenuBar isLogo={true} isBorder={true} handleClose={handleMenuPoper} />
+        </Drawer>
         <Grid container direction="row" justify="center" alignItems="flex-start">
           <Hidden smDown>
             <Grid item md={3}>
