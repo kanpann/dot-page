@@ -1,12 +1,9 @@
 import React from 'react'
-import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
-import Typography from '@material-ui/core/Typography'
-import DateView from './DateView'
-import { Card, withTheme } from '@material-ui/core'
+import { CardMedia, Typography, CardContent, Card, withTheme } from '@material-ui/core'
 import styled from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
 import Link from 'next/link'
+import DateView from './DateView'
 import Chips from './Chips'
 
 const MyCard = styled(withTheme(Card))((props: DefaultTheme) => ({

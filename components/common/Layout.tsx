@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
 import { Container, Drawer, Grid, Hidden, IconButton, withTheme } from '@material-ui/core'
-import Logo from './Logo'
-import SideMenuBar from './SideMenuBar'
+import Logo from '../common/Logo'
+import SideMenuBar from '../sidebar/SideMenuBar'
 import styled from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
 import { Helmet } from 'react-helmet'
 import { SiteMeta } from '../../site.config'
 import Footer from './Footer'
-import ThemeSwitch from './ThemeSwitch'
+import ThemeSwitch from '../header/ThemeSwitch'
 import { styled as muiStyled } from '@material-ui/core/styles'
 import MenuIcon from '@material-ui/icons/Menu'
+import Header from '../header/Header'
+import TopScrollBtn from './TopScrollBtn'
 
 const MyMenuIcon = muiStyled(withTheme(MenuIcon))((props: DefaultTheme) => ({
   color: props.theme.app.title,
@@ -22,17 +24,11 @@ const Frame = styled.div`
   margin-bottom: 20px;
   border-radius: 15px;
 `
-type HelmetInfoType = {
-  title: string
-  content?: string
-  image?: string
-}
 type LayoutProps = {
   children: JSX.Element[] | JSX.Element
-  maxWidth?: false | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined
-  helmetInfo?: HelmetInfoType
+  maxWidth?: false | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 }
-const Layout = ({ children, maxWidth = 'lg', helmetInfo }: LayoutProps) => {
+const Layout = ({ children, maxWidth = 'lg' }: LayoutProps) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
 
   const handleMenuPoper = () => {
@@ -40,24 +36,7 @@ const Layout = ({ children, maxWidth = 'lg', helmetInfo }: LayoutProps) => {
   }
   return (
     <Container fixed disableGutters={true} maxWidth={maxWidth}>
-      {helmetInfo && (
-        <Helmet
-          meta={[
-            { name: 'description', content: helmetInfo.content },
-            { property: 'og:title', content: helmetInfo.title },
-            { property: 'og:description', content: helmetInfo.content },
-            { property: 'og:image', content: helmetInfo.image },
-            { property: 'og:type', content: 'website' },
-            { name: 'twitter:card', content: 'summary' },
-            { name: 'twitter:creator', content: SiteMeta.info.author },
-            { name: 'twitter:title', content: helmetInfo.title },
-            { name: 'twitter:description', content: helmetInfo.content },
-          ]}
-        >
-          <meta charSet="utf-8" />
-          <title>{helmetInfo.title}</title>
-        </Helmet>
-      )}
+      <Header />
       <Logo />
       <Frame>
         <Hidden mdUp>
@@ -85,6 +64,8 @@ const Layout = ({ children, maxWidth = 'lg', helmetInfo }: LayoutProps) => {
           </Grid>
         </Grid>
       </Frame>
+
+      <TopScrollBtn />
       <Footer github={SiteMeta.info.github} author={SiteMeta.info.author} />
     </Container>
   )

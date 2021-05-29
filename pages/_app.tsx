@@ -36,16 +36,13 @@ export default class App extends NextApp {
       localStorage.setItem('theme', changeTheme)
       this.setState({ theme: changeTheme })
     }
-
     const nowTheme = themes[theme]
 
     return (
       <ThemeProvider theme={nowTheme}>
         <ThemeCtxProvider theme={theme} fn={handleTransTheme}>
           <GlobalTheme />
-          <Header />
           <Component {...pageProps} />
-          <TopScrollBtn />
         </ThemeCtxProvider>
       </ThemeProvider>
     )
