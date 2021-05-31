@@ -1,8 +1,8 @@
 import React from 'react'
+import Link from 'next/link'
 import { CardMedia, Typography, CardContent, Card, withTheme } from '@material-ui/core'
 import styled from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
-import Link from 'next/link'
 import DateView from './DateView'
 import Chips from './Chips'
 

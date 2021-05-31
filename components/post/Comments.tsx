@@ -1,7 +1,6 @@
 import React from 'react'
-import loadable from '@loadable/component'
 import 'gitalk/dist/gitalk.css'
-import { SiteMeta } from '../../site.config'
+import loadable from '@loadable/component'
 import { createGlobalStyle } from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
 const GitalkComponent = loadable(() => import('gitalk/dist/gitalk-component'))
