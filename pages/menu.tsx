@@ -56,13 +56,14 @@ const Menu = ({ posts }: MenuProps) => {
 
   let subCategorys = topMenu ? [] : Category[menu].sub
 
+  console.log(categoryInfo)
   return (
     <Layout>
       <MyHelmet title={`'${menu}' 메뉴`} content={`${menu} 메뉴에 대한 글들입니다.`} />
-      <PostHeader image={categoryInfo.image}>
+      <PostHeader image={categoryInfo && categoryInfo.image}>
         <PostHeaderFrame>
           <PostTitle>{menu}</PostTitle>
-          <DateFrame>{categoryInfo.descript}</DateFrame>
+          <DateFrame>{categoryInfo && categoryInfo.descript}</DateFrame>
         </PostHeaderFrame>
       </PostHeader>
       <PostList
