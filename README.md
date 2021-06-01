@@ -2,6 +2,10 @@
 
 Next.js를 기반으로 한 계층형 카테고리를 지원하는 마크다운 블로그 테마입니다. comments, rss, sitemap, robots, tag, search 그리고 다크테마를 지원하는 블로깅에 필요한 모든 기능을 지원하는 올인원 블로그 테마입니다.
 
+## Demo
+
+![demo](https://user-images.githubusercontent.com/45007556/120255404-d18e2900-c2c6-11eb-855e-44f9537a0b1d.gif)
+
 ## Light Theme
 
 ![image](https://user-images.githubusercontent.com/45007556/120254463-76821500-c279-11eb-9ea7-8caa0e9107c9.png)
@@ -14,10 +18,6 @@ Next.js를 기반으로 한 계층형 카테고리를 지원하는 마크다운 
 ## Mobile
 
 ![image](https://user-images.githubusercontent.com/45007556/119346401-21705d00-bcd5-11eb-80bc-c5b7497ca653.png)
-
-## Post View
-
-![image](https://user-images.githubusercontent.com/45007556/120254482-80a41380-c279-11eb-99e7-2b029482f837.png)
 
 # 설정 팁
 
