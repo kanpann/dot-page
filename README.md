@@ -4,15 +4,20 @@ Next.js를 기반으로 한 계층형 카테고리를 지원하는 마크다운 
 
 ## Light Theme
 
-![image](https://user-images.githubusercontent.com/45007556/119346276-f8e86300-bcd4-11eb-8f32-1fa38489e474.png)
+![image](https://user-images.githubusercontent.com/45007556/120254463-76821500-c279-11eb-9ea7-8caa0e9107c9.png)
+
 
 ## Dark Theme
 
-![image](https://user-images.githubusercontent.com/45007556/119343712-cb4dea80-bcd1-11eb-9144-95d00b4bf41b.png)
+![image](https://user-images.githubusercontent.com/45007556/120254590-24ff7780-c2c5-11eb-8f30-b56857b27de5.png)
 
 ## Mobile
 
 ![image](https://user-images.githubusercontent.com/45007556/119346401-21705d00-bcd5-11eb-80bc-c5b7497ca653.png)
+
+## Post View
+
+![image](https://user-images.githubusercontent.com/45007556/120254482-80a41380-c279-11eb-99e7-2b029482f837.png)
 
 # 설정 팁
 
