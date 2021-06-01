@@ -11,8 +11,8 @@ const List = styled.ul`
   margin: 0px;
 `
 const TopList = styled(List)`
-  width: '85%';
-  float: 'right';
+  width: 85%;
+  float: right;
 `
 const Item = styled.li`
   padding-top: 5px;
