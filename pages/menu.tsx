@@ -1,12 +1,15 @@
 import { getSortedPostsData } from '../lib/posts'
 import { Category, CategoryInfo } from '../site.config'
-import styled, { PostHeaderTheme } from 'styled-components'
+import styled, { DefaultTheme, PostHeaderTheme } from 'styled-components'
 import React, { memo } from 'react'
 import PostList from '../components/post/PostList'
 import Layout from '../components/common/Layout'
 import { useRouter } from 'next/dist/client/router'
 import { Post } from '../lib/types'
 import MyHelmet from '../components/common/MyHelmet'
+import Link from 'next/link'
+import PagingUtil from '../lib/paging-util'
+import Pagination from '../components/common/Pagination'
 
 const PostHeader = styled.div`
   background-size: cover;
@@ -48,15 +51,19 @@ const Menu = ({ posts }: MenuProps) => {
   const menu = router.query.menu as string
   const topMenu = router.query.topMenu as string
 
+  const page = Number(router.query.page as string) || 1
+
   if (!menu) {
     return <></>
   }
-
   const categoryInfo = CategoryInfo[menu]
-
   let subCategorys = topMenu ? [] : Category[menu].sub
 
-  console.log(categoryInfo)
+  const util = new PagingUtil(
+    page,
+    posts.filter((post) => subCategorys.indexOf(post.category) != -1 || post.category == menu),
+  )
+  const { isPrev, isNext, result } = util
   return (
     <Layout>
       <MyHelmet title={`'${menu}' 메뉴`} content={`${menu} 메뉴에 대한 글들입니다.`} />
@@ -66,11 +73,8 @@ const Menu = ({ posts }: MenuProps) => {
           <DateFrame>{categoryInfo && categoryInfo.descript}</DateFrame>
         </PostHeaderFrame>
       </PostHeader>
-      <PostList
-        posts={posts.filter(
-          (post) => subCategorys.indexOf(post.category) != -1 || post.category == menu,
-        )}
-      />
+      <PostList posts={result} />
+      <Pagination isPrev={isPrev} isNext={isNext} menu={menu} topMenu={topMenu} page={page} />
     </Layout>
   )
 }
