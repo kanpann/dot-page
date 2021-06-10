@@ -21,9 +21,7 @@ const Title = styled.h1`
 `
 const Toc = styled.div`
   .toc {
-    overflow: scroll;
     position: fixed;
-    width: 200px;
     top: 140px;
     left: 20px;
     border-radius: 5px;
@@ -41,7 +39,7 @@ const Toc = styled.div`
 
         a {
           color: black;
-          font-size: 0.7rem;
+          font-size: 1.5vh;
         }
       }
     }
