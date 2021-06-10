@@ -27,46 +27,37 @@ type LayoutProps = {
   children: JSX.Element[] | JSX.Element
   maxWidth?: false | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 }
-const Layout = ({ children, maxWidth = 'lg' }: LayoutProps) => {
+const Layout = ({ children, maxWidth = 'md' }: LayoutProps) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
 
   const handleMenuPoper = () => {
     setIsOpenMenu(!isOpenMenu)
   }
   return (
-    <Container fixed disableGutters={true} maxWidth={maxWidth}>
+    <>
       <Header />
-      <Logo />
-      <Frame>
-        <Hidden mdUp>
-          <IconButton
-            onClick={handleMenuPoper}
-            aria-label="display more actions"
-            edge="end"
-            color="inherit"
-          >
-            <MyMenuIcon fontSize="large" />
-          </IconButton>
-        </Hidden>
-        <ThemeSwitch />
-        <Drawer open={isOpenMenu} anchor="left" onClose={handleMenuPoper}>
-          <SideMenuBar isLogo={true} isBorder={true} handleClose={handleMenuPoper} />
-        </Drawer>
-        <Grid container direction="row" justify="center" alignItems="flex-start">
-          <Hidden smDown>
-            <Grid item md={3}>
-              <SideMenuBar />
-            </Grid>
-          </Hidden>
-          <Grid item xs={12} md={9}>
-            {children}
-          </Grid>
-        </Grid>
-      </Frame>
-
-      <TopScrollBtn />
-      <Footer github={SiteMeta.info.github} author={SiteMeta.info.author} />
-    </Container>
+      <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
+        <IconButton
+          onClick={handleMenuPoper}
+          aria-label="display more actions"
+          edge="end"
+          color="inherit"
+        >
+          <MyMenuIcon fontSize="large" />
+        </IconButton>
+      </div>
+      <Container fixed disableGutters={true} maxWidth={maxWidth}>
+        <Logo />
+        <Frame>
+          <Drawer open={isOpenMenu} anchor="left" onClose={handleMenuPoper}>
+            <SideMenuBar isLogo={true} isBorder={true} handleClose={handleMenuPoper} />
+          </Drawer>
+          {children}
+        </Frame>
+        <TopScrollBtn />
+        <Footer github={SiteMeta.info.github} author={SiteMeta.info.author} />
+      </Container>
+    </>
   )
 }
 export default Layout

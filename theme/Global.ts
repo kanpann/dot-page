@@ -5,7 +5,6 @@ const lightTheme = createGlobalStyle`
   body {
     margin: 0px;
     font-family: 'nanumBarunGothic';
-    background-color: ${(props: DefaultTheme) => props.theme.app.background};
     line-height: 30px;
   }
   img {

@@ -21,15 +21,16 @@ const Title = styled.h1`
 `
 const Toc = styled.div`
   .toc {
-    background: rgb(206 230 255 / 80%);
+    overflow: scroll;
+    position: fixed;
+    width: 200px;
+    top: 140px;
+    left: 20px;
     border-radius: 5px;
     padding: 5px 20px;
     margin-bottom: 20px;
     word-break: break-all;
-    h3 {
-      color: #0b206f;
-      border-bottom: 1px solid;
-    }
+
     ul {
       margin-top: 0px;
       padding-left: 20px;
@@ -40,6 +41,7 @@ const Toc = styled.div`
 
         a {
           color: black;
+          font-size: 0.7rem;
         }
       }
     }

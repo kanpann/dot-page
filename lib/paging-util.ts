@@ -1,7 +1,7 @@
 import { Post } from "./types";
 
 export default class PagingUtil {
-    VIEW_POST = 6   
+    VIEW_POST = 8 
     result 
     isPrev
     isNext

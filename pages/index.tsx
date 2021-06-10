@@ -21,6 +21,7 @@ const Home = ({ posts }: HomeProps) => {
   const { isPrev, isNext, result } = util
   return (
     <Layout>
+      <hr />
       <PostList posts={result} />
       <Pagination isPrev={isPrev} isNext={isNext} page={page} />
     </Layout>

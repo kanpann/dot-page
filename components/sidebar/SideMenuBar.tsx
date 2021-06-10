@@ -9,14 +9,13 @@ import { DefaultTheme } from '../../theme/Theme'
 import Social from './Social'
 import Logo from '../common/Logo'
 import SearchForm from './SearchForm'
+import CloseIcon from '@material-ui/icons/Close'
 
 const MainFrame = styled.div`
   background-color: ${(props: SideBarTheme) => props.theme.app.box};
   ${(props: SideBarTheme) => (props.isBorder ? 'border: 1px solid gray' : '')};
 `
 const BackButton = muiStyled(withTheme(IconButton))({
-  position: 'fixed',
-  bottom: '0',
   padding: '20px',
   width: '20px',
   height: '20px',
@@ -52,7 +51,11 @@ const SideMenuBar = ({ isLogo, isBorder, handleClose }: SideMenuProps) => {
   const { github, email, author, descript, image } = SiteMeta.info
   return (
     <MainFrame isBorder={isBorder}>
-      {isLogo && <Logo />}
+      {handleClose && (
+        <BackButton onClick={handleClose}>
+          <CloseIcon fontSize="large" />
+        </BackButton>
+      )}
       <Grid
         style={{ padding: '10px' }}
         container
@@ -61,23 +64,9 @@ const SideMenuBar = ({ isLogo, isBorder, handleClose }: SideMenuProps) => {
         alignItems="center"
       >
         <Grid>
-          <InfoFrame>
-            <MyAvatar src={image} />
-            <Name>{author}</Name>
-            <Contents>{descript}</Contents>
-            <Social github={github} email={email} />
-            <SearchForm />
-          </InfoFrame>
-        </Grid>
-        <Grid style={{ width: '80%' }}>
           <Categories />
         </Grid>
       </Grid>
-      {handleClose && (
-        <BackButton onClick={handleClose}>
-          <ArrowBackIcon />
-        </BackButton>
-      )}
     </MainFrame>
   )
 }

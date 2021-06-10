@@ -1,29 +1,33 @@
 import React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
-import { DefaultTheme } from '../../theme/Theme'
 
-const CustomLogo = styled.div`
-  margin: 50px 0px;
-  font-family: 'sunspots';
-  font-size: 6rem;
+const Frame = styled.div`
   text-align: center;
-  padding: 50px 10px;
+  padding-top: 40px;
+  padding-bottom: 80px;
+  font-family: 'sunspots';
+  font-size: 3rem;
   user-select: none;
-  a {
-    color: ${(props: DefaultTheme) => props.theme.app.box};
-    text-shadow: ${(props: DefaultTheme) => '2px 2px 10px ' + props.theme.app.title};
-    &:hover {
-      text-shadow: ${(props: DefaultTheme) => '2px 2px 12px ' + props.theme.app.title};
-    }
+  &:hover {
+    color: blue;
   }
+  color: black;
+  a:visited {
+    color: black;
+  }
+  cursor: pointer;
 `
 
 const Logo = () => {
   return (
-    <CustomLogo>
-      <Link href="/">Gunlog</Link>
-    </CustomLogo>
+    <>
+      <Frame>
+        <Link href="/">
+          <a>Gunlog</a>
+        </Link>
+      </Frame>
+    </>
   )
 }
 export default Logo

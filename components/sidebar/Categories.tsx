@@ -51,7 +51,6 @@ const Categories = () => {
   const categoryNames = Object.keys(Category)
   return (
     <>
-      <CategoryName variant="h5">Categories</CategoryName>
       {categoryNames.map((categoryName, index) => {
         const mainMenu = Category[categoryName]
 
