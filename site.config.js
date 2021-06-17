@@ -28,6 +28,11 @@ module.exports = {
       sub: [],
       url: '/about',
     },
+    Archive: {
+      isSub: false,
+      sub: [],
+      url: '/archive',
+    },
     Programing: {
       isSub: false,
       sub: [],
