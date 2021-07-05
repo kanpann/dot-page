@@ -13,7 +13,7 @@ const getPostByFileName = async (fileName: string): Promise<Post> => {
 
   const content: string = postData.content
   let excerpt: string = substrToByte(removeHtml(await util.getContents(content)), 300)
-  excerpt += (getByteLength(excerpt) > 300 ? '...' : '')
+  excerpt += getByteLength(excerpt) > 300 ? '...' : ''
 
   return {
     id,
@@ -59,13 +59,13 @@ export const getAllPostIds = () => {
 export const getPostData = async (id: string): Promise<Post> => {
   const fileName: string = `${id}.md`
 
-  const { title, date, image, tags, category } = util.getPostData(fileName).data
+  const { title, date, image, tags, category, isToc = true } = util.getPostData(fileName).data
   const content: string = util.getPostData(fileName).content
   const { contents, toc } = await util.getContentsAndToc(content)
 
   return {
     id,
-    toc: toc,
+    toc: isToc ? toc : '',
     content: contents,
     category: category,
     tags: tags !== undefined ? tags : [],
