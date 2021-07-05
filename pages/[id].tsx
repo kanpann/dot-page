@@ -6,11 +6,11 @@ import 'highlight.js/styles/atom-one-dark.css'
 import Comments from '../components/post/Comments'
 import Layout from '../components/common/Layout'
 import { DefaultTheme } from '../theme/Theme'
-import Chips from '../components/post/Chips'
 import { Post as PostType } from '../lib/types'
 import { SiteMeta } from '../site.config'
 import MyHelmet from '../components/common/MyHelmet'
-import LocalOfferIcon from '@material-ui/icons/LocalOffer';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer'
+import Link from 'next/link'
 
 const Title = styled.h1`
   font-size: 4vh;
@@ -27,8 +27,8 @@ const Category = styled.div`
 `
 const Tags = styled.span`
   color: ${(props: DefaultTheme) => props.theme.app.font};
-  span {
-    margin-right: 10px;
+  a {
+    margin-right: 8px;
   }
 `
 const Toc = styled.div`
@@ -149,10 +149,16 @@ const Post = ({ post }: PostProps) => {
       <Category>{category}</Category>
       <hr />
       <Title>{title}</Title>
-      <DateView date={date} />    
-      <Tags><LocalOfferIcon fontSize="inherit" titleAccess="태그"/>{tags && tags.map(tag => (
-        <span><a href="3">#{tag}</a></span>
-      ))}</Tags>
+      <DateView date={date} />
+      <Tags>
+        <LocalOfferIcon fontSize="inherit" titleAccess="태그" />
+        {tags &&
+          tags.map((tag, index) => (
+            <Link key={index} href={'/tag?tag=' + tag}>
+              <a href="3">#{tag}</a>
+            </Link>
+          ))}
+      </Tags>
       <Toc dangerouslySetInnerHTML={{ __html: toc!! }} />
       <Content dangerouslySetInnerHTML={{ __html: content }} />
       <Comments
@@ -162,7 +168,7 @@ const Post = ({ post }: PostProps) => {
         owner={owner}
         admin={admin}
       />
-  </Layout>
+    </Layout>
   )
 }
 export const getStaticPaths = async () => {
