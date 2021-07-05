@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
 
 const CustomLogo = styled.div`
-  margin: 50px 0px;
+  margin: 15px 0px;
   font-family: 'sunspots';
   font-size: 6rem;
   text-align: center;
