@@ -1,5 +1,5 @@
 import React from 'react'
-import { getAllPostIds, getPostData } from '../lib/posts'
+import { getAllPostIds, findPostDataById } from '../lib/posts'
 import DateView from '../components/post/DateView'
 import 'highlight.js/styles/atom-one-dark.css'
 import Comments from '../components/post/Comments'
@@ -29,7 +29,7 @@ const Post = ({ post }: PostProps) => {
         <LocalOfferIcon fontSize="inherit" titleAccess="태그" />
         {tags &&
           tags.map((tag, index) => (
-            <Link key={index} href={'/tag?tag=' + tag}>
+            <Link key={index} href={`/tags/${tag}`}>
               <a href="3">#{tag}</a>
             </Link>
           ))}
@@ -54,7 +54,7 @@ export const getStaticPaths = async () => {
   }
 }
 export const getStaticProps = async ({ params }) => {
-  const post: PostType = await getPostData(params.id)
+  const post: PostType = await findPostDataById(params.id)
   return {
     props: {
       post,

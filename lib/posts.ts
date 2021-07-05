@@ -55,8 +55,29 @@ export const getAllPostIds = () => {
     }
   })
 }
+export const getAllTagIds = async () => {
+  const postData = await getSortedPostsData()
 
-export const getPostData = async (id: string): Promise<Post> => {
+  const set = new Set()
+  postData.map((post) => {
+    if (post.tags) {
+      post.tags.map((tag) => {
+        set.add(tag)
+      })
+    }
+  })
+  const arr = Array.from(set)
+
+  return arr.map((tag) => {
+    return {
+      params: {
+        id: tag,
+      },
+    }
+  })
+}
+
+export const findPostDataById = async (id: string): Promise<Post> => {
   const fileName: string = `${id}.md`
 
   const { title, date, image, tags, category, isToc = true } = util.getPostData(fileName).data
@@ -73,6 +94,17 @@ export const getPostData = async (id: string): Promise<Post> => {
     date: date,
     image: image,
   }
+}
+export const findPostDataByTag = async (tag: string) => {
+  const postData = await getSortedPostsData()
+
+  const arr = new Array()
+  postData.map((post) => {
+    if (post.tags.indexOf(tag) != -1) {
+      arr.push(post)
+    }
+  })
+  return arr
 }
 
 export const getAbout = async (): Promise<string> => {
