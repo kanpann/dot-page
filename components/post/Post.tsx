@@ -34,11 +34,11 @@ const Meta = styled.div`
 const Frame = styled.div`
   &:hover {
     img {
-      opacitry: 0.6;
+      opacity: 0.6;
       transition: opacity 0.3s ease-in;
     }
     .defaultImg {
-      opacitry: 0.6;
+      opacity: 0.6;
       transition: opacity 0.3s ease-in;
     }
   }
