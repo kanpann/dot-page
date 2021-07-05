@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { DefaultTheme } from '../theme/Theme'
 
 export const Title = styled.h1`
-  font-size: 4vh;
+  font-size: 4.5vh;
   font-family: nanumSquare;
   line-height: 50px;
   margin: 0px;
