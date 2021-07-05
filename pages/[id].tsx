@@ -10,6 +10,7 @@ import Chips from '../components/post/Chips'
 import { Post as PostType } from '../lib/types'
 import { SiteMeta } from '../site.config'
 import MyHelmet from '../components/common/MyHelmet'
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 
 const Title = styled.h1`
   font-size: 4vh;
@@ -18,6 +19,17 @@ const Title = styled.h1`
   margin: 0px;
   word-break: break-all;
   color: ${(props: DefaultTheme) => props.theme.app.title};
+`
+const Category = styled.div`
+  color: ${(props: DefaultTheme) => props.theme.app.font};
+  font-weight: bold;
+  font-size: 1.3rem;
+`
+const Tags = styled.span`
+  color: ${(props: DefaultTheme) => props.theme.app.font};
+  span {
+    margin-right: 10px;
+  }
 `
 const Toc = styled.div`
   .toc {
@@ -132,24 +144,25 @@ const Post = ({ post }: PostProps) => {
   const { title, date, content, tags, category, image, toc } = post
 
   return (
-    <>
-      <Layout>
-        <MyHelmet title={title} content={content.substr(0, 50)} image={image} />
-        <Title>{title}</Title>
-        <DateView date={date} />
-        <hr />
-        <Chips category={category} tags={tags} />
-        <Toc dangerouslySetInnerHTML={{ __html: toc!! }} />
-        <Content dangerouslySetInnerHTML={{ __html: content }} />
-        <Comments
-          clientID={clientID}
-          clientSecret={clientSecret}
-          repo={repo}
-          owner={owner}
-          admin={admin}
-        />
-      </Layout>
-    </>
+    <Layout>
+      <MyHelmet title={title} content={content.substr(0, 50)} image={image} />
+      <Category>{category}</Category>
+      <hr />
+      <Title>{title}</Title>
+      <DateView date={date} />    
+      <Tags><LocalOfferIcon fontSize="inherit" titleAccess="태그"/>{tags && tags.map(tag => (
+        <span><a href="3">#{tag}</a></span>
+      ))}</Tags>
+      <Toc dangerouslySetInnerHTML={{ __html: toc!! }} />
+      <Content dangerouslySetInnerHTML={{ __html: content }} />
+      <Comments
+        clientID={clientID}
+        clientSecret={clientSecret}
+        repo={repo}
+        owner={owner}
+        admin={admin}
+      />
+  </Layout>
   )
 }
 export const getStaticPaths = async () => {

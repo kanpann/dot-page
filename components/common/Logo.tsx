@@ -11,7 +11,7 @@ const CustomLogo = styled.div`
   padding: 50px 10px;
   user-select: none;
   a {
-    color: ${(props: DefaultTheme) => props.theme.app.box};
+    color: ${(props: DefaultTheme) => props.theme.app.box} !important;
     text-shadow: ${(props: DefaultTheme) => '2px 2px 10px ' + props.theme.app.title};
     &:hover {
       text-shadow: ${(props: DefaultTheme) => '2px 2px 12px ' + props.theme.app.title};

@@ -21,7 +21,7 @@ function printElapsedDate(date: string): string {
   }
 }
 
-const Time = styled.div`
+const Time = styled.span`
   font-size: 1rem;
   text-align: left;
   color: #7d7d7d;
