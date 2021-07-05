@@ -18,7 +18,7 @@ const MyMenuIcon = muiStyled(withTheme(MenuIcon))((props: DefaultTheme) => ({
 
 const Frame = styled.div`
   background-color: ${(props: DefaultTheme) => props.theme.app.box};
-  padding: 10px 20px;
+  padding: 20px 20px;
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-radius: 15px;
@@ -48,7 +48,6 @@ const Layout = ({ children, maxWidth = 'lg' }: LayoutProps) => {
             <MyMenuIcon fontSize="large" />
           </IconButton>
         </Hidden>
-        <ThemeSwitch />
         <Drawer open={isOpenMenu} anchor="left" onClose={handleMenuPoper}>
           <SideMenuBar isLogo={true} isBorder={true} handleClose={handleMenuPoper} />
         </Drawer>
@@ -63,8 +62,7 @@ const Layout = ({ children, maxWidth = 'lg' }: LayoutProps) => {
           </Grid>
         </Grid>
       </Frame>
-
-      <TopScrollBtn />
+      <ThemeSwitch />
       <Footer github={SiteMeta.info.github} author={SiteMeta.info.author} />
     </Container>
   )
