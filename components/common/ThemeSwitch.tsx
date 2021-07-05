@@ -9,11 +9,11 @@ import WbSunnyIcon from '@material-ui/icons/WbSunny'
 import TopScrollBtn from './TopScrollBtn'
 
 const MyThemeIcon = muiStyled(withTheme(IconButton))((props: DefaultTheme) => ({
-  color: 'black',
+  color: props.theme.app.title,
   position: 'fixed',
   bottom: 10,
   right: 20,
-  background: '#f5ffe9',
+  background: props.theme.app.box,
   borderRadius: '8px',
   border: `2px solid black`,
   fontSize: '1.2rem',
