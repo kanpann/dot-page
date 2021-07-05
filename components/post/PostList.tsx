@@ -20,7 +20,6 @@ const PostList = ({ posts }: PostListProps) => {
               date={date}
               image={image}
               excerpt={excerpt!!}
-              tags={tags}
               category={category}
             />
           </Grid>
