@@ -1,5 +1,6 @@
 import { parseISO, format } from 'date-fns'
 import styled from 'styled-components'
+import { DefaultTheme } from '../../theme/Theme'
 
 function printElapsedDate(date: string): string {
   const postDate = new Date(date)
@@ -24,7 +25,7 @@ function printElapsedDate(date: string): string {
 const Time = styled.span`
   font-size: 1rem;
   text-align: left;
-  color: #7d7d7d;
+  color: ${(props: DefaultTheme) => props.theme.app.font};
   line-height: 0px;
   margin-top: 10px;
   margin-bottom: 20px;
