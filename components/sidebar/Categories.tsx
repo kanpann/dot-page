@@ -29,8 +29,7 @@ const Item = styled.li`
   }
   a {
     &:hover {
-      text-shadow: 0px 4px 10px;
-
+      color: #a3bcff;
       &::before {
         content: '_';
       }
@@ -41,7 +40,6 @@ const CategoryName = muiStyled(withTheme(Typography))((props: DefaultTheme) => (
   marginTop: '30px',
   textAlign: 'center',
   paddingBottom: '10px',
-  borderBottom: '4mm ridge rgba(185, 247, 255, .6)',
   color: props.theme.app.box,
   fontWeight: 'bold',
   textShadow: `-1px 0 ${props.theme.app.title}, 0 1px ${props.theme.app.title}, 1px 0 ${props.theme.app.title}, 0 -1px ${props.theme.app.title}`,
