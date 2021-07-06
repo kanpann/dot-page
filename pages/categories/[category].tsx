@@ -1,11 +1,11 @@
 import React, { memo } from 'react'
+import { useRouter } from 'next/dist/client/router'
 import styled, { PostHeaderTheme } from 'styled-components'
 import { Post } from '../../lib/types'
-import { useRouter } from 'next/dist/client/router'
 import PagingUtil from '../../lib/paging-util'
-import { findPostDataByCategory, getAllCategorys, getSortedPostsData } from '../../lib/posts'
+import { findPostDataByCategory, getAllCategorys } from '../../lib/posts'
 import PostList from '../../components/post/PostList'
-import Pagination from '../../components/common/Pagination'
+import MyPagination from '../../components/common/MyPagination'
 import Layout from '../../components/common/Layout'
 import MyHelmet from '../../components/common/MyHelmet'
 import { CategoryInfo } from '../../site.config'
@@ -47,6 +47,11 @@ type MenuProps = {
   category: string
 }
 const Category = ({ posts, category }: MenuProps) => {
+  const router = useRouter()
+  const page = Number(router.query.page as string) || 1
+
+  const util = new PagingUtil(page, posts)
+  const { result, totalPage } = util
   const categoryInfo = CategoryInfo[category]
   return (
     <Layout>
@@ -57,7 +62,9 @@ const Category = ({ posts, category }: MenuProps) => {
           <DateFrame>{categoryInfo && categoryInfo.descript}</DateFrame>
         </PostHeaderFrame>
       </PostHeader>
-      <PostList posts={posts} />
+      <PostList posts={result} />
+      <hr />
+      <MyPagination target={`/categories/${category}`} page={page} totalPage={totalPage} />
     </Layout>
   )
 }

@@ -8,6 +8,8 @@ import { useRouter } from 'next/dist/client/router'
 import PostList from '../components/post/PostList'
 import { Post } from '../lib/types'
 import MyHelmet from '../components/common/MyHelmet'
+import PagingUtil from '../lib/paging-util'
+import MyPagination from '../components/common/MyPagination'
 
 const NotFoundMsg = muiStyled(withTheme(Typography))((props: DefaultTheme) => ({
   color: props.theme.app.title,
@@ -19,6 +21,7 @@ type SearchProps = {
 const Search = ({ posts }: SearchProps) => {
   const router = useRouter()
   const keyword = router.query.keyword as string
+  const page = Number(router.query.page as string) || 1
 
   if (!keyword) {
     return <></>
@@ -30,17 +33,22 @@ const Search = ({ posts }: SearchProps) => {
       post.content.toLowerCase().indexOf(keyword.toLowerCase()) > 0,
   )
 
+  const util = new PagingUtil(page, searchResult)
+  const { result: pagingResult, totalPage } = util
+
   return (
     <Layout>
       <MyHelmet title={`'${keyword}'의 검색결과`} content={`'${keyword}'의 검색결과입니다.`} />
-      {searchResult.length > 0 ? (
-        searchResult && <PostList posts={searchResult} />
+      {pagingResult.length > 0 ? (
+        pagingResult && <PostList posts={pagingResult} />
       ) : (
         <NotFoundMsg variant="h5" align="center">
           검색 결과가 없습니다.
           <br /> 검색 알고리즘이 그리 좋지 않으니 키워드 위주로 검색해주세요!
         </NotFoundMsg>
       )}
+      <hr />
+      <MyPagination queryStr={`keyword=${keyword}`} page={page} totalPage={totalPage} />
     </Layout>
   )
 }
