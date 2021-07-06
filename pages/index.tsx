@@ -8,7 +8,7 @@ import generateSitemap from '../lib/meta/sitemap'
 import generateRobots from '../lib/meta/robots'
 import PagingUtil from '../lib/paging-util'
 import { useRouter } from 'next/dist/client/router'
-import Pagination from '../components/common/Pagination'
+import MyPagination from '../components/common/MyPagination'
 
 type HomeProps = {
   posts: Post[]
@@ -18,11 +18,11 @@ const Home = ({ posts }: HomeProps) => {
   const page = Number(router.query.page as string) || 1
 
   const util = new PagingUtil(page, posts)
-  const { isPrev, isNext, result } = util
+  const { result, totalPage } = util
   return (
     <Layout>
       <PostList posts={result} />
-      <Pagination isPrev={isPrev} isNext={isNext} page={page} />
+      <MyPagination page={page} totalPage={totalPage} />
     </Layout>
   )
 }
