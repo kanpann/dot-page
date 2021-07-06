@@ -1,7 +1,4 @@
-import { DefaultTheme } from '../../theme/Theme'
 import styled from 'styled-components'
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
-import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp'
 import PublishIcon from '@material-ui/icons/Publish'
 
 const ScrollBtn = styled.div``
