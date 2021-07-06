@@ -1,18 +1,18 @@
 import React, { memo } from 'react'
 import { getSortedPostsData } from '../lib/posts'
 import { Post } from '../lib/types'
-import Layout from '../components/common/Layout'
-import generateRss from '../lib/meta/feed'
-import generateSitemap from '../lib/meta/sitemap'
-import generateRobots from '../lib/meta/robots'
-import Timeline from '@material-ui/lab/Timeline'
-import TimelineItem from '@material-ui/lab/TimelineItem'
-import TimelineSeparator from '@material-ui/lab/TimelineSeparator'
-import TimelineConnector from '@material-ui/lab/TimelineConnector'
-import TimelineContent from '@material-ui/lab/TimelineContent'
-import TimelineDot from '@material-ui/lab/TimelineDot'
-import Typography from '@material-ui/core/Typography'
-import { TimelineOppositeContent } from '@material-ui/lab'
+import { Layout } from '../components/common'
+import { generateRss, generateRobots, generateSitemap } from '../lib/meta'
+import {
+  Timeline,
+  TimelineItem,
+  TimelineSeparator,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDot,
+  TimelineOppositeContent,
+} from '@material-ui/lab'
+import { Typography } from '@material-ui/core'
 import Link from 'next/link'
 
 type ArchiveProps = {

@@ -1,15 +1,12 @@
 import React from 'react'
-import Layout from '../components/common/Layout'
 import { getSortedPostsData } from '../lib/posts'
-import { styled as muiStyled } from '@material-ui/core/styles'
-import { Typography, withTheme } from '@material-ui/core'
+import { styled as muiStyled, Typography, withTheme } from '@material-ui/core'
 import { DefaultTheme } from '../theme/Theme'
 import { useRouter } from 'next/dist/client/router'
-import PostList from '../components/post/PostList'
 import { Post } from '../lib/types'
-import MyHelmet from '../components/common/MyHelmet'
 import PagingUtil from '../lib/paging-util'
-import MyPagination from '../components/common/MyPagination'
+import { MyPagination, MyHelmet, Layout } from '../components/common'
+import { PostList } from '../components/post'
 
 const NotFoundMsg = muiStyled(withTheme(Typography))((props: DefaultTheme) => ({
   color: props.theme.app.title,

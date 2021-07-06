@@ -1,12 +1,11 @@
 import React, { memo } from 'react'
-import PostList from '../components/post/PostList'
 import { getSortedPostsData } from '../lib/posts'
 import { Post } from '../lib/types'
-import Layout from '../components/common/Layout'
+import { Layout, MyPagination } from '../components/common'
+import { PostList } from '../components/post'
 import { generateRss, generateRobots, generateSitemap } from '../lib/meta'
 import PagingUtil from '../lib/paging-util'
 import { useRouter } from 'next/dist/client/router'
-import MyPagination from '../components/common/MyPagination'
 
 type HomeProps = {
   posts: Post[]

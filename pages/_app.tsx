@@ -3,8 +3,7 @@ import NextApp from 'next/app'
 import React from 'react'
 import GlobalTheme from '../theme/Global'
 import { LightTheme, DarkTheme } from '../theme/Theme'
-import ThemeProvider from '../components/provider/ThemeProvider'
-import { ThemeCtxProvider } from '../components/provider/ThemeCtxProvider'
+import { ThemeCtxProvider, ThemeProvider } from '../components/provider'
 
 const themes = {
   light: LightTheme,

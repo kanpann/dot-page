@@ -5,9 +5,7 @@ import { Post } from '../../lib/types'
 import PagingUtil from '../../lib/paging-util'
 import { findPostDataByCategory, getAllCategorys } from '../../lib/posts'
 import PostList from '../../components/post/PostList'
-import MyPagination from '../../components/common/MyPagination'
-import Layout from '../../components/common/Layout'
-import MyHelmet from '../../components/common/MyHelmet'
+import { MyHelmet, Layout, MyPagination } from '../../components/common'
 import { CategoryInfo } from '../../site.config'
 
 const PostHeader = styled.div`
