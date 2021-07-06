@@ -27,7 +27,7 @@ type LayoutProps = {
   maxWidth?: false | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 }
 const Layout = ({ children, maxWidth = 'lg' }: LayoutProps) => {
-  const [isOpenMenu, setIsOpenMenu] = useState(false)
+  const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false)
 
   const handleMenuPoper = () => {
     setIsOpenMenu(!isOpenMenu)

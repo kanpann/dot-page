@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter, { GrayMatterFile } from 'gray-matter'
 import md from './markdown-util'
-import { RenderResult } from './types'
+import { RenderResult } from '../types/post'
 
 const postsDirectory: string = path.join(process.cwd(), 'posts')
 

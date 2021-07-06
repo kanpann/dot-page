@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { DefaultTheme } from '../../theme/Theme'
 import { styled as muiStyled } from '@material-ui/core/styles'
 import { Typography, withTheme } from '@material-ui/core'
+import { CategoryItem } from '../../types/category'
 
 const List = styled.ul`
   list-style: none;
@@ -46,19 +47,17 @@ const CategoryName = muiStyled(withTheme(Typography))((props: DefaultTheme) => (
 }))
 
 const Categories = () => {
-  const categoryNames = Object.keys(Category)
+  const categoryNames: string[] = Object.keys(Category)
   return (
     <>
       <CategoryName variant="h5">Categories</CategoryName>
       {categoryNames.map((categoryName, index) => {
-        const mainMenu = Category[categoryName]
+        const mainMenu: CategoryItem = Category[categoryName]
 
-        const { isSub, url } = mainMenu
+        const { isSub, url }: CategoryItem = mainMenu
 
-        let subMenus
-        if (isSub) {
-          subMenus = Category[categoryName]['sub']
-        }
+        const subMenus: string[] = isSub ? Category[categoryName]['sub'] : []
+
         return (
           <TopList key={index}>
             <Item>

@@ -1,7 +1,7 @@
 import { GrayMatterFile } from 'gray-matter'
 import { getByteLength, removeHtml, substrToByte } from './common-util'
 import * as util from './posts-util'
-import { Post } from './types'
+import { Post } from '../types/post'
 import { Category } from '../site.config'
 
 const getPostByFileName = async (fileName: string): Promise<Post> => {

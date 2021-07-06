@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import { useRouter } from 'next/dist/client/router'
 import styled, { PostHeaderTheme } from 'styled-components'
-import { Post } from '../../lib/types'
+import { Post } from '../../types/post'
 import PagingUtil from '../../lib/paging-util'
 import { findPostDataByCategory, getAllCategorys } from '../../lib/posts'
 import PostList from '../../components/post/PostList'

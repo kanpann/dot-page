@@ -1,6 +1,6 @@
 import React from 'react'
 import { findPostDataByTag, getAllTags } from '../../lib/posts'
-import { Post } from '../../lib/types'
+import { Post } from '../../types/post'
 import { useRouter } from 'next/dist/client/router'
 import { styled as muiStyled, Typography, withTheme } from '@material-ui/core'
 import { DefaultTheme } from '../../theme/Theme'

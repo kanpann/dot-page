@@ -22,7 +22,11 @@ const ScrollProgressBar = () => {
   const [width, setWidth] = useState<number>(0)
 
   const handleScroll = useCallback((): void => {
-    const { scrollTop, scrollHeight, clientHeight } = document.documentElement
+    const {
+      scrollTop,
+      scrollHeight,
+      clientHeight,
+    }: { scrollTop: number; scrollHeight: number; clientHeight: number } = document.documentElement
 
     if (scrollTop === 0) {
       setWidth(0)

@@ -1,4 +1,4 @@
-import { Post } from '../types'
+import { Post } from '../../types/post'
 import fs from 'fs'
 import { SiteMeta } from '../../site.config'
 

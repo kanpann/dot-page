@@ -8,6 +8,7 @@ import { DefaultTheme } from '../../theme/Theme'
 import Social from './Social'
 import SearchForm from './SearchForm'
 import CloseIcon from '@material-ui/icons/Close'
+import { SiteInfoType } from '../../types/config'
 
 const MainFrame = styled.div`
   background-color: ${(props: SideBarTheme) => props.theme.app.box};
@@ -48,7 +49,7 @@ type SideMenuProps = {
   handleClose?: () => void
 }
 const SideMenuBar = ({ isBorder, whiteSpace = 'normal', handleClose }: SideMenuProps) => {
-  const { github, email, author, descript, image } = SiteMeta.info
+  const { github, email, author, descript, image }: SiteInfoType = SiteMeta.info
   return (
     <MainFrame isBorder={isBorder} whiteSpace={whiteSpace}>
       <Grid

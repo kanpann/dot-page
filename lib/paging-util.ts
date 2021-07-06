@@ -1,4 +1,4 @@
-import { Post } from './types'
+import { Post } from '../types/post'
 
 export default class PagingUtil {
   VIEW_POST = 6

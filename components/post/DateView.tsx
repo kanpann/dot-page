@@ -13,12 +13,12 @@ function printElapsedDate(date: string): string {
   } else if (dateDiff < 31) {
     return dateDiff + '일 전'
   } else {
-    const ElapsedMonth: any = Math.floor(dateDiff / 31)
+    const elapsedMonth: number = Math.floor(dateDiff / 31)
 
-    if (Math.floor(ElapsedMonth / 12) != 0) {
-      return Math.floor(ElapsedMonth / 12) + '년 전'
+    if (Math.floor(elapsedMonth / 12) != 0) {
+      return Math.floor(elapsedMonth / 12) + '년 전'
     }
-    return ElapsedMonth + '달 전'
+    return elapsedMonth + '달 전'
   }
 }
 

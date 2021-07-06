@@ -12,7 +12,7 @@ type PaginationProps = {
 const MyPagination = ({ target = '', page, totalPage, queryStr }: PaginationProps) => {
   const { replace } = useRouter()
   const handleChange = (event: object, page: number) => {
-    let query = `?page=${page}`
+    let query: string = `?page=${page}`
 
     if (queryStr) {
       query += '&' + queryStr
