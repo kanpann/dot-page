@@ -1,5 +1,5 @@
 import React from 'react'
-import { findPostDataByTag, getAllTagIds } from '../../lib/posts'
+import { findPostDataByTag, getAllTags } from '../../lib/posts'
 import { Post } from '../../lib/types'
 import { useRouter } from 'next/dist/client/router'
 import Layout from '../../components/common/Layout'
@@ -16,34 +16,34 @@ const Title = muiStyled(withTheme(Typography))((props: DefaultTheme) => ({
 }))
 type TagProps = {
   posts: Post[]
-  id: string
+  tag: string
 }
-const Tag = ({ posts, id }: TagProps) => {
+const Tag = ({ posts, tag }: TagProps) => {
   return (
     <Layout>
-      <MyHelmet title={`'${id}'태그의 글 목록`} content={`'${id}'태그의 글 목록입니다.`} />
+      <MyHelmet title={`'${tag}'태그의 글 목록`} content={`'${tag}'태그의 글 목록입니다.`} />
       <Title variant="h2" align="center">
-        #{id}
+        #{tag}
       </Title>
       <PostList posts={posts} />
     </Layout>
   )
 }
 export const getStaticPaths = async () => {
-  const paths = await getAllTagIds()
+  const paths = await getAllTags()
   return {
     paths,
     fallback: false,
   }
 }
 export const getStaticProps = async ({ params }) => {
-  const id = params.id
-  const posts = await findPostDataByTag(id)
+  const tag = params.tag
+  const posts = await findPostDataByTag(tag)
 
   return {
     props: {
       posts,
-      id,
+      tag,
     },
   }
 }

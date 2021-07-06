@@ -2,6 +2,7 @@ import { GrayMatterFile } from 'gray-matter'
 import { getByteLength, removeHtml, substrToByte } from './common-util'
 import * as util from './posts-util'
 import { Post } from './types'
+import { Category } from '../site.config'
 
 const getPostByFileName = async (fileName: string): Promise<Post> => {
   const id: string = fileName
@@ -55,7 +56,7 @@ export const getAllPostIds = () => {
     }
   })
 }
-export const getAllTagIds = async () => {
+export const getAllTags = async () => {
   const postData = await getSortedPostsData()
 
   const set = new Set()
@@ -71,7 +72,27 @@ export const getAllTagIds = async () => {
   return arr.map((tag) => {
     return {
       params: {
-        id: tag,
+        tag: tag,
+      },
+    }
+  })
+}
+
+export const getAllCategorys = async () => {
+  const postData = await getSortedPostsData()
+
+  const set = new Set()
+  postData.map((post) => {
+    if (post.category) {
+      set.add(post.category)
+    }
+  })
+  const arr = Array.from(set)
+
+  return arr.map((category) => {
+    return {
+      params: {
+        category: category,
       },
     }
   })
@@ -101,6 +122,25 @@ export const findPostDataByTag = async (tag: string) => {
   const arr = new Array()
   postData.map((post) => {
     if (post.tags.indexOf(tag) != -1) {
+      arr.push(post)
+    }
+  })
+  return arr
+}
+export const findPostDataByCategory = async (category: string) => {
+  const postData = await getSortedPostsData()
+  const categoryInfo = Category
+
+  const arr = new Array()
+  postData.map((post) => {
+    if (post.category === category) {
+      arr.push(post)
+    }
+    if (
+      categoryInfo[category] &&
+      categoryInfo[category].sub &&
+      categoryInfo[category].sub.indexOf(post.category)
+    ) {
       arr.push(post)
     }
   })
