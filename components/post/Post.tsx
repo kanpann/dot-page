@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Typography, CardContent, Card, withTheme, CardMedia } from '@material-ui/core'
+import { Typography, withTheme, CardMedia } from '@material-ui/core'
 import styled from 'styled-components'
 import { DefaultTheme } from '../../theme/Theme'
 import DateView from './DateView'
