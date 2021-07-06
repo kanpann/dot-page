@@ -32,7 +32,11 @@ const Meta = styled.div`
   }
 `
 const Frame = styled.div`
+  word-break: break-all;
   &:hover {
+    .myTitle {
+      color: #a3bcff;
+    }
     img {
       opacity: 0.6;
       transition: opacity 0.3s ease-in;
@@ -89,12 +93,17 @@ export const Post = ({ id, title, date, image, excerpt, category }: PostProps) =
         </Link>
       )}
       <Meta>
-        <span className="category">{category}</span> <DateView date={date} />
+        <span className="category">
+          <Link href={`/categories/${category}`}>{category}</Link>
+        </span>{' '}
+        <DateView date={date} />
       </Meta>
       <Link href={id}>
-        <MyTitle gutterBottom variant="h4">
-          {title}
-        </MyTitle>
+        <a>
+          <MyTitle className="myTitle" gutterBottom variant="h4">
+            {title}
+          </MyTitle>
+        </a>
       </Link>
       <Content>{excerpt}</Content>
     </Frame>
