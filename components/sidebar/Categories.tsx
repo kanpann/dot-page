@@ -64,14 +64,14 @@ const Categories = () => {
         return (
           <TopList key={index}>
             <Item>
-              <Link href={url ? url : `/menu?menu=${categoryName}`}>
+              <Link href={url ? url : `/categories/${categoryName}`}>
                 <a className="parent">{categoryName}</a>
               </Link>
               <List>
                 {isSub &&
                   subMenus.map((subMenu, index) => (
                     <Item key={index}>
-                      <Link href={`/menu?topMenu=${categoryName}&menu=${subMenu}`}>
+                      <Link href={`/categories/${subMenu}`}>
                         <a className="child">{subMenu}</a>
                       </Link>
                     </Item>
