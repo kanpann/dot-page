@@ -36,11 +36,9 @@ type DateProps = {
 }
 const DateView = ({ date }: DateProps) => {
   return (
-    <>
-      <Time>
-        {format(parseISO(date), 'yyyy년 MM월 dd일')} ({printElapsedDate(date)})
-      </Time>
-    </>
+    <Time>
+      {format(parseISO(date), 'yyyy년 MM월 dd일')} ({printElapsedDate(date)})
+    </Time>
   )
 }
 export default DateView
