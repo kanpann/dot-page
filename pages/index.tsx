@@ -12,10 +12,10 @@ type HomeProps = {
 }
 const Home = ({ posts }: HomeProps) => {
   const router = useRouter()
-  const page = Number(router.query.page as string) || 1
+  const page: number = Number(router.query.page as string) || 1
 
   const util = new PagingUtil(page, posts)
-  const { result, totalPage } = util
+  const { result, totalPage }: { result: Post[]; totalPage: number } = util
   return (
     <Layout>
       <PostList posts={result} />

@@ -17,8 +17,8 @@ type SearchProps = {
 }
 const Search = ({ posts }: SearchProps) => {
   const router = useRouter()
-  const keyword = router.query.keyword as string
-  const page = Number(router.query.page as string) || 1
+  const keyword: string = router.query.keyword as string
+  const page: number = Number(router.query.page as string) || 1
 
   if (!keyword) {
     return <></>
@@ -31,7 +31,7 @@ const Search = ({ posts }: SearchProps) => {
   )
 
   const util = new PagingUtil(page, searchResult)
-  const { result: pagingResult, totalPage } = util
+  const { result: pagingResult, totalPage }: { result: Post[]; totalPage: number } = util
 
   return (
     <Layout>

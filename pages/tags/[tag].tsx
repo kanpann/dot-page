@@ -19,10 +19,10 @@ type TagProps = {
 }
 const Tag = ({ posts, tag }: TagProps) => {
   const router = useRouter()
-  const page = Number(router.query.page as string) || 1
+  const page: number = Number(router.query.page as string) || 1
 
   const util = new PagingUtil(page, posts)
-  const { result, totalPage } = util
+  const { result, totalPage }: { result: Post[]; totalPage: number } = util
   return (
     <Layout>
       <MyHelmet title={`'${tag}'태그의 글 목록`} content={`'${tag}'태그의 글 목록입니다.`} />

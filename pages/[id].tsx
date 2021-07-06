@@ -8,13 +8,14 @@ import { SiteMeta } from '../site.config'
 import LocalOfferIcon from '@material-ui/icons/LocalOffer'
 import Link from 'next/link'
 import { Category, Title, Tags, Toc, Content } from '../styles/PostStyle'
+import { CommentType } from '../types/config'
 
 type PostProps = {
   post: PostType
 }
 const Post = ({ post }: PostProps) => {
-  const { clientID, clientSecret, repo, owner, admin } = SiteMeta.gitalk
-  const { title, date, content, tags, category, image, toc } = post
+  const { clientID, clientSecret, repo, owner, admin }: CommentType = SiteMeta.gitalk
+  const { title, date, content, tags, category, image, toc }: PostType = post
 
   return (
     <Layout>

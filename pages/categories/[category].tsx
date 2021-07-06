@@ -7,6 +7,7 @@ import { findPostDataByCategory, getAllCategorys } from '../../lib/posts'
 import PostList from '../../components/post/PostList'
 import { MyHelmet, Layout, MyPagination } from '../../components/common'
 import { CategoryInfo } from '../../site.config'
+import { CategoryInfoType } from '../../types/category'
 
 const PostHeader = styled.div`
   background-size: cover;
@@ -46,11 +47,11 @@ type MenuProps = {
 }
 const Category = ({ posts, category }: MenuProps) => {
   const router = useRouter()
-  const page = Number(router.query.page as string) || 1
+  const page: number = Number(router.query.page as string) || 1
 
   const util = new PagingUtil(page, posts)
-  const { result, totalPage } = util
-  const categoryInfo = CategoryInfo[category]
+  const { result, totalPage }: { result: Post[]; totalPage: number } = util
+  const categoryInfo: CategoryInfoType = CategoryInfo[category]
   return (
     <Layout>
       <MyHelmet title={`'${category}' 메뉴`} content={`${category} 메뉴에 대한 글들입니다.`} />
