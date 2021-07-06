@@ -21,7 +21,9 @@ const Post = ({ post }: PostProps) => {
   return (
     <Layout>
       <MyHelmet title={title} content={content.substr(0, 50)} image={image} />
-      <Category>{category}</Category>
+      <Category>
+        <Link href={`/categories/${category}`}>{category}</Link>
+      </Category>
       <hr />
       <Title>{title}</Title>
       <DateView date={date} />
