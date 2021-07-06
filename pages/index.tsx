@@ -9,7 +9,6 @@ import generateRobots from '../lib/meta/robots'
 import PagingUtil from '../lib/paging-util'
 import { useRouter } from 'next/dist/client/router'
 import MyPagination from '../components/common/MyPagination'
-import { Box } from '@material-ui/core'
 
 type HomeProps = {
   posts: Post[]

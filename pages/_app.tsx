@@ -1,13 +1,9 @@
 import '../theme/fonts.css'
 import NextApp from 'next/app'
 import React from 'react'
-import TopScrollBtn from '../components/common/TopScrollBtn'
 import GlobalTheme from '../theme/Global'
 import { LightTheme, DarkTheme } from '../theme/Theme'
 import ThemeProvider from '../components/provider/ThemeProvider'
-import styled from 'styled-components'
-import Header from '../components/header/Header'
-import { SiteMeta } from '../site.config'
 import { ThemeCtxProvider } from '../components/provider/ThemeCtxProvider'
 
 const themes = {
