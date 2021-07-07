@@ -33,19 +33,19 @@ module.exports = {
       sub: [],
       url: '/archive',
     },
-    Programing: {
-      isSub: false,
-      sub: [],
-    },
     Think: {
       isSub: true,
-      sub: ['생각', '정리'],
+      sub: ['생각'],
     },
   },
   CategoryInfo: {
     Think: new Category(
       'https://user-images.githubusercontent.com/45007556/120252026-4b6de480-c2be-11eb-83b0-abd945e89871.jpg',
       '내 생각에 대하여',
+    ),
+    생각: new Category(
+      'https://user-images.githubusercontent.com/45007556/120252026-4b6de480-c2be-11eb-83b0-abd945e89871.jpg',
+      'Think에 대하여',
     ),
   },
 }
