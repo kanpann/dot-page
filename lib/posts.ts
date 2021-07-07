@@ -3,6 +3,8 @@ import { getByteLength, removeHtml, substrToByte } from './common-util'
 import * as util from './posts-util'
 import { Post } from '../types/post'
 import { Category } from '../site.config'
+import { CategoryType } from '../types/category'
+import { CategoryPath, IdPath, TagPath } from '../types/path'
 
 const getPostByFileName = async (fileName: string): Promise<Post> => {
   const id: string = fileName
@@ -33,7 +35,7 @@ export const getSortedPostsData = async (): Promise<Post[]> => {
   const posts: Array<Post> = new Array()
 
   for (let i = 0; i < fileNames.length; i++) {
-    const fileName = fileNames[i]
+    const fileName: string = fileNames[i]
     const post: Post = await getPostByFileName(fileName)
     posts.push(post)
   }
@@ -46,7 +48,7 @@ export const getSortedPostsData = async (): Promise<Post[]> => {
   })
 }
 
-export const getAllPostIds = () => {
+export const getAllPostIds = (): IdPath[] => {
   const fileNames: string[] = util.getFileNames()
   return fileNames.map((fileName: string) => {
     return {
@@ -56,20 +58,20 @@ export const getAllPostIds = () => {
     }
   })
 }
-export const getAllTags = async () => {
-  const postData = await getSortedPostsData()
+export const getAllTags = async (): Promise<TagPath[]> => {
+  const postData: Post[] = await getSortedPostsData()
 
-  const set = new Set()
-  postData.map((post) => {
+  const set: Set<string> = new Set()
+  postData.map((post: Post) => {
     if (post.tags) {
-      post.tags.map((tag) => {
+      post.tags.map((tag: string) => {
         set.add(tag)
       })
     }
   })
-  const arr = Array.from(set)
+  const arr: string[] = Array.from(set)
 
-  return arr.map((tag) => {
+  return arr.map((tag: string) => {
     return {
       params: {
         tag: tag,
@@ -78,18 +80,18 @@ export const getAllTags = async () => {
   })
 }
 
-export const getAllCategorys = async () => {
-  const postData = await getSortedPostsData()
+export const getAllCategorys = async (): Promise<CategoryPath[]> => {
+  const postData: Post[] = await getSortedPostsData()
 
-  const set = new Set()
-  postData.map((post) => {
+  const set: Set<string> = new Set()
+  postData.map((post: Post) => {
     if (post.category) {
       set.add(post.category)
     }
   })
-  const arr = Array.from(set)
+  const arr: string[] = Array.from(set)
 
-  return arr.map((category) => {
+  return arr.map((category: string) => {
     return {
       params: {
         category: category,
@@ -116,23 +118,23 @@ export const findPostDataById = async (id: string): Promise<Post> => {
     image: image,
   }
 }
-export const findPostDataByTag = async (tag: string) => {
-  const postData = await getSortedPostsData()
+export const findPostDataByTag = async (tag: string): Promise<Post[]> => {
+  const postData: Post[] = await getSortedPostsData()
 
-  const arr = new Array()
-  postData.map((post) => {
+  const arr: Post[] = new Array()
+  postData.map((post: Post) => {
     if (post.tags.indexOf(tag) != -1) {
       arr.push(post)
     }
   })
   return arr
 }
-export const findPostDataByCategory = async (category: string) => {
-  const postData = await getSortedPostsData()
-  const categoryInfo = Category
+export const findPostDataByCategory = async (category: string): Promise<Post[]> => {
+  const postData: Post[] = await getSortedPostsData()
+  const categoryInfo: CategoryType = Category
 
-  const arr = new Array()
-  postData.map((post) => {
+  const arr: Post[] = new Array()
+  postData.map((post: Post) => {
     if (post.category === category) {
       arr.push(post)
     }

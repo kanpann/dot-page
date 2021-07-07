@@ -8,6 +8,7 @@ import PostList from '../../components/post/PostList'
 import { MyHelmet, Layout, MyPagination } from '../../components/common'
 import { CategoryInfo } from '../../site.config'
 import { CategoryInfoType } from '../../types/category'
+import { CategoryPath } from '../../types/path'
 
 const PostHeader = styled.div`
   background-size: cover;
@@ -46,8 +47,8 @@ type MenuProps = {
   category: string
 }
 const Category = ({ posts, category }: MenuProps) => {
-  const router = useRouter()
-  const page: number = Number(router.query.page as string) || 1
+  const { query } = useRouter()
+  const page: number = Number(query.page as string) || 1
 
   const util = new PagingUtil(page, posts)
   const { result, totalPage } = util.getObj()
@@ -68,15 +69,15 @@ const Category = ({ posts, category }: MenuProps) => {
   )
 }
 export const getStaticPaths = async () => {
-  const paths = await getAllCategorys()
+  const paths: CategoryPath[] = await getAllCategorys()
   return {
     paths,
     fallback: false,
   }
 }
 export const getStaticProps = async ({ params }) => {
-  const category = params.category
-  const posts = await findPostDataByCategory(category)
+  const category: string = params.category
+  const posts: Post[] = await findPostDataByCategory(category)
   return {
     props: {
       posts,

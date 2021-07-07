@@ -7,6 +7,7 @@ import { DefaultTheme } from '../../theme/Theme'
 import { PostList } from '../../components/post'
 import { MyPagination, MyHelmet, Layout } from '../../components/common'
 import PagingUtil from '../../lib/paging-util'
+import { TagPath } from '../../types/path'
 
 const Title = muiStyled(withTheme(Typography))((props: DefaultTheme) => ({
   color: props.theme.app.title,
@@ -18,8 +19,8 @@ type TagProps = {
   tag: string
 }
 const Tag = ({ posts, tag }: TagProps) => {
-  const router = useRouter()
-  const page: number = Number(router.query.page as string) || 1
+  const { query } = useRouter()
+  const page: number = Number(query.page as string) || 1
 
   const util = new PagingUtil(page, posts)
   const { result, totalPage } = util.getObj()
@@ -36,15 +37,15 @@ const Tag = ({ posts, tag }: TagProps) => {
   )
 }
 export const getStaticPaths = async () => {
-  const paths = await getAllTags()
+  const paths: TagPath[] = await getAllTags()
   return {
     paths,
     fallback: false,
   }
 }
 export const getStaticProps = async ({ params }) => {
-  const tag = params.tag
-  const posts = await findPostDataByTag(tag)
+  const tag: string = params.tag
+  const posts: Post[] = await findPostDataByTag(tag)
 
   return {
     props: {

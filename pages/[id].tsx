@@ -9,6 +9,7 @@ import LocalOfferIcon from '@material-ui/icons/LocalOffer'
 import Link from 'next/link'
 import { Category, Title, Tags, Toc, Content } from '../styles/PostStyle'
 import { CommentType } from '../types/config'
+import { IdPath } from '../types/path'
 
 type PostProps = {
   post: PostType
@@ -48,14 +49,15 @@ const Post = ({ post }: PostProps) => {
   )
 }
 export const getStaticPaths = async () => {
-  const paths = getAllPostIds()
+  const paths: IdPath[] = getAllPostIds()
   return {
     paths,
     fallback: false,
   }
 }
 export const getStaticProps = async ({ params }) => {
-  const post: PostType = await findPostDataById(params.id)
+  const id = params.id
+  const post: PostType = await findPostDataById(id)
   return {
     props: {
       post,

@@ -11,8 +11,8 @@ type HomeProps = {
   posts: Post[]
 }
 const Home = ({ posts }: HomeProps) => {
-  const router = useRouter()
-  const page: number = Number(router.query.page as string) || 1
+  const { query } = useRouter()
+  const page: number = Number(query.page as string) || 1
 
   const util = new PagingUtil(page, posts)
   const { result, totalPage } = util.getObj()
@@ -26,7 +26,7 @@ const Home = ({ posts }: HomeProps) => {
 }
 
 export const getStaticProps = async () => {
-  const posts = await getSortedPostsData()
+  const posts: Post[] = await getSortedPostsData()
   generateRss(posts)
   generateSitemap(posts)
   generateRobots()

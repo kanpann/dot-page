@@ -16,16 +16,16 @@ type SearchProps = {
   posts: Post[]
 }
 const Search = ({ posts }: SearchProps) => {
-  const router = useRouter()
-  const keyword: string = router.query.keyword as string
-  const page: number = Number(router.query.page as string) || 1
+  const { query } = useRouter()
+  const keyword: string = query.keyword as string
+  const page: number = Number(query.page as string) || 1
 
   if (!keyword) {
     return <></>
   }
 
   const searchResult = posts.filter(
-    (post) =>
+    (post: Post) =>
       post.title.toLowerCase().indexOf(keyword.toLowerCase()) > 0 ||
       post.content.toLowerCase().indexOf(keyword.toLowerCase()) > 0,
   )
@@ -50,7 +50,7 @@ const Search = ({ posts }: SearchProps) => {
   )
 }
 export const getStaticProps = async () => {
-  const posts = await getSortedPostsData()
+  const posts: Post[] = await getSortedPostsData()
   return {
     props: {
       posts,

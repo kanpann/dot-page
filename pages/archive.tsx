@@ -20,7 +20,7 @@ type ArchiveProps = {
 }
 const Archive = ({ posts }: ArchiveProps) => {
   const obj = {}
-  posts.forEach((post) => {
+  posts.forEach((post: Post) => {
     const yyyyMm = post.date.substr(0, 7)
     if (obj[yyyyMm] == undefined) {
       obj[yyyyMm] = [post]
@@ -65,7 +65,7 @@ const Archive = ({ posts }: ArchiveProps) => {
 }
 
 export const getStaticProps = async () => {
-  const posts = await getSortedPostsData()
+  const posts: Post[] = await getSortedPostsData()
   generateRss(posts)
   generateSitemap(posts)
   generateRobots()
