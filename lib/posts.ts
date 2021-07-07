@@ -133,15 +133,14 @@ export const findPostDataByCategory = async (category: string): Promise<Post[]> 
   const postData: Post[] = await getSortedPostsData()
   const categoryInfo: CategoryType = Category
 
-  const arr: Post[] = new Array()
+  const arr: Post[] = []
   postData.map((post: Post) => {
     if (post.category === category) {
       arr.push(post)
-    }
-    if (
+    } else if (
       categoryInfo[category] &&
       categoryInfo[category].sub &&
-      categoryInfo[category].sub.indexOf(post.category)
+      categoryInfo[category].sub.indexOf(post.category) !== -1
     ) {
       arr.push(post)
     }
