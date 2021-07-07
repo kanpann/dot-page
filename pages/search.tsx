@@ -31,7 +31,7 @@ const Search = ({ posts }: SearchProps) => {
   )
 
   const util = new PagingUtil(page, searchResult)
-  const { result: pagingResult, totalPage }: { result: Post[]; totalPage: number } = util
+  const { result: pagingResult, totalPage } = util.getObj()
 
   return (
     <Layout>

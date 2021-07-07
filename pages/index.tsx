@@ -15,7 +15,7 @@ const Home = ({ posts }: HomeProps) => {
   const page: number = Number(router.query.page as string) || 1
 
   const util = new PagingUtil(page, posts)
-  const { result, totalPage }: { result: Post[]; totalPage: number } = util
+  const { result, totalPage } = util.getObj()
   return (
     <Layout>
       <PostList posts={result} />

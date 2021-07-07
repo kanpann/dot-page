@@ -50,7 +50,7 @@ const Category = ({ posts, category }: MenuProps) => {
   const page: number = Number(router.query.page as string) || 1
 
   const util = new PagingUtil(page, posts)
-  const { result, totalPage }: { result: Post[]; totalPage: number } = util
+  const { result, totalPage } = util.getObj()
   const categoryInfo: CategoryInfoType = CategoryInfo[category]
   return (
     <Layout>
