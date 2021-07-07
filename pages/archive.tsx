@@ -15,10 +15,7 @@ import {
 import { Typography } from '@material-ui/core'
 import Link from 'next/link'
 
-type ArchiveProps = {
-  posts: Post[]
-}
-const Archive = ({ posts }: ArchiveProps) => {
+const parsingDateAndPosts = (posts: Post[]) => {
   const obj = {}
   posts.forEach((post: Post) => {
     const yyyyMm = post.date.substr(0, 7)
@@ -28,11 +25,19 @@ const Archive = ({ posts }: ArchiveProps) => {
       obj[yyyyMm] = [...obj[yyyyMm], post]
     }
   })
+  return obj
+}
+
+type ArchiveProps = {
+  posts: Post[]
+}
+const Archive = ({ posts }: ArchiveProps) => {
+  const parsingData: Object = parsingDateAndPosts(posts)
   return (
     <Layout>
       <Timeline>
-        {Object.keys(obj).map((key) => {
-          const target = obj[key]
+        {Object.keys(parsingData).map((key) => {
+          const target = parsingData[key]
           return (
             <TimelineItem>
               <TimelineOppositeContent style={{ flex: 0, paddingTop: '0px' }}>
