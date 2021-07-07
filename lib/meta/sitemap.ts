@@ -25,7 +25,7 @@ const generateSitemap = (allPostsData: Post[]): void => {
     return
   }
 
-  const sitemap = generateSitemapChannel(allPostsData)
+  const sitemap: string = generateSitemapChannel(allPostsData)
   fs.writeFileSync('public/sitemap.xml', sitemap)
 }
 

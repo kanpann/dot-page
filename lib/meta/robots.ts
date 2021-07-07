@@ -1,10 +1,11 @@
 import fs from 'fs'
 import { SiteMeta } from '../../site.config'
 
-const { url } = SiteMeta
+const url: string = SiteMeta.url
 
 const generateRssChannel = () =>
-  `User-agent: *
+  `
+User-agent: *
 Allow: /
 Host: ${url}
 Sitemap: ${url}/sitemap.xml
@@ -15,7 +16,7 @@ const generateRobots = (): void => {
   if (process.env.NODE_ENV === 'development') {
     return
   }
-  const robots = generateRssChannel()
+  const robots: string = generateRssChannel()
   fs.writeFileSync('public/robots.txt', robots)
 }
 export default generateRobots
